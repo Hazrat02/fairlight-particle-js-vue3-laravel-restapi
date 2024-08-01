@@ -44,7 +44,7 @@ body {
   line-height: 26px;
   font-weight: 400;
   overflow-x:hidden;
-  background:#10122d66;
+  /* background:#10122d66; */
 }
 /*-- Preloader css start --*/
 #preloader {
@@ -1800,7 +1800,6 @@ background: linear-gradient(to right, rgba(57,100,208,1) 0%, rgba(45,193,201,1) 
 }
 
 
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,200);
 #cssmenu,
 #cssmenu ul,
 #cssmenu ul li,
@@ -4861,3 +4860,366 @@ canvas{
 	transition: all 0.5s;
 }
 /*-- btc footer Wrapper End --*/
+
+
+
+/*-- btc contact Wrapper Start  --*/
+.btc_contact_main_wrapper{
+	background:url('./frontend/images/gif/FRuW1thWPPuL0NXHIz (1).gif') 50% 0 repeat-y;
+	background-size:cover;
+	background-position:center 0;
+	background-repeat:no-repeat;
+	width:100%;
+	height:100%;
+	float:left;
+	padding-top:100px;
+	position:relative;
+}
+.btc_contact_img_overlay{
+	position:absolute;
+	top:0%;
+	left:0%;
+	right:0%;
+	bottom:0%;
+	background:rgba(0,0,0,0.8);
+}
+.btc_contact_form_box{
+	float:left;
+	width:100%;
+	padding:60px;
+	background:rgba(255, 255, 255, 0.10980392156862745);
+	-webkit-border-top-left-radius: 20px;
+    -moz-border-top-left-radius: 20px;
+    border-top-left-radius: 20px;
+	-webkit-border-top-right-radius: 20px;
+    -moz-border-top-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.btc_contact_heading_wrapper h3{
+	font-size:30px;
+	font-weight:100;
+	color:rgba(255, 255, 255, 0.9215686274509803);
+	text-align:center;
+}
+.btc_contact_heading_wrapper h3 span{
+	font-weight:bold;
+	color:#ffffff;
+}
+.btc_contact_cont_bottom_line{
+	position:relative;
+}
+.btc_contact_cont_bottom_line:before{
+	    content: '';
+    border: 1px solid rgba(255, 255, 255, 0.3215686274509804);
+    width: 1px;
+    height: 13px;
+    position: absolute;
+    right: 0;
+    left: 9px;
+    margin: 0px auto;
+    top: 30px;
+    -ms-transform: rotate(228deg);
+    -webkit-transform: rotate(228deg);
+    transform: rotate(228deg);
+	-webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.btc_contact_cont_bottom_line:after{
+	content: '';
+    border: 1px solid rgba(255, 255, 255, 0.3215686274509804);
+    width: 1px;
+    height: 13px;
+    position: absolute;
+    right: 9px;
+    left: 0;
+    top: 30px;
+    margin: 0px auto;
+    ms-transform: rotate(313deg);
+    -webkit-transform: rotate(313deg);
+    transform: rotate(313deg);
+	-webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.btc_contact_cont_bottom_line_state{
+	position:relative;
+}
+.btc_contact_cont_bottom_line_state:after{
+	content:'';
+	border:1px solid rgba(255, 255, 255, 0.3215686274509804);
+	width:130px;
+	height:1px;
+	position:absolute;
+	left:0;
+	right:0;
+	top:31px;
+	margin:0px auto;
+	-webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.btc_contact_cont_bottom_line_state:before{
+	content:'';
+	border:1px solid rgba(0, 0, 0, 0.5098039215686274);
+	width:15px;
+	height:1px;
+	position:absolute;
+	left:0;
+	right:0;
+	top:31px;
+	margin:0px auto;
+	z-index:1;
+	-webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.btc_contact_input_form1 input{
+	width:100%;
+	height:50px;
+	background:#ffffff;
+	padding-left:45px;
+	padding-right:30px;
+	border:2px solid #ffffff;
+	margin-top:90px;
+	position:relative;
+	-webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.btc_contact_input_form1 input:hover, .btc_contact_input_form1 input:focus{
+	border:2px solid #ff880e;
+	-webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.btc_contact_input_form1 i{
+	position:absolute;
+	color:#ff880e;
+	left: 35px;
+    bottom: 16px;
+}
+.btc_contact_input_form2 input{
+	width:100%;
+	height:50px;
+	background:#ffffff;
+	padding-left:45px;
+	padding-right:30px;
+	border:2px solid #ffffff;
+	margin-top:20px;
+	position:relative;
+	-webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+textarea{
+  width:100%;
+
+}
+.btc_contact_input_form2 input:hover, .btc_contact_input_form2 input:focus{
+	border:2px solid #ff880e;
+	-webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.btc_contact_input_form2 i{
+	position:absolute;
+	color:#ff880e;
+	left: 35px;
+    bottom: 16px;
+}
+.btc_contact_btn_wrapper a {
+	float:left;
+    width: 100%;
+    height: 50px;
+    background: #ff880e;
+    color: #ffffff;
+	letter-spacing:2px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 30px;
+	font-size:16px;
+    border: 1px solid transparent;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.btc_contact_btn_wrapper a:hover{
+	background:#ffffff;
+	color:#000000;
+	 -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.btc_contact_btn_pera_wrapper p{
+	padding-top:30px;
+}
+.btc_contact_btn_pera_wrapper p a{
+	color:#ff880e;
+}
+.btc_contact_accord_heading_wrapper{
+	float:left;
+	width:100%;
+	padding-top:40px;
+}
+.btc_contact_accord_heading_wrapper h5{
+	font-size:14px;
+	font-family: 'Lato', sans-serif;
+	color:#ff880e;
+	text-transform:uppercase;
+}
+.btc_contact_accord_heading_wrapper h3{
+	font-size:36px;
+	color:#ffffff;
+	padding-top:20px;
+	padding-bottom: 10px;
+}
+.btc_contact_accord_heading_wrapper span{
+	color:#ff880e;
+	font-size:22px;
+	position:relative;
+}
+.btc_contact_accord_heading_wrapper span:after{
+	content:'';
+	border:1px solid #ff880e;
+	width:30px;
+	position:absolute;
+	left: 20px;
+    top: 13px;
+}
+.btc_contact_accord_heading_wrapper p{
+	padding-top:30px;
+}
+.trucking_faq_wrapeer{
+	float:left;
+	width:100%;
+	margin-top:40px;
+}
+.lv_faq_wrapper .panel-title{
+	position:relative;
+}
+.lv_faq_wrapper .panel-title:after{
+    content: "";
+    position: absolute;
+    border-left: 1px solid #ffffff73;
+    top: 0;
+    bottom: 0;
+    left: 90px;
+}
+.accordionFifteen .panel-group .panel+.panel {
+	margin-top: 20px;
+}
+.accordionFifteen .panel-group {
+  margin-bottom: 0;
+}
+.accordionFifteen .panel-default {
+  border: 0;
+}
+.accordionFifteen .panel {
+	background-color: rgba(255, 255, 255, 0.058823529411764705);
+	box-shadow: none;
+	border-left: 1px solid rgba(255, 255, 255, 0.45098039215686275);
+	border-right: 1px solid rgba(255, 255, 255, 0.45098039215686275);
+	border-radius: 0;
+	margin: 0;
+}
+.accordionFifteen .panel .panel-heading a {	
+	display: block;
+	background: transparent;
+	padding: 15px 20px;
+	font-size:14px;
+	color: #fff;
+	font-weight:400;
+	border-top: 1px solid rgba(255, 255, 255, 0.45098039215686275);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.45098039215686275);
+	text-decoration:none;
+	font-family: 'Raleway', sans-serif;
+}
+.accordionFifteen .panel .panel-heading a.collapsed {
+	color: #ffffff;
+	background-color:transparent;
+	display: block;
+	padding: 15px 20px;
+	font-size:14px;
+	border-top: 1px solid #ffffff73;
+	border-bottom: 1px solid #ffffff73;
+	text-decoration:none;
+	font-family: 'Raleway', sans-serif;
+}
+.accordionFifteen .panel-default>.panel-heading {
+  border-radius: 0px;
+  padding:0px;
+     background: transparent;
+}
+.accordionFifteen .panel-group .panel-heading+.panel-collapse>.panel-body {
+  border-top: 0;
+  padding-top: 0;
+  padding: 10px 20px 15px 20px;
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45098039215686275);
+}
+.accordionFifteen .panel .panel-heading a:before,
+.accordionFifteen .panel .panel-heading a.collapsed:before{
+    font-family: 'FontAwesome';
+    font-size: 16px;
+    float: left;
+    margin-right: 60px;
+    margin-left: 20px;
+    display: block;
+}
+.accordionFifteen .panel .panel-heading a:after,
+.accordionFifteen .panel .panel-heading a.collapsed:after{
+	font-family: 'FontAwesome';
+	font-size: 25px;
+	float: right;
+	width: 50px;
+	height: 25px;
+	line-height: 24px;
+	text-align: center;
+	display: block;
+	border-radius: 50%;	
+}
+.accordionFifteen .panel .panel-heading a:after {  
+  content: "\2212";
+    background: transparent;
+    border-radius: 2px;
+    width: 15px;
+    height: 15px;
+    color: #ffffff;
+    line-height: 15px;
+}
+.accordionFifteen .panel .panel-heading a.collapsed:after {
+	content: "\2b";
+	background: transparent ;
+  border-radius:2px;
+  width:15px;
+  height:15px;
+  color:#fff;
+  line-height:15px;
+}
+/*-- btc contact Wrapper End  --*/

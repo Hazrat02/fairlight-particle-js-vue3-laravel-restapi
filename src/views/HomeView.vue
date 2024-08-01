@@ -155,6 +155,7 @@ export default {
     <!--About area start here-->
     <about />
     <div class="wd_scroll_wrap">
+      <bgs />
       <section class="projects bg-img pd-t100 pd-b70 jarallax">
         <div class="container">
           <div class="row">

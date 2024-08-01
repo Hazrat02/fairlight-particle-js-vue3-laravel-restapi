@@ -1,6 +1,6 @@
 <script>
 import HomeLayout from "./HomeLayout.vue";
-import animationBg from "../components/Bgs.vue";
+import animationBg from "../components/authBg.vue";
 
 export default {
   components: {
@@ -13,7 +13,7 @@ export default {
   <HomeLayout>
     <!-- ======= Header ======= -->
 
-    <animationBg  />
+    <animationBg type="star" />
     <slot />
   </HomeLayout>
 </template>

@@ -63,6 +63,17 @@ export default {
                 >
                   Risk disclusion
                 </h2>
+                <h4
+                  class="wow fadeInUp animated"
+                  data-wow-duration="1.0s"
+                  style="
+                    visibility: visible;
+                    animation-duration: 1s;
+                    animation-name: fadeInUp;
+                  "
+                >
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less.
+                </h4>
               </div>
             </div>
           </div>
