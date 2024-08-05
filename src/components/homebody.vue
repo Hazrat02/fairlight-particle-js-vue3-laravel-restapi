@@ -17,38 +17,38 @@
                   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="slider-content">
                       <ul>
-                        <li
+                        <li v-animate
                           data-animation="animated bounceInDown"
                           class="slider_social_icon1"
                         >
                           <a href="#"><i class="fa fa-facebook"></i></a>
                         </li>
-                        <li
+                        <li v-animate
                           data-animation="animated bounceInDown"
                           class="slider_social_icon2"
                         >
                           <a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
-                        <li
+                        <li v-animate
                           data-animation="animated bounceInDown"
                           class="slider_social_icon3"
                         >
                           <a href="#"><i class="fa fa-send-o"></i></a>
                         </li>
-                        <li
+                        <li v-animate
                           data-animation="animated bounceInDown"
                           class="slider_social_icon4"
                         >
                           <a href="#"><i class="fa fa-bitcoin"></i></a>
                         </li>
-                        <li
+                        <li v-animate
                           data-animation="animated bounceInDown"
                           class="slider_social_icon5"
                         >
                           <a href="#"><i class="fa fa-envelope"></i></a>
                         </li>
                       </ul>
-                      <h2 data-animation="animated bounceInLeft">
+                      <h2 v-animate data-animation="animated bounceInLeft" >
                         Bit Money - Lending & <br />
                         Investment Platform
                       </h2>
@@ -56,7 +56,7 @@
                         <RouterLink
                           v-if="!authUser"
                           to="/login"
-                          class="btn2"
+                          class="btn2" v-animate
                           data-animation="animated bounceInUp"
                           ><i class="fa fa-user"></i>
                           <span> Login</span></RouterLink
@@ -65,14 +65,14 @@
                           <RouterLink
                             v-if="authUser.role == '0'"
                             to="/admin/dashboard"
-                            class="btn2"
+                            class="btn2" v-animate
                             data-animation="animated bounceInUp"
                             >Dashboard</RouterLink
                           >
                           <RouterLink
                             v-else
                             to="/dashboard"
-                            class="btn2"
+                            class="btn2" v-animate
                             data-animation="animated bounceInUp"
                             >Dashboard</RouterLink
                           >

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-// import axios from 'axios';
+import axios from 'axios';
 const LOCAL_STORAGE_KEY = 'user_data';
 
 export const useAuthUserStore = defineStore('authUser', {

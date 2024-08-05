@@ -1,13 +1,12 @@
 import './assets/main.css';
 // import './assets/main.js';
-// import Backgrounds from './components/Bgs.vue';
+
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 
-
-// import { loadFull } from "tsparticles";
-
-// import { Engine } from "tsparticles-engine";
+import animationDirective from './directives/animationDirective';
+import Toast from "vue-toastification";
+import 'vue-toastification/dist/index.css';
 
 
 
@@ -21,9 +20,8 @@ const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
-
+app.use(Toast);
 app.use(Particles);
+app.directive('animate', animationDirective);
 
-// app.use(Particles);
-// app.component('Bgs', Backgrounds);
 app.mount('#app');

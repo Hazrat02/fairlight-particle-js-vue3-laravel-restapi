@@ -2,17 +2,25 @@
 import HomeLayout from "./../Layouts/HomeLayout.vue";
 import homebody from "./../components/homebody.vue";
 import about from "./../components/about.vue";
+import token from "./../components/carousel.vue";
+import contactUs from "./../components/contact.vue";
+import crypto from './../components/cryptoPrice.vue';
+
 
 export default {
   components: {
     HomeLayout,
     homebody,
-    about
+    about,
+    token,
+    contactUs,
+    crypto
   },
 
   data() {
     return {
       cryptoData: "",
+
     };
   },
 
@@ -26,130 +34,29 @@ export default {
     //       this.$setLoading(false);
     //     });
   },
+
+ 
+
+  methods: {
+    onPlay() {
+      console.log("Video is playing");
+    },
+    onPause() {
+      console.log("Video is paused");
+    },
+
+    
+  },
 };
 </script>
 
 <template>
-  
   <HomeLayout>
- 
     <template v-slot:headerarea>
       <!--Slider area start here-->
       <homebody />
       <!--Slider area end here-->
-      <section class="currency-area">
-        <div class="container-fliud">
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <div
-                class="rete-list bt_title wow fadeInUp animated"
-                data-wow-duration="1.0s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1s;
-                  animation-name: fadeInUp;
-                "
-              >
-                <div class="content">
-                  <div class="con">
-                    <h2>
-                      <img
-                        src="./../assets/frontend/images/icons/1.png"
-                        alt=""
-                      /><span>Bitcoin</span>
-                    </h2>
-                    <button class="btn3">4.160651 BTC</button>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="rete-list bt_title wow fadeInUp animated"
-                data-wow-duration="1.3s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1.3s;
-                  animation-name: fadeInUp;
-                "
-              >
-                <div class="content">
-                  <div class="con">
-                    <h2>
-                      <img
-                        src="./../assets/frontend/images/icons/2.png"
-                        alt=""
-                      /><span>Ethereum</span>
-                    </h2>
-                    <button class="btn3">3.245000 ETH</button>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="rete-list bt_title wow fadeInUp animated"
-                data-wow-duration="1.6s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1.6s;
-                  animation-name: fadeInUp;
-                "
-              >
-                <div class="content">
-                  <div class="con">
-                    <h2>
-                      <img
-                        src="./../assets/frontend/images/icons/3.png"
-                        alt=""
-                      /><span>Dollar (USD)</span>
-                    </h2>
-                    <button class="btn3">58634.000 USD</button>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="rete-list bt_title wow fadeInUp animated"
-                data-wow-duration="1.9s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1.9s;
-                  animation-name: fadeInUp;
-                "
-              >
-                <div class="content">
-                  <div class="con">
-                    <h2>
-                      <img
-                        src="./../assets/frontend/images/icons/4.png"
-                        alt=""
-                      /><span>Total USD</span>
-                    </h2>
-                    <button class="btn3">111969.062 USD</button>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="rete-list hidden-md wow fadeInUp animated"
-                data-wow-duration="2.1s"
-                style="
-                  visibility: visible;
-                  animation-duration: 2.1s;
-                  animation-name: fadeInUp;
-                "
-              >
-                <div class="content">
-                  <div class="con">
-                    <h2>
-                      <img
-                        src="./../assets/frontend/images/icons/5.png"
-                        alt=""
-                      /><span>Token Sale</span>
-                    </h2>
-                    <button class="btn3">346636.775</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <crypto />
     </template>
 
     <!--About area start here-->
@@ -162,13 +69,9 @@ export default {
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
               <div class="section-heading">
                 <h2
-                  class="wow fadeInUp animated"
+                  v-animate
+                  data-animation="fadeInUp animated"
                   data-wow-duration="1.0s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1s;
-                    animation-name: fadeInUp;
-                  "
                 >
                   Advantage of the Project
                 </h2>
@@ -178,13 +81,10 @@ export default {
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div
-                class="project-list wow fadeInUp animated"
+                v-animate
+                data-animation="fadeInUp animated"
+                class="project-list"
                 data-wow-duration="1.0s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1s;
-                  animation-name: fadeInUp;
-                "
               >
                 <div class="content">
                   <span class="icons"
@@ -196,13 +96,10 @@ export default {
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div
-                class="project-list wow fadeInUp animated"
+                class="project-list"
+                v-animate
+                data-animation="fadeInUp animated"
                 data-wow-duration="1.3s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1.3s;
-                  animation-name: fadeInUp;
-                "
               >
                 <div class="content">
                   <span class="icons"
@@ -214,13 +111,10 @@ export default {
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div
-                class="project-list wow fadeInUp animated"
+                v-animate
+                data-animation="fadeInUp animated"
+                class="project-list"
                 data-wow-duration="1.6s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1.6s;
-                  animation-name: fadeInUp;
-                "
               >
                 <div class="content">
                   <span class="icons"
@@ -232,13 +126,10 @@ export default {
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div
-                class="project-list wow fadeInUp animated"
+                v-animate
+                data-animation="fadeInUp animated"
+                class="project-list"
                 data-wow-duration="1.9s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1.9s;
-                  animation-name: fadeInUp;
-                "
               >
                 <div class="content">
                   <span class="icons"
@@ -250,13 +141,10 @@ export default {
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div
-                class="project-list wow fadeInUp animated"
+                v-animate
+                data-animation="fadeInUp animated"
+                class="project-list"
                 data-wow-duration="2.1s"
-                style="
-                  visibility: visible;
-                  animation-duration: 2.1s;
-                  animation-name: fadeInUp;
-                "
               >
                 <div class="content">
                   <span class="icons"
@@ -268,13 +156,10 @@ export default {
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div
-                class="project-list wow fadeInUp animated"
+                v-animate
+                data-animation="fadeInUp animated"
+                class="project-list"
                 data-wow-duration="2.4s"
-                style="
-                  visibility: visible;
-                  animation-duration: 2.4s;
-                  animation-name: fadeInUp;
-                "
               >
                 <div class="content">
                   <span class="icons"
@@ -296,13 +181,9 @@ export default {
               <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
                 <div class="steps-heading">
                   <h2
-                    class="wow fadeInUp animated"
+                    v-animate
+                    data-animation="fadeInUp animated"
                     data-wow-duration="1.0s"
-                    style="
-                      visibility: visible;
-                      animation-duration: 1s;
-                      animation-name: fadeInUp;
-                    "
                   >
                     Few Steps For a Loan
                   </h2>
@@ -328,13 +209,10 @@ export default {
                 <ul>
                   <li class="l-con">
                     <div
-                      class="cont wow fadeInUp animated"
+                      v-animate
+                      data-animation="fadeInUp animated"
+                      class="cont"
                       data-wow-duration="1.0s"
-                      style="
-                        visibility: visible;
-                        animation-duration: 1s;
-                        animation-name: fadeInUp;
-                      "
                     >
                       <h2>01. Registration On The Platform</h2>
                       <p>
@@ -347,13 +225,10 @@ export default {
                   </li>
                   <li class="r-con">
                     <div
-                      class="cont wow fadeInUp animated"
+                      v-animate
+                      data-animation="fadeInUp animated"
+                      class="cont"
                       data-wow-duration="1.3s"
-                      style="
-                        visibility: visible;
-                        animation-duration: 1.3s;
-                        animation-name: fadeInUp;
-                      "
                     >
                       <h2>02. Passing Verification</h2>
                       <p>
@@ -366,13 +241,10 @@ export default {
                   </li>
                   <li class="l-con">
                     <div
-                      class="cont wow fadeInUp animated"
+                      v-animate
+                      data-animation="fadeInUp animated"
+                      class="cont"
                       data-wow-duration="1.6s"
-                      style="
-                        visibility: visible;
-                        animation-duration: 1.6s;
-                        animation-name: fadeInUp;
-                      "
                     >
                       <h2>03. Creating An Application For a Loan</h2>
                       <p>
@@ -386,13 +258,10 @@ export default {
                   </li>
                   <li class="r-con">
                     <div
-                      class="cont wow fadeInUp animated"
+                      v-animate
+                      data-animation="fadeInUp animated"
+                      class="cont"
                       data-wow-duration="1.9s"
-                      style="
-                        visibility: visible;
-                        animation-duration: 1.9s;
-                        animation-name: fadeInUp;
-                      "
                     >
                       <h2>04. Financing a Loan</h2>
                       <p>
@@ -405,13 +274,10 @@ export default {
                   </li>
                   <li class="l-con">
                     <div
-                      class="cont wow fadeInUp animated"
+                      v-animate
+                      data-animation="fadeInUp animated"
+                      class="cont"
                       data-wow-duration="2.1s"
-                      style="
-                        visibility: visible;
-                        animation-duration: 2.1s;
-                        animation-name: fadeInUp;
-                      "
                     >
                       <h2>05. Activating a Loan</h2>
                       <p>
@@ -424,13 +290,10 @@ export default {
                   </li>
                   <li class="r-con">
                     <div
-                      class="cont wow fadeInUp animated"
+                      v-animate
+                      data-animation="fadeInUp animated"
+                      class="cont"
                       data-wow-duration="2.4s"
-                      style="
-                        visibility: visible;
-                        animation-duration: 2.4s;
-                        animation-name: fadeInUp;
-                      "
                     >
                       <h2>06. Receiving Funds</h2>
                       <p>
@@ -480,27 +343,25 @@ export default {
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="videos-heding">
                   <h2
-                    class="wow fadeInUp animated"
+                    v-animate
+                    data-animation="fadeInUp animated"
                     data-wow-duration="1.0s"
-                    style="
-                      visibility: visible;
-                      animation-duration: 1s;
-                      animation-name: fadeInUp;
-                    "
                   >
                     Development of Bit Money Platform<br />(Road Map)
                   </h2>
                   <div class="videos-box">
                     <video
-                      id="my-video"
                       class="video-js"
+                      src="./../assets/frontend/video/btc.mp4"
                       controls
-                      preload="auto"
-                      width="770"
+                      width="400"
                       height="400"
-                      poster="./../assets/frontend/images/video/1.png"
-                      data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://youtu.be/Gc2en3nHxA4"}], "youtube": { "customVars": { "wmode": "transparent" } } }'
-                    ></video>
+                      @play="onPlay"
+                      @pause="onPause"
+                      poster="https://cdn.pixabay.com/photo/2016/08/20/06/09/video-1606945_1280.png"
+                    >
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
                 </div>
               </div>
@@ -520,13 +381,10 @@ export default {
                       <div class="serials">
                         <span class="cre"></span>
                         <div
-                          class="col-sm-6 col-xs-12 left-con wow fadeInUp animated"
+                          class="col-sm-6 col-xs-12 left-con"
+                          v-animate
+                          data-animation="fadeInUp animated"
                           data-wow-duration="1.0s"
-                          style="
-                            visibility: visible;
-                            animation-duration: 1s;
-                            animation-name: fadeInUp;
-                          "
                         >
                           <div class="box-con">
                             <div class="dbox">
@@ -548,13 +406,10 @@ export default {
                           </div>
                         </div>
                         <div
-                          class="col-sm-6 col-xs-12 right-con wow fadeInUp animated"
+                          class="col-sm-6 col-xs-12 right-con"
                           data-wow-duration="1.3s"
-                          style="
-                            visibility: visible;
-                            animation-duration: 1.3s;
-                            animation-name: fadeInUp;
-                          "
+                          v-animate
+                          data-animation="fadeInUp animated"
                         >
                           <div class="box-con">
                             <div class="dbox">
@@ -582,13 +437,10 @@ export default {
                       <div class="serials">
                         <span class="cre"></span>
                         <div
-                          class="col-sm-6 col-xs-12 left-con wow fadeInUp animated"
+                          class="col-sm-6 col-xs-12 left-con"
                           data-wow-duration="1.6s"
-                          style="
-                            visibility: visible;
-                            animation-duration: 1.6s;
-                            animation-name: fadeInUp;
-                          "
+                          v-animate
+                          data-animation="fadeInUp animated"
                         >
                           <div class="box-con">
                             <div class="dbox">
@@ -612,13 +464,10 @@ export default {
                           </div>
                         </div>
                         <div
-                          class="col-sm-6 col-xs-12 right-con wow fadeInUp animated"
+                          class="col-sm-6 col-xs-12 right-con"
                           data-wow-duration="1.9s"
-                          style="
-                            visibility: visible;
-                            animation-duration: 1.9s;
-                            animation-name: fadeInUp;
-                          "
+                          v-animate
+                          data-animation="fadeInUp animated"
                         >
                           <div class="box-con">
                             <div class="dbox">
@@ -646,13 +495,10 @@ export default {
                       <div class="serials">
                         <span class="cre"></span>
                         <div
-                          class="col-sm-6 col-xs-12 left-con wow fadeInUp animated"
+                          class="col-sm-6 col-xs-12 left-con"
                           data-wow-duration="2.1s"
-                          style="
-                            visibility: visible;
-                            animation-duration: 2.1s;
-                            animation-name: fadeInUp;
-                          "
+                          v-animate
+                          data-animation="fadeInUp animated"
                         >
                           <div class="box-con">
                             <div class="dbox">
@@ -677,13 +523,10 @@ export default {
                           </div>
                         </div>
                         <div
-                          class="col-sm-6 col-xs-12 right-con wow fadeInUp animated"
+                          class="col-sm-6 col-xs-12 right-con"
                           data-wow-duration="2.1s"
-                          style="
-                            visibility: visible;
-                            animation-duration: 2.1s;
-                            animation-name: fadeInUp;
-                          "
+                          v-animate
+                          data-animation="fadeInUp animated"
                         >
                           <div class="box-con">
                             <div class="dbox">
@@ -714,13 +557,10 @@ export default {
                       <div class="serials">
                         <span class="cre"></span>
                         <div
-                          class="col-sm-6 col-xs-12 left-con wow fadeInUp animated"
+                          class="col-sm-6 col-xs-12 left-con"
                           data-wow-duration="2.3s"
-                          style="
-                            visibility: visible;
-                            animation-duration: 2.3s;
-                            animation-name: fadeInUp;
-                          "
+                          v-animate
+                          data-animation="fadeInUp animated"
                         >
                           <div class="box-con">
                             <div class="dbox">
@@ -745,13 +585,10 @@ export default {
                           </div>
                         </div>
                         <div
-                          class="col-sm-6 col-xs-12 right-con wow fadeInUp animated"
+                          class="col-sm-6 col-xs-12 right-con"
                           data-wow-duration="2.3s"
-                          style="
-                            visibility: visible;
-                            animation-duration: 2.3s;
-                            animation-name: fadeInUp;
-                          "
+                          v-animate
+                          data-animation="fadeInUp animated"
                         >
                           <div class="box-con">
                             <div class="dbox">
@@ -777,13 +614,10 @@ export default {
                       </div>
                       <div class="serials">
                         <div
-                          class="col-sm-12 col-xs-12 center-con wow fadeInUp animated"
+                          class="col-sm-12 col-xs-12 center-con"
                           data-wow-duration="2.5s"
-                          style="
-                            visibility: visible;
-                            animation-duration: 2.5s;
-                            animation-name: fadeInUp;
-                          "
+                          v-animate
+                          data-animation="fadeInUp animated"
                         >
                           <div class="box-con">
                             <div class="dbox">
@@ -848,13 +682,10 @@ export default {
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="section-heading2">
                   <h2
-                    class="wow fadeInUp animated"
+                    class=" "
                     data-wow-duration="1.0s"
-                    style="
-                      visibility: visible;
-                      animation-duration: 1s;
-                      animation-name: fadeInUp;
-                    "
+                    v-animate
+                    data-animation="fadeInUp animated"
                   >
                     Rounds of Sale of Tokens
                   </h2>
@@ -864,13 +695,10 @@ export default {
                 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1"
               >
                 <div
-                  class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right wow fadeInUp animated"
+                  class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right"
                   data-wow-duration="1.3s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1.3s;
-                    animation-name: fadeInUp;
-                  "
+                  v-animate
+                  data-animation="fadeInUp animated"
                 >
                   <div class="tokens mr-l50">
                     <div class="token-name">Pre-sale</div>
@@ -886,13 +714,10 @@ export default {
                   </div>
                 </div>
                 <div
-                  class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right wow fadeInUp animated"
+                  class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right"
                   data-wow-duration="1.6s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1.6s;
-                    animation-name: fadeInUp;
-                  "
+                  v-animate
+                  data-animation="fadeInUp animated"
                 >
                   <div class="tokens mr-r50">
                     <div class="token-name">ICO</div>
@@ -935,13 +760,10 @@ export default {
                   class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center"
                 >
                   <p
-                    class="token-con wow fadeInUp animated"
+                    class="token-con"
                     data-wow-duration="1.9s"
-                    style="
-                      visibility: visible;
-                      animation-duration: 1.9s;
-                      animation-name: fadeInUp;
-                    "
+                    v-animate
+                    data-animation="fadeInUp animated"
                   >
                     The sale of tokens It is a long established fact that a
                     reader will be distracted by the<span>
@@ -962,13 +784,10 @@ export default {
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div class="section-heading">
                 <h2
-                  class="wow fadeInUp animated"
+                  class=" "
                   data-wow-duration="1.0s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1s;
-                    animation-name: fadeInUp;
-                  "
+                  v-animate
+                  data-animation="fadeInUp animated"
                 >
                   Distribution of Tokens
                 </h2>
@@ -977,94 +796,34 @@ export default {
             <div
               class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2"
             >
-              <div
-                class="tokes-chart-slider wow animate fadeIn"
-                data-wow-duration="1s"
-              >
-                <div class="cart-list">
-                  <div class="chart col-sm-6">
-                    <div id="e_chart_3" class="" style="height: 400px"></div>
-                    <div class="imgs">
-                      <img
-                        src="./../assets/frontend/images/icons/l.png"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="label-chatrs">
-                      <div class="lsits">
-                        <span class="clabels-text">85%</span>
-                        <p>For participants of Pre-Sale and ICO</p>
-                      </div>
-                      <div class="lsits">
-                        <span class="clabels-text">8%</span>
-                        <p>Reserved for the team.</p>
-                      </div>
-                      <div class="lsits">
-                        <span class="clabels-text">4%</span>
-                        <p>Reserved for the consultants.</p>
-                      </div>
-                      <div class="lsits">
-                        <span class="clabels-text">3%</span>
-                        <p>Bounty campaign</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="cart-list">
-                  <div class="chart col-sm-6">
-                    <div id="e_chart_2" class="" style="height: 400px"></div>
-                    <div class="imgs">
-                      <img
-                        src="./../assets/frontend/images/icons/l.png"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="label-chatrs">
-                      <div class="lsits">
-                        <span class="clabels-text">85%</span>
-                        <p>For participants of Pre-Sale and ICO</p>
-                      </div>
-                      <div class="lsits">
-                        <span class="clabels-text">8%</span>
-                        <p>Reserved for the team.</p>
-                      </div>
-                      <div class="lsits">
-                        <span class="clabels-text">4%</span>
-                        <p>Reserved for the consultants.</p>
-                      </div>
-                      <div class="lsits">
-                        <span class="clabels-text">3%</span>
-                        <p>Bounty campaign</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="owl-buttons" >
+
+
+              <token />
+
+
+
+
+            </div>
+
+
+
+
               <div class="contents text-center">
                 <h2
-                  class="wow fadeInUp animated"
+                  class=" "
                   data-wow-duration="1.3s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1.3s;
-                    animation-name: fadeInUp;
-                  "
+                  v-animate
+                  data-animation="fadeInUp animated"
                 >
                   The issued tokens will be distributed as follows:
                 </h2>
                 <a
                   href="#"
-                  class="btn1 wow fadeInUp animated"
+                  class="btn1"
                   data-wow-duration="1.6s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1.6s;
-                    animation-name: fadeInUp;
-                  "
+                  v-animate
+                  data-animation="fadeInUp animated"
                   >Download WhitePaper</a
                 >
               </div>
@@ -1072,411 +831,21 @@ export default {
           </div>
         </div>
       </section>
-      <div class="sud">
-        <svg
-          version="1.1"
-          id="Layer_3"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          x="0px"
-          y="0px"
-          viewBox="0 0 1920 181.1"
-          style="enable-background: new 0 0 1920 181.1"
-          xml:space="preserve"
-        >
-          <g>
-            <path
-              class="st0"
-              d="M0,80c0,0,28.9-4.2,43-13c14.3-9,71-35.7,137,5c17.3,7.7,33.3,13,48,11c17.3,0.3,50.3,4.7,66,23
-                     c20.3,9.7,68,40.3,134-12c24-11,59-16.3,104,2c21,7.3,85,27.7,117-14c24-30.7,62.7-55,141-12c26,10.3,72,14.7,110-14
-                     c37.7-19,89.7-29,122,53c23,32.7,47.7,66.3,97,26c24-22.7,51-78.3,137-38c0,0,28.3,15.7,52,15c23.7-0.7,50.7,4.3,76,41
-                     c19.7,19.7,71,36.7,121-2c0,0,22.3-16,55-12c0,0,32.7,6.7,56-71c23.3-76,79-92,122-29c9.3,13.7,25,42,62,43c37,1,51.7,25.3,67,48
-                     c15.3,22.7,51,22.7,53,23v28.1H0V80z"
-            />
-          </g>
-        </svg>
-      </div>
+
     </div>
-    <div class="wd_scroll_wrap">
-      <section class="blog-area section">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <div class="section-heading2">
-                <h2
-                  class="wow fadeInUp animated"
-                  data-wow-duration="1.0s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1s;
-                    animation-name: fadeInUp;
-                  "
-                >
-                  Latest News
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="blog-slider">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div
-                  class="blog wow fadeInUp animated"
-                  data-wow-duration="1.3s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1.3s;
-                    animation-name: fadeInUp;
-                  "
-                >
-                  <figure>
-                    <img src="./../assets/frontend/images/blog/1.jpg" alt="" />
-                  </figure>
-                  <div class="content">
-                    <span
-                      ><i class="fa fa-calendar-o"></i>January 29, 2020</span
-                    >
-                    <h4>
-                      <a href="#"
-                        >Report about the team's trip to the road show</a
-                      >
-                    </h4>
-                    <p>
-                      Nam nec tellus a odio tincidunt auctor are odio sed non
-                      mauris. This is Photoshop's ern of Lorem Ipsum Proin
-                      gravida.
-                    </p>
-                    <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div
-                  class="blog wow fadeInUp animated"
-                  data-wow-duration="1.6s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1.6s;
-                    animation-name: fadeInUp;
-                  "
-                >
-                  <figure>
-                    <img src="./../assets/frontend/images/blog/2.jpg" alt="" />
-                  </figure>
-                  <div class="content">
-                    <span
-                      ><i class="fa fa-calendar-o"></i>January 29, 2020</span
-                    >
-                    <h4>
-                      <a href="#"
-                        >Report about the team's trip to the road show</a
-                      >
-                    </h4>
-                    <p>
-                      Nam nec tellus a odio tincidunt auctor are odio sed non
-                      mauris. This is Photoshop's ern of Lorem Ipsum Proin
-                      gravida.
-                    </p>
-                    <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div
-                  class="blog wow fadeInUp animated"
-                  data-wow-duration="1.8s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1.8s;
-                    animation-name: fadeInUp;
-                  "
-                >
-                  <figure>
-                    <img src="./../assets/frontend/images/blog/3.jpg" alt="" />
-                  </figure>
-                  <div class="content">
-                    <span
-                      ><i class="fa fa-calendar-o"></i>January 29, 2020</span
-                    >
-                    <h4>
-                      <a href="#"
-                        >Report about the team's trip to the road show</a
-                      >
-                    </h4>
-                    <p>
-                      Nam nec tellus a odio tincidunt auctor are odio sed non
-                      mauris. This is Photoshop's ern of Lorem Ipsum Proin
-                      gravida.
-                    </p>
-                    <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="blog">
-                  <figure>
-                    <img src="./../assets/frontend/images/blog/1.jpg" alt="" />
-                  </figure>
-                  <div class="content">
-                    <span
-                      ><i class="fa fa-calendar-o"></i>January 29, 2020</span
-                    >
-                    <h4>
-                      <a href="#"
-                        >Report about the team's trip to the road show</a
-                      >
-                    </h4>
-                    <p>
-                      Nam nec tellus a odio tincidunt auctor are odio sed non
-                      mauris. This is Photoshop's ern of Lorem Ipsum Proin
-                      gravida.
-                    </p>
-                    <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="blog">
-                  <figure>
-                    <img src="./../assets/frontend/images/blog/2.jpg" alt="" />
-                  </figure>
-                  <div class="content">
-                    <span
-                      ><i class="fa fa-calendar-o"></i>January 29, 2020</span
-                    >
-                    <h4>
-                      <a href="#"
-                        >Report about the team's trip to the road show</a
-                      >
-                    </h4>
-                    <p>
-                      Nam nec tellus a odio tincidunt auctor are odio sed non
-                      mauris. This is Photoshop's ern of Lorem Ipsum Proin
-                      gravida.
-                    </p>
-                    <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="blog">
-                  <figure>
-                    <img src="./../assets/frontend/images/blog/3.jpg" alt="" />
-                  </figure>
-                  <div class="content">
-                    <span
-                      ><i class="fa fa-calendar-o"></i>January 29, 2020</span
-                    >
-                    <h4>
-                      <a href="#"
-                        >Report about the team's trip to the road show</a
-                      >
-                    </h4>
-                    <p>
-                      Nam nec tellus a odio tincidunt auctor are odio sed non
-                      mauris. This is Photoshop's ern of Lorem Ipsum Proin
-                      gravida.
-                    </p>
-                    <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="view-btn">
-              <a href="#">All News</a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="media-area section bg-img jarallax">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <div class="section-heading">
-                <h2
-                  class="wow fadeInUp animated"
-                  data-wow-duration="1.0s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1s;
-                    animation-name: fadeInUp;
-                  "
-                >
-                  Press (Media)
-                </h2>
-              </div>
-            </div>
-            <div
-              class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2"
-            >
-              <div class="mediabrand">
-                <ul>
-                  <li
-                    class="wow fadeInUp animated"
-                    data-wow-duration="1.3s"
-                    style="
-                      visibility: visible;
-                      animation-duration: 1.3s;
-                      animation-name: fadeInUp;
-                    "
-                  >
-                    <a href="#"
-                      ><img
-                        src="./../assets/frontend/images/media/1.png"
-                        alt=""
-                    /></a>
-                  </li>
-                  <li
-                    class="wow fadeInUp animated"
-                    data-wow-duration="1.6s"
-                    style="
-                      visibility: visible;
-                      animation-duration: 1.6s;
-                      animation-name: fadeInUp;
-                    "
-                  >
-                    <a href="#"
-                      ><img
-                        src="./../assets/frontend/images/media/2.png"
-                        alt=""
-                    /></a>
-                  </li>
-                  <li
-                    class="wow fadeInUp animated"
-                    data-wow-duration="1.9s"
-                    style="
-                      visibility: visible;
-                      animation-duration: 1.9s;
-                      animation-name: fadeInUp;
-                    "
-                  >
-                    <a href="#"
-                      ><img
-                        src="./../assets/frontend/images/media/3.png"
-                        alt=""
-                    /></a>
-                  </li>
-                  <li
-                    class="wow fadeInUp animated"
-                    data-wow-duration="2.1s"
-                    style="
-                      visibility: visible;
-                      animation-duration: 2.1s;
-                      animation-name: fadeInUp;
-                    "
-                  >
-                    <a href="#"
-                      ><img
-                        src="./../assets/frontend/images/media/4.png"
-                        alt=""
-                    /></a>
-                  </li>
-                  <li
-                    class="wow fadeInUp animated"
-                    data-wow-duration="2.4s"
-                    style="
-                      visibility: visible;
-                      animation-duration: 2.4s;
-                      animation-name: fadeInUp;
-                    "
-                  >
-                    <a href="#"
-                      ><img
-                        src="./../assets/frontend/images/media/5.png"
-                        alt=""
-                    /></a>
-                  </li>
-                  <li
-                    class="wow fadeInUp animated"
-                    data-wow-duration="2.7s"
-                    style="
-                      visibility: visible;
-                      animation-duration: 2.7s;
-                      animation-name: fadeInUp;
-                    "
-                  >
-                    <a href="#"
-                      ><img
-                        src="./../assets/frontend/images/media/6.png"
-                        alt=""
-                    /></a>
-                  </li>
-                  <li
-                    class="wow fadeInUp animated"
-                    data-wow-duration="2.7s"
-                    style="
-                      visibility: visible;
-                      animation-duration: 2.7s;
-                      animation-name: fadeInUp;
-                    "
-                  >
-                    <a href="#"
-                      ><img
-                        src="./../assets/frontend/images/media/7.png"
-                        alt=""
-                    /></a>
-                  </li>
-                  <li
-                    class="wow fadeInUp animated"
-                    data-wow-duration="2.7s"
-                    style="
-                      visibility: visible;
-                      animation-duration: 2.7s;
-                      animation-name: fadeInUp;
-                    "
-                  >
-                    <a href="#"
-                      ><img
-                        src="./../assets/frontend/images/media/8.png"
-                        alt=""
-                    /></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    <contactUs />
   </HomeLayout>
 </template>
 
 
-<style scoped>
-/* .slider-area {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-.carousel-inner {
-  position: relative;
-  z-index: 2;
-} */
 
+<style scoped>
 .st0 {
   fill-rule: evenodd;
   clip-rule: evenodd;
   fill: #10122d;
 }
+
+
+
 </style>

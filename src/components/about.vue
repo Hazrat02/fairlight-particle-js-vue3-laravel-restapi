@@ -1,30 +1,23 @@
 <template>
-    <section>
-        <div class="wd_scroll_wrap" >
-      <section class="about-area pd-t70 pd-b100 jarallax bg-img"  >
+  <section>
+    <div class="wd_scroll_wrap">
+      <section class="about-area pd-t70 pd-b100 jarallax bg-img">
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div class="about-content">
                 <h2
-                  class="f-40 fw-400 wow fadeInUp animated"
+                  v-animate
+                  data-animation="fadeInUp animated"
+                  class="f-40 fw-400"
                   data-wow-duration="1.0s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1s;
-                    animation-name: fadeInUp;
-                  "
                 >
                   About The Project
                 </h2>
                 <p
-                  class="wow fadeInUp animated"
+                  v-animate
+                  data-animation="fadeInUp animated"
                   data-wow-duration="1.3s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1.3s;
-                    animation-name: fadeInUp;
-                  "
                 >
                   Bit Money is a lending and investment, multicurrency and
                   multifunctional online platform based on blockchain
@@ -32,26 +25,18 @@
                   have the opportunity to lend money on mutually beneficial.
                 </p>
                 <p
-                  class="wow fadeInUp animated"
+                  v-animate
+                  data-animation="fadeInUp animated"
                   data-wow-duration="1.6s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1.6s;
-                    animation-name: fadeInUp;
-                  "
                 >
                   Bit Money is a unique service that allows individuals to
                   access loans from the comfort of their home in fiat currencies
                   or crypto-currencies.
                 </p>
                 <p
-                  class="wow fadeInUp animated"
+                  v-animate
+                  data-animation="fadeInUp animated"
                   data-wow-duration="1.9s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1.9s;
-                    animation-name: fadeInUp;
-                  "
                 >
                   Bit Money is a multi-functional platform which allows each
                   participant to keep money in a multi-currency online wallet,
@@ -59,20 +44,18 @@
                   loan in a convenient currency.
                 </p>
                 <div class="buttons">
-                  
-                  <router-link to="/about" href="#" class="btn3">See more..</router-link>
+                  <router-link to="/about" href="#" class="btn3"
+                    >See more..</router-link
+                  >
                 </div>
               </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div
-                class="about-img wow fadeInUp animated"
-                data-wow-duration="1.0s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1s;
-                  animation-name: fadeInUp;
-                "
+                v-animate
+                data-animation="fadeInDown animated"
+                class="about-img"
+                data-wow-duration="2.0s"
               >
                 <img src="./../assets/frontend/images/about/1.png" alt="" />
               </div>
@@ -81,7 +64,7 @@
         </div>
       </section>
       <!--About area end here-->
-      <div class="sud">
+      <div class="sud" style="color: dimgray !important">
         <svg
           version="1.1"
           id="Layer_1"
@@ -96,11 +79,12 @@
           <g>
             <path
               class="st0"
+              style="fill: #10122d"
               d="M0,80c0,0,28.9-4.2,43-13c14.3-9,71-35.7,137,5c17.3,7.7,33.3,13,48,11c17.3,0.3,50.3,4.7,66,23
-                     c20.3,9.7,68,40.3,134-12c24-11,59-16.3,104,2c21,7.3,85,27.7,117-14c24-30.7,62.7-55,141-12c26,10.3,72,14.7,110-14
-                     c37.7-19,89.7-29,122,53c23,32.7,47.7,66.3,97,26c24-22.7,51-78.3,137-38c0,0,28.3,15.7,52,15c23.7-0.7,50.7,4.3,76,41
-                     c19.7,19.7,71,36.7,121-2c0,0,22.3-16,55-12c0,0,32.7,6.7,56-71c23.3-76,79-92,122-29c9.3,13.7,25,42,62,43c37,1,51.7,25.3,67,48
-                     c15.3,22.7,51,22.7,53,23v28.1H0V80z"
+         c20.3,9.7,68,40.3,134-12c24-11,59-16.3,104,2c21,7.3,85,27.7,117-14c24-30.7,62.7-55,141-12c26,10.3,72,14.7,110-14
+         c37.7-19,89.7-29,122,53c23,32.7,47.7,66.3,97,26c24-22.7,51-78.3,137-38c0,0,28.3,15.7,52,15c23.7-0.7,50.7,4.3,76,41
+         c19.7,19.7,71,36.7,121-2c0,0,22.3-16,55-12c0,0,32.7,6.7,56-71c23.3-76,79-92,122-29c9.3,13.7,25,42,62,43c37,1,51.7,25.3,67,48
+         c15.3,22.7,51,22.7,53,23v28.1H0V80z"
             />
           </g>
         </svg>
@@ -113,13 +97,11 @@
             <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div
-                  class="section-heading2 wow fadeInUp animated"
+                  class="section-heading2 " 
+                  v-animate
+                  data-animation="fadeInUp animated"
                   data-wow-duration="1.0s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1s;
-                    animation-name: fadeInUp;
-                  "
+                 
                 >
                   <h2>Our Features</h2>
                 </div>
@@ -130,14 +112,12 @@
                 <div class="featured-lists">
                   <ul>
                     <li>
-                      <div
-                        class="col-sm-6 pd-0 hidden-xs wow fadeInUp animated"
+                      <div 
+                        class="col-sm-6 pd-0 hidden-xs"
+                        v-animate
+                  data-animation="fadeInUp animated"
                         data-wow-duration="1.3s"
-                        style="
-                          visibility: visible;
-                          animation-duration: 1.3s;
-                          animation-name: fadeInUp;
-                        "
+                       
                       >
                         <div class="contents-l mr-b30">
                           <h2>Lending</h2>
@@ -150,13 +130,11 @@
                         </div>
                       </div>
                       <div
-                        class="col-sm-6 pd-0 wow fadeInUp animated"
+                        class="col-sm-6 pd-0"
+                        v-animate
+                  data-animation="fadeInUp animated"
                         data-wow-duration="1.3s"
-                        style="
-                          visibility: visible;
-                          animation-duration: 1.3s;
-                          animation-name: fadeInUp;
-                        "
+                        
                       >
                         <div class="imgs-l">
                           <figure>
@@ -168,13 +146,10 @@
                         </div>
                       </div>
                       <div
-                        class="col-sm-6 pd-0 wow fadeInUp animated"
+                        class="col-sm-6 pd-0"
                         data-wow-duration="1.3s"
-                        style="
-                          visibility: visible;
-                          animation-duration: 1.3s;
-                          animation-name: fadeInUp;
-                        "
+                        v-animate
+                  data-animation="fadeInUp animated"
                       >
                         <div class="contents-l mr-b30">
                           <h2>Lending</h2>
@@ -183,19 +158,15 @@
                             safety fund <br />and cooperation with world-wide
                             arbitration.
                           </p>
-                         
                         </div>
                       </div>
                     </li>
                     <li class="rl">
                       <div
-                        class="col-sm-6 pd-0 floatright mr-b30 hidden-xs wow fadeInUp animated"
+                        class="col-sm-6 pd-0 floatright mr-b30 hidden-xs "
                         data-wow-duration="1.6s"
-                        style="
-                          visibility: visible;
-                          animation-duration: 1.6s;
-                          animation-name: fadeInUp;
-                        "
+                        v-animate
+                  data-animation="fadeInUp animated"
                       >
                         <div class="contents-r">
                           <h2>Exchange Money</h2>
@@ -204,17 +175,13 @@
                             couple of clicks. <br />Instant send from one
                             currency to another.
                           </p>
-                          
                         </div>
                       </div>
                       <div
-                        class="col-sm-6 pd-0 wow fadeInUp animated"
+                        class="col-sm-6 pd-0 "
                         data-wow-duration="1.6s"
-                        style="
-                          visibility: visible;
-                          animation-duration: 1.6s;
-                          animation-name: fadeInUp;
-                        "
+                      v-animate
+                  data-animation="fadeInUp animated"
                       >
                         <div class="imgs-r">
                           <figure>
@@ -226,13 +193,10 @@
                         </div>
                       </div>
                       <div
-                        class="col-sm-6 pd-0 floatright mr-b30 visible-xs wow fadeInUp animated"
+                        class="col-sm-6 pd-0 floatright mr-b30 visible-xs"
                         data-wow-duration="1.6s"
-                        style="
-                          visibility: visible;
-                          animation-duration: 1.6s;
-                          animation-name: fadeInUp;
-                        "
+                       v-animate
+                  data-animation="fadeInUp animated"
                       >
                         <div class="contents-r">
                           <h2>Exchange Money</h2>
@@ -241,19 +205,15 @@
                             couple of clicks. <br />Instant send from one
                             currency to another.
                           </p>
-                       
                         </div>
                       </div>
                     </li>
                     <li>
                       <div
-                        class="col-sm-6 pd-0 hidden-xs wow fadeInUp animated"
+                        class="col-sm-6 pd-0 hidden-xs"
                         data-wow-duration="1.9s"
-                        style="
-                          visibility: visible;
-                          animation-duration: 1.9s;
-                          animation-name: fadeInUp;
-                        "
+                       v-animate
+                  data-animation="fadeInUp animated"
                       >
                         <div class="contents-l mr-b30">
                           <h2>Investment</h2>
@@ -262,17 +222,13 @@
                             Providing <br />verification services for other
                             services.
                           </p>
-                         
                         </div>
                       </div>
                       <div
-                        class="col-sm-6 pd-0 wow fadeInUp animated"
+                        class="col-sm-6 pd-0"
                         data-wow-duration="1.9s"
-                        style="
-                          visibility: visible;
-                          animation-duration: 1.9s;
-                          animation-name: fadeInUp;
-                        "
+                        v-animate
+                  data-animation="fadeInUp animated"
                       >
                         <div class="imgs-l">
                           <figure>
@@ -284,13 +240,10 @@
                         </div>
                       </div>
                       <div
-                        class="col-sm-6 pd-0 visible-xs wow fadeInUp animated"
+                        class="col-sm-6 pd-0 visible-xs"
                         data-wow-duration="1.9s"
-                        style="
-                          visibility: visible;
-                          animation-duration: 1.9s;
-                          animation-name: fadeInUp;
-                        "
+                       v-animate
+                  data-animation="fadeInUp animated"
                       >
                         <div class="contents-l mr-b30">
                           <h2>Investment</h2>
@@ -299,19 +252,15 @@
                             Providing <br />verification services for other
                             services.
                           </p>
-                        
                         </div>
                       </div>
                     </li>
                     <li class="rl">
                       <div
-                        class="col-sm-6 pd-0 floatright mr-b30 hidden-xs wow fadeInUp animated"
+                        class="col-sm-6 pd-0 floatright mr-b30 hidden-xs"
                         data-wow-duration="2.1s"
-                        style="
-                          visibility: visible;
-                          animation-duration: 2.1s;
-                          animation-name: fadeInUp;
-                        "
+                       v-animate
+                  data-animation="fadeInUp animated"
                       >
                         <div class="contents-r">
                           <h2>Online Wallet</h2>
@@ -319,17 +268,13 @@
                             Keep your money, exchange your money, invest your
                             money, pay <br />services and make purchases.
                           </p>
-                         
                         </div>
                       </div>
                       <div
-                        class="col-sm-6 pd-0 wow fadeInUp animated"
+                        class="col-sm-6 pd-0"
                         data-wow-duration="2.1s"
-                        style="
-                          visibility: visible;
-                          animation-duration: 2.1s;
-                          animation-name: fadeInUp;
-                        "
+                        v-animate
+                  data-animation="fadeInUp animated"
                       >
                         <div class="imgs-r">
                           <figure>
@@ -341,13 +286,10 @@
                         </div>
                       </div>
                       <div
-                        class="col-sm-6 pd-0 floatright mr-b30 visible-xs wow fadeInUp animated"
+                        class="col-sm-6 pd-0 floatright mr-b30 visible-xs "
                         data-wow-duration="2.1s"
-                        style="
-                          visibility: visible;
-                          animation-duration: 2.1s;
-                          animation-name: fadeInUp;
-                        "
+                        v-animate
+                  data-animation="fadeInUp animated"
                       >
                         <div class="contents-r">
                           <h2>Online Wallet</h2>
@@ -355,7 +297,6 @@
                             Keep your money, exchange your money, invest your
                             money, pay <br />services and make purchases.
                           </p>
-                         
                         </div>
                       </div>
                     </li>
@@ -367,5 +308,5 @@
         </div>
       </section>
     </div>
-    </section>
+  </section>
 </template>

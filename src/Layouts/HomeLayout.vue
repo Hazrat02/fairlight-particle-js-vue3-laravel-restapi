@@ -6,6 +6,7 @@
         </div>
     </div> -->
   <!--Header area start here-->
+  <!-- <toaster /> -->
   <div section-scroll="0" class="wd_scroll_wrap">
    
       <header class="header menu_fixed ">
@@ -14,8 +15,8 @@
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-6">
               <div class="logo-area">
                 <RouterLink to="/"
-                  ><img
-                    src="./../assets/frontend/images/logo/logo.png"
+                  ><img 
+                    src="./../assets/frontend/images/logo/logo2.gif"
                     alt="logo"
                   />
                 </RouterLink>
@@ -209,7 +210,12 @@
             <div class="row justify-content-between">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     <div class="">
-                        <a href="#"><img src="./../assets/frontend/images/logo/logo.png" alt="logo"/></a>
+                      <RouterLink to="/"
+                  ><img 
+                    src="./../assets/frontend/images/logo/logo2.gif"
+                    alt="logo"
+                  />
+                </RouterLink>
                     </div>
                     <br>
                     <div class="btc_footer_logo_right">
@@ -276,12 +282,22 @@
         </div>
       </div>
     </footer>
+
+    <div class="" style="position: fixed ;z-index: 333333333; bottom: 10px;left: 10px">
+      <a href="">
+        <img style="width: 100px;" src="./../assets/frontend/images/gif/soqJRMUcvCF0AdEx0V (1).gif" alt="">
+      </a>
+    </div>
   </div>
 </template>
 <script>
 // import { useAuthUserStore } from "./../store/user";
+import toaster from './../components/toaster.vue'
 
 export default {
+  components:{
+    toaster
+  },
   data() {
     return {
       authUser: "",
@@ -301,6 +317,7 @@ export default {
   },
   async created() {
     // this.$setLoading(false);
+    this.$toast('This is a toast message!');
   },
 
   methods: {

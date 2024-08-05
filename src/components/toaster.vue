@@ -1,0 +1,43 @@
+<script>
+//   import { useToast } from "vue-toastification";
+
+  export default {
+    // setup() {
+    //   // Get toast interface
+    //   const toast = useToast();
+
+    //   // Use it!
+    //   toast("I'm a toast!");
+
+    //   // or with options
+    //   toast.success("My toast content", {
+    //     timeout: 2000
+    //   });
+    //   // These options will override the options defined in the "app.use" plugin registration for this specific toast
+
+    //   // Make it available inside methods
+    //   return { toast }
+    // },
+    created (){
+        this.$toast('This is a toast message!');
+
+
+    //     this.toast.info(I'm an info toast!{
+    //     timeout: 2000
+    //   });
+
+    // this.toast.success("My toast content", {
+    //     timeout: 2000
+    //   });
+    },
+
+    methods: {
+
+      myMethod() {
+
+        // Since you returned `toast` from setup(), you can access it now
+        this.toast.info("I'm an info toast!");
+      }
+    }
+  }
+</script>

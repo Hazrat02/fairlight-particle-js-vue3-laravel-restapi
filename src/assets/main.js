@@ -1,20 +1,39 @@
-import "@/assets/frontend/js/vendor/jquery-3.2.1.min.js"
-
-// import "@/assets/frontend/js/tether.min.js"
-import "@/assets/frontend/js/bootstrap.min.js"
-import "@/assets/frontend/js/owl.carousel.min.js"
-// import "@/assets/frontend/js/jquery.meanmenu.js"
-// import "@/assets/frontend/js/jquery-ui.min.js"
-import "@/assets/frontend/js/jquery.easypiechart.min.js"
-import "@/assets/frontend/js/wow.min.js"
-import "@/assets/frontend/js/smooth-scroll.min.js"
-import "@/assets/frontend/js/plugins.js"
-import "@/assets/frontend/js/echarts-en.min.js"
-import "@/assets/frontend/js/echarts-liquidfill.min.js"
-import "@/assets/frontend/js/vc_round_chart.min.js"
-// import "@/assets/frontend/js/videojs-ie8.min.js"
-// import "@/assets/frontend/js/video.js"
-// import "@/assets/frontend/js/Youtube.min.js"
-import "@/assets/frontend/js/main.js"
-
-// import "@/assets/frontend/js/vendor/modernizr-2.8.3.min.js"
+router.beforeEach((to, from, next) => {
+    // Function to check if the JWT token is expired
+    function isTokenExpired(token) {
+      const tokenData = JSON.parse(atob(token.split('.')[1]));
+      const expirationTime = tokenData.exp * 1000; // Convert expiration time to milliseconds
+      return Date.now() >= expirationTime;
+    }
+    const jwtToken = localStorage.getItem('token');
+    if (jwtToken && isTokenExpired(jwtToken)) {
+      // Clear the localStorage and redirect to the login page
+      localStorage.removeItem('token');
+      logout();
+      next('/login');
+    } else {
+      // Allow navigation to the next route
+      
+    // Check if the route requires authentication and user is not authenticated
+    if (to.meta.requiresAuth && !authenticated()) {
+      // Redirect to login page or any other desired route
+      next('/login');
+    } else {
+      // Check if the route requires a guest (unauthenticated user) and user is authenticated
+      if (to.meta.requiresGuest && authenticated()) {
+        next('/');
+      } else {
+        // https://api.capitalswealthmanagement.com/
+        // http://127.0.0.1:8000
+        axios.defaults.baseURL='https://api.capitalswealthmanagement.com/';
+        axios.defaults.headers.common['Authorization']='bearer'+localStorage.getItem('token');
+       
+  
+        next();
+        setloading(true);
+      
+      }
+    }
+    }
+  })
+  

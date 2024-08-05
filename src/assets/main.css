@@ -4307,25 +4307,20 @@ body.date-20180212.exp-invert-logo {
   margin: 0 0 60px;
 }
 .video-area .videos-heding .videos-box {
-  display: inline-block;
+  /* display: inline-block;
   margin: 0 0 -175px;
   position: relative;
   z-index: 999;
   border-radius: 25px;
   overflow: hidden;
-  vertical-align: middle;
+  vertical-align: middle; */
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
 }
-.video-area .videos-heding .videos-box:after {
-  content: '';
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  top: -20px;
-  bottom: 0;
-  border-radius: 20px;
-  background: #e05d5e;
-  z-index: 1;
-}
+
 .video-area .videos-heding .videos-box .video-js .vjs-control-bar {
   bottom: 20px;
   left: 10%;
@@ -4333,10 +4328,14 @@ body.date-20180212.exp-invert-logo {
   width: auto;
 }
 .video-area .videos-heding .videos-box .video-js {
-  background: #fff;
+
   border-radius: 30px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  z-index: 99;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .video-area .videos-heding .videos-box .vjs-poster {
   background: #fff;
@@ -4800,7 +4799,7 @@ canvas{
 	content:'';
 	border:1px solid #797979;
 	width:1px;
-	height:60px;
+	/* height:60px; */
 	position:absolute;
 	right: -100%;
   top: 0;
