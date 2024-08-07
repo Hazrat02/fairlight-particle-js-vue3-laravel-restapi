@@ -1,7 +1,7 @@
 
 <script>
 import HomeLayout from "@/Layouts/HomeLayout.vue";
-// import axios from 'axios';
+import axios from 'axios';
 
 export default {
   components: {
@@ -42,20 +42,14 @@ export default {
         .post("/api/contact.store", formData)
         .then((response) => {
           this.$setLoading(false);
+          this.$toast.success(response.data.message);
 
-          this.$notify({
-            title: "message",
-            text: response.data.message,
-            type: "success",
-          });
+          
         })
         .catch((error) => {
           this.$setLoading(false);
-          this.$notify({
-            title: "Error message",
-            text: error.response.data.message,
-            type: "error",
-          });
+          
+          this.$toast.error('somethings wrong!');
         });
 
       this.$setLoading(false);
@@ -123,7 +117,7 @@ export default {
                 <div class="btc_contact_input_form2">
                   <input
                     required
-                    v-model="gmail"
+                    v-model="email"
                     type="email"
                     placeholder="Your Email*"
                   />
@@ -196,7 +190,7 @@ export default {
                       data-wow-duration="1.4s"
                       class=""
                     >
-                      <a href="#"><i class="fa fa-bitcoin"></i></a>
+                      <a href="https://coinmarketcap.com/currencies/bitcoin/"><i class="fa fa-bitcoin"></i></a>
                     </li>
                     <li
                       v-animate
@@ -205,7 +199,7 @@ export default {
                       class=""
                     >
                     
-                      <a href="mail:info@capitalswealthmanagement.com"><i class="fa fa-envelope"></i></a>
+                      <a href="mailto:support@fairlightinvestments.com"><i class="fa fa-envelope"></i></a>
                     </li>
                   </ul>
                 </div>

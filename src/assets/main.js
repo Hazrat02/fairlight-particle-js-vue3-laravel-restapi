@@ -1,3 +1,6 @@
+
+
+
 router.beforeEach((to, from, next) => {
     // Function to check if the JWT token is expired
     function isTokenExpired(token) {

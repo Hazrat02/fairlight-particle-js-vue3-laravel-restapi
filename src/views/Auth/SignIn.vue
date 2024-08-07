@@ -154,6 +154,7 @@ import AuthLayout from "@/Layouts/AuthLayout.vue";
 import axios from "axios";
 
 import { useAuthUserStore } from "./../../stores/user";
+import { login } from "../../middleware/index";
 
 // import { notify } from 'vue3-notify'
 export default {
@@ -185,12 +186,7 @@ export default {
       this.showPassword = !this.showPassword;
       this.showicon = !this.showicon;
     },
-    showNotification() {
-      this.$notify({
-        title: "Important message",
-        text: "Hello user!",
-      });
-    },
+   
     async login() {
       this.$setLoading(true);
       const data = {
@@ -201,6 +197,7 @@ export default {
       await axios
         .post("/api/auth/login", data)
         .then((response) => {
+
           login(response.data.authorisation.token);
 
           const userStore = useAuthUserStore();
@@ -213,20 +210,22 @@ export default {
           }
 
           this.$setLoading(false);
-          this.$notify({
-            title: "message",
-            text: "User succesfully login",
-            type: "success",
-          });
+          this.$toast.success("User succesfully login");
+          
         })
         .catch((error) => {
           // Handle the error
           this.$setLoading(false);
-          this.$notify({
-            title: "Error message",
-            text: error.response.data.message,
-            type: "error",
-          });
+          console.log(error);
+          if (error.response.data.message) {
+            this.$toast.error(error.response.data.message);
+
+          }else{
+            this.$toast.error('Server is busy now.try again.');
+
+          }
+          
+          
         });
 
       this.$setLoading(false);

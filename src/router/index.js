@@ -10,7 +10,7 @@ import LeadView from '../views/LeadView.vue'
 
 // user
 
-// import DeshboardView from '../views/Deshboard/DeshboardView.vue'
+import DeshboardView from '../views/Deshboard/DeshboardView.vue'
 // import UserView from '../views/Deshboard/UserView.vue'
 // import KycView from '../views/Deshboard/KycView.vue'
 // import DepositView from '../views/Deshboard/DepositView.vue'
@@ -126,15 +126,15 @@ const router = createRouter({
 
 
     // user Deshboard--------------------------------------------------
-    // {
-    //   path: '/dashboard',
-    //   name: 'dashboard',
+    {
+      path: '/dashboard',
+      name: 'dashboard',
 
-    //   component:DeshboardView,
-    //   meta:{
-    //     requiresAuth:true,
-    //   },
-    // },
+      component:DeshboardView,
+      meta:{
+        requiresAuth:true,
+      },
+    },
     // {
     //   path: '/kyc',
     //   name: 'kyc',

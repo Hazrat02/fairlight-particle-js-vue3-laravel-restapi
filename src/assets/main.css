@@ -31,6 +31,11 @@ select{
   border-radius: 3px;
   width: 98%;
 }
+.select{
+  padding:6px ;
+  border-radius: 3px;
+  width: 98%;
+}
 
 
 /* my design  END*/
@@ -354,11 +359,11 @@ h4 {
 
 /*** Section ***/
 .section {
-  padding: 100px 0;
+  padding: 80px 0;
 }
 @media only screen and (max-width: 768px) {
   .section {
-    padding: 75px 0;
+    padding: 55px 0;
   }
 }
 
@@ -1611,7 +1616,7 @@ background: linear-gradient(to right, rgba(57,100,208,1) 0%, rgba(45,193,201,1) 
   top: 0;
   left: 0;
   right: 0; */
-  z-index: 9999;
+  z-index: 0;
   background:black;
       padding-top: 14px;
     padding-bottom: 14px;
@@ -2424,10 +2429,11 @@ footer {
 	border-radius:20px;
 }
 footer .footer-bottom {
+ 
   display: block;
   background: #08091b;
-  /* height: 100px; */
-  line-height: 100px;
+
+  padding: 20px 0px;
   position: relative;
 }
 footer .footer-bottom .copyright p {
@@ -2439,12 +2445,12 @@ footer .footer-bottom .copyright p {
 footer .footer-bottom .copyright p span {
   color: #3297cc;
 }
-footer .footer-bottom .foo-link {
+/* footer .footer-bottom .foo-link {
   text-align: right;
-}
+} */
 footer .footer-bottom .foo-link ul li {
   display: inline-block;
-  padding: 0 20px;
+  padding: 0 10px;
   position: relative;
 }
 footer .footer-bottom .foo-link ul li:after {
@@ -3309,6 +3315,7 @@ background: linear-gradient(to right, rgba(57,100,208,1) 0%, rgba(45,193,201,1) 
   position: relative;
 }
 .tokens-area .tokens {
+  
   display: inline-block;
   position: relative;
   text-align: center;
@@ -3348,7 +3355,7 @@ background: linear-gradient(to right, rgba(57,100,208,1) 0%, rgba(45,193,201,1) 
   background: #08091b ;
 
 
-  height: 464px;
+  /* height: 464px; */
   padding: 50px 55px;
   display: inline-block;
   border-radius: 22px;

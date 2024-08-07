@@ -53,24 +53,18 @@ export default {
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div class="section-heading">
                 <h2
-                  class="wow fadeInUp animated"
-                  data-wow-duration="1.0s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1s;
-                    animation-name: fadeInUp;
-                  "
+                v-animate
+          data-animation="fadeInUp animated"
+          data-wow-duration="1s"
                 >
                   Risk disclusion
                 </h2>
                 <h4
-                  class="wow fadeInUp animated"
-                  data-wow-duration="1.0s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1s;
-                    animation-name: fadeInUp;
-                  "
+                  class=" mt-5"
+                  
+                  v-animate
+          data-animation="fadeInUp animated"
+          data-wow-duration="1.3s"
                 >
                 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less.
                 </h4>
@@ -79,13 +73,11 @@ export default {
           </div>
           <div class="row">
             <div
-              class="col-lg-6 col-md-6 col-sm-6 col-xs-12 wow fadeInUp animated"
+              class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
               data-wow-duration="1.3s"
-              style="
-                visibility: visible;
-                animation-duration: 1.3s;
-                animation-name: fadeInUp;
-              "
+              v-animate
+          data-animation="fadeInUp animated"
+       
             >
               <div class="team-list">
                 <div class="conte">
@@ -138,13 +130,11 @@ export default {
             </div>
             
             <div
-              class="col-lg-6 col-md-6 col-sm-6 col-xs-12 wow fadeInUp animated"
+              class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
               data-wow-duration="1.3s"
-              style="
-                visibility: visible;
-                animation-duration: 1.3s;
-                animation-name: fadeInUp;
-              "
+              v-animate
+          data-animation="fadeInUp animated"
+        
             >
               <div class="team-list">
                 <div class="conte">
@@ -197,13 +187,10 @@ export default {
             </div>
             
             <div
-              class="col-lg-6 col-md-6 col-sm-6 col-xs-12 wow fadeInUp animated"
+              class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
               data-wow-duration="1.3s"
-              style="
-                visibility: visible;
-                animation-duration: 1.3s;
-                animation-name: fadeInUp;
-              "
+              v-animate
+          data-animation="fadeInUp animated"
             >
               <div class="team-list">
                 <div class="conte">
@@ -256,13 +243,10 @@ export default {
             </div>
             
             <div
-              class="col-lg-6 col-md-6 col-sm-6 col-xs-12 wow fadeInUp animated"
+              class="col-lg-6 col-md-6 col-sm-6 col-xs-12 "
               data-wow-duration="1.3s"
-              style="
-                visibility: visible;
-                animation-duration: 1.3s;
-                animation-name: fadeInUp;
-              "
+              v-animate
+          data-animation="fadeInUp animated"
             >
               <div class="team-list">
                 <div class="conte">
@@ -315,13 +299,10 @@ export default {
             </div>
             
             <div
-              class="col-lg-6 col-md-6 col-sm-6 col-xs-12 wow fadeInUp animated"
+              class="col-lg-6 col-md-6 col-sm-6 col-xs-12 "
               data-wow-duration="1.3s"
-              style="
-                visibility: visible;
-                animation-duration: 1.3s;
-                animation-name: fadeInUp;
-              "
+              v-animate
+          data-animation="fadeInUp animated"
             >
               <div class="team-list">
                 <div class="conte">
@@ -374,13 +355,10 @@ export default {
             </div>
             
             <div
-              class="col-lg-6 col-md-6 col-sm-6 col-xs-12 wow fadeInUp animated"
+              class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
               data-wow-duration="1.3s"
-              style="
-                visibility: visible;
-                animation-duration: 1.3s;
-                animation-name: fadeInUp;
-              "
+              v-animate
+          data-animation="fadeInUp animated"
             >
               <div class="team-list">
                 <div class="conte">
@@ -433,13 +411,10 @@ export default {
             </div>
             
             <div
-              class="col-lg-6 col-md-6 col-sm-6 col-xs-12 wow fadeInUp animated"
+              class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
               data-wow-duration="1.3s"
-              style="
-                visibility: visible;
-                animation-duration: 1.3s;
-                animation-name: fadeInUp;
-              "
+              v-animate
+          data-animation="fadeInUp animated"
             >
               <div class="team-list">
                 <div class="conte">
@@ -492,13 +467,10 @@ export default {
             </div>
             
             <div
-              class="col-lg-6 col-md-6 col-sm-6 col-xs-12 wow fadeInUp animated"
+              class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
               data-wow-duration="1.3s"
-              style="
-                visibility: visible;
-                animation-duration: 1.3s;
-                animation-name: fadeInUp;
-              "
+              v-animate
+          data-animation="fadeInUp animated"
             >
               <div class="team-list">
                 <div class="conte">

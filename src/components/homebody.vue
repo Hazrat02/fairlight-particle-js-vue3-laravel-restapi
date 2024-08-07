@@ -53,31 +53,29 @@
                         Investment Platform
                       </h2>
                       <div class="buttons">
-                        <RouterLink
-                          v-if="!authUser"
-                          to="/login"
-                          class="btn2" v-animate
+                  <RouterLink v-if="!authUser" to="/login"  class="btn2" v-animate
                           data-animation="animated bounceInUp"
-                          ><i class="fa fa-user"></i>
-                          <span> Login</span></RouterLink
-                        >
-                        <div v-if="authUser">
-                          <RouterLink
-                            v-if="authUser.role == '0'"
-                            to="/admin/dashboard"
-                            class="btn2" v-animate
-                            data-animation="animated bounceInUp"
-                            >Dashboard</RouterLink
-                          >
-                          <RouterLink
-                            v-else
-                            to="/dashboard"
-                            class="btn2" v-animate
-                            data-animation="animated bounceInUp"
-                            >Dashboard</RouterLink
-                          >
-                        </div>
-                      </div>
+                    ><i class="fa fa-user"> </i><span> Login</span></RouterLink
+                  >
+                  
+                  <div  v-if="authUser">
+                    <RouterLink
+                      v-if="authUser.role == '0'"
+                      to="/admin/dashboard"
+                      class="btn2" v-animate
+                          data-animation="animated bounceInUp"
+                      >Dashboard</RouterLink
+                    >
+                    <RouterLink
+                      v-else
+                      to="/dashboard"
+                       class="btn2" v-animate
+                          data-animation="animated bounceInUp"
+                      >Dashboard</RouterLink
+                    >
+                  </div>
+                </div>
+                     
                     </div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -124,9 +122,9 @@
 
 
 <script>
-import { ref } from 'vue';
 import bgs from "./Bgs.vue"
-
+import {isAuthenticated } from "./../middleware/index";
+import { useAuthUserStore } from "./../stores/user";
 
 
 export default {
@@ -136,14 +134,26 @@ export default {
 
   data() {
     return {
-      cryptoData: "",
+      authUser: [],
     };
   },
-  methods : {
-    //  starType (){
-    //   return 'star'
-    //  } 
-  }
+  async created() {
+    if (isAuthenticated() == true) {
+      // auth user data +++++++++++++++++++++++++++++
+
+      const userStore = useAuthUserStore();
+      const authUser = userStore.authUser;
+
+      if (authUser) {
+        this.authUser = authUser;
+      } else {
+        // userStore.reSetAuthUser();
+        this.authUser = await userStore.reSetAuthUser();
+      }
+    } else {
+      this.authUser = "";
+    }
+  },
 };
 </script>
 <style scoped>

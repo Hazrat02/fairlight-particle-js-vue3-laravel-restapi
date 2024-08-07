@@ -25,14 +25,9 @@ export default {
   },
 
   created() {
-    // axios
-    //   .get(
-    //     "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Clitecoin%2Ctron%2Cdogecoin%2Ccoredao%2Cmatic-network%2Cethereum&vs_currencies=Usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true"
-    //   )
-    //   .then((response) => {
-    //     this.cryptoData = response.data;
-    //       this.$setLoading(false);
-    //     });
+   
+    // this.$toast.error("This is a success notification from SomeComponent!");
+
   },
 
  

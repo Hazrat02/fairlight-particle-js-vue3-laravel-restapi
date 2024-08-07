@@ -627,7 +627,7 @@ export default {
   methods: {
     next(){
       this.page = 2;
-      console.log(this.page);
+
 
       this.sentCode()
     },
@@ -644,17 +644,16 @@ export default {
 
 
 
-        (this.resendcode = false),
-        (this.countdown = "60");
-      this.startCountdown();
+        (this.resendcode = false);
+
 
       const data = {
         useReffer: "",
         type: "register",
         email: this.email,
-        sub: "CWM registation code",
-        bodytext: "Your CWM registation code is:",
-        footertext: "Do not share our code anyone.It is very importent",
+        sub: "Fairlight registation code",
+        bodytext: "Your registation code is:",
+        footertext: "Do not share our code to anyone.",
         btn: "",
       };
       await axios
@@ -664,35 +663,18 @@ export default {
           this.authEmail = response.data.email;
         })
         .catch((error) => {
-          this.$notify({
-            title: "Error message",
-            text: "Server busy now.Please try later!",
-            type: "error",
-          });
+          this.$toast.error('Something wrong!Please try later!');
+
         });
     },
-    startCountdown() {
-      if (this.countdown > "0") {
-        setTimeout(() => {
-          this.countdown--;
-          this.startCountdown();
-        }, 1000);
-      } else {
-        this.resendcode = true;
-      }
-    },
+    
     togglePasswordVisibility() {
       this.showPassword = !this.showPassword;
       this.showicon = !this.showicon;
     },
-    showNotification() {
-      this.$notify({
-        title: "Important message",
-        text: "Hello user!",
-      });
-    },
-    async register() {
    
+    async register() {
+      this.$setLoading(true);
       if (this.userCode == this.oldCode) {
         const formData = new FormData(); // Create a FormData object
         formData.append("birth", this.birth);
@@ -711,31 +693,20 @@ export default {
             },
           })
           .then((response) => {
-
+            this.$setLoading(false);
 
             this.$router.push("/login");
-            this.$notify({
-              title: "message",
-              text: response.data.message,
-              type: "success",
-            });
+            this.$toast.success(response.data.message);
+            
           })
           .catch((error) => {
-
-            this.$notify({
-              title: "Error message",
-              text: error.response.data.message,
-              type: "error",
-            });
+            this.$setLoading(false);
+            this.$toast.error(error.response.data.message);
+           
           });
       } else {
- 
+        this.$toast.error('Code does not match!');
 
-        this.$notify({
-          title: "Error message",
-          text: "Code does not match!",
-          type: "error",
-        });
       }
 
     },

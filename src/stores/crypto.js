@@ -18,6 +18,7 @@ export const useCryptoStore = defineStore('crypto', {
             }
           );
           this.crypto = response.data;
+          // this.crypto =''
         } catch (error) {
           console.error(error);
         }

@@ -32,33 +32,18 @@
               class="col-lg-7 col-md-7 col-sm-12 col-xs-12 text-right wow fadeInUp animated"
               data-wow-duration="1.6s"
               style="
+           
                 visibility: visible;
                 animation-duration: 1.6s;
                 animation-name: fadeInUp;
               "
             >
               <div class="tokens mr-r50">
-                <div class="token-name">Reset code</div>
-                <div class="token-body" style="position: relative">
-                  <form @submit.prevent="register" class="">
-                    <div
-                      v-if="page == '2'"
-                      @click="this.page = '1'"
-                      style="cursor: pointer"
-                    >
-                      <i
-                        class="fa fa-arrow-circle-left"
-                        style="
-                          font-size: 30px;
-                          position: absolute;
-                          top: 5px;
-                          left: 5px;
-                          color: rgb(45, 193, 201);
-                        "
-                      ></i>
-                    </div>
-                    <!-- Email input -->
-                    <div v-if="this.page == '1'">
+                <div class="token-name">Reset Pass</div>
+                <div class="token-body" style="position: relative ">
+                  <form @submit.prevent="forget" class="">
+
+               
                    
                       <div class="form-outline mb-1">
                         <div style="position: relative">
@@ -74,9 +59,10 @@
                           <div
                             v-if="sendcode"
                             style="
+                            background: white;
                               position: absolute;
-                              top: 20%;
-                              right: 5%;
+                              top: 16%;
+                              right: 3%;
                               cursor: pointer;
                             "
                             @click="sentCode"
@@ -86,9 +72,10 @@
                           <div
                             v-if="resendcode"
                             style="
+                                 background: white;
                               position: absolute;
-                              top: 20%;
-                              right: 5%;
+                              top: 16%;
+                              right: 3%;
                               cursor: pointer;
                             "
                             @click="sentCode"
@@ -98,9 +85,10 @@
                           <div
                             v-if="countdown"
                             style="
+                                   background: white;
                               position: absolute;
-                              top: 20%;
-                              right: 5%;
+                              top: 16%;
+                              right: 3%;
                               cursor: pointer;
                             "
                           >
@@ -116,16 +104,17 @@
                           > <span style="color: red; font-size: 25px;">*</span>
                         </div>
                       </div>
+                   
 
-                    </div>
+        
                   
                       <div class="form-outline mb-1">
-                        <input
+                        <input 
                           id="userCode"
                           placeholder="Enter Your Code"
                           type="text"
                           v-model="userCode"
-                          class="form-control"
+                          class="form-control select"
                           required
                         />
 
@@ -190,22 +179,7 @@
                       </div>
 
 
-                       <!-- Checkbox -->
-                       <div
-                          class="form-check d-flex justify-content-center mb-4"
-                        >
-                          <input
-                            class="form-check-input me-2"
-                            type="checkbox"
-                            id="form2Example33"
-                            required
-                          />
-                          <p>
-                            <RouterLink style="color: green" to="/risk/disclosure"
-                              >Read all terms & conditions</RouterLink
-                            >
-                          </p>
-                        </div>
+                 
 
                       <button class="btn1 mt-3" type="submit">
                         Reset Now
@@ -244,7 +218,6 @@
 
 <script>
 import AuthLayout from "@/Layouts/AuthLayout.vue";
-
 import axios from "axios";
 
 // import { useAuthUserStore } from "./../../stores/user";
@@ -256,24 +229,23 @@ export default {
   },
   data() {
     return {
-      phone: "",
+
+
       authEmail: "",
-      oldCode: "",
+  
       passwordType: "password",
-      page: "1",
+
       showicon: true,
       sendcode: true,
       showPassword: false,
       resendcode: false,
       userCode: "",
       countdown: "",
-      name: "",
+     
       email: "",
       password: "",
       password_confirmation: "",
-      profile: "",
-      birth: "",
-      country: "Select",
+  
     };
   },
   computed: {
@@ -290,15 +262,41 @@ export default {
   },
 
   methods: {
-    next() {
-      this.page = 2;
-      console.log(this.page);
 
-      this.sentCode();
-    },
+    async forget() {
 
-    image(event) {
-      this.profile = event.target.files[0];
+      this.$setLoading(true);
+
+      if (this.oldCode == this.userCode) {
+        const data = {
+        email: this.authEmail,
+        password: this.password,
+        password_confirmation: this.password_confirmation,
+      };
+
+      await axios
+        .post("/api/auth/forget", data)
+        .then((response) => {
+          this.$router.push("/login");
+          this.$toast.success(
+         response.data.message
+          );
+        })
+        .catch((error) => {
+          // Handle the error
+
+          this.$toast.error(
+            error.response.data.message,
+           );
+        });
+      this.$setLoading(false);
+      } else {
+        this.$setLoading(false);
+        this.$toast.error(
+        "Code do not match!"
+      );}
+
+     
     },
 
     async sentCode() {
@@ -307,10 +305,10 @@ export default {
 
       const data = {
         useReffer: "",
-        type: "register",
+        type: "forget",
         email: this.email,
-        sub: "CWM registation code",
-        bodytext: "Your CWM registation code is:",
+        sub: "Fairlight forget code",
+        bodytext: "Your secret code is:",
         footertext: "Do not share our code anyone.It is very importent",
         btn: "",
       };
@@ -321,11 +319,8 @@ export default {
           this.authEmail = response.data.email;
         })
         .catch((error) => {
-          this.$notify({
-            title: "Error message",
-            text: "Server busy now.Please try later!",
-            type: "error",
-          });
+          this.$toast.error("Server busy now.Please try later!");
+         
         });
     },
     startCountdown() {
@@ -342,53 +337,8 @@ export default {
       this.showPassword = !this.showPassword;
       this.showicon = !this.showicon;
     },
-    showNotification() {
-      this.$notify({
-        title: "Important message",
-        text: "Hello user!",
-      });
-    },
-    async register() {
-      if (this.userCode == this.oldCode) {
-        const formData = new FormData(); // Create a FormData object
-        formData.append("birth", this.birth);
-        formData.append("phone", this.phone);
-        formData.append("email", this.authEmail);
-        formData.append("password", this.password);
-        formData.append("name", this.name);
-        formData.append("password_confirmation", this.password_confirmation);
-        formData.append("profile", this.profile); // Append the file to the FormData object
-        formData.append("country", this.country); // Append the file to the FormData object
+   
 
-        await axios
-          .post("/api/auth/register", formData, {
-            headers: {
-              "Content-Type": "multipart/form-data", // Set content type for file upload
-            },
-          })
-          .then((response) => {
-            this.$router.push("/login");
-            this.$notify({
-              title: "message",
-              text: response.data.message,
-              type: "success",
-            });
-          })
-          .catch((error) => {
-            this.$notify({
-              title: "Error message",
-              text: error.response.data.message,
-              type: "error",
-            });
-          });
-      } else {
-        this.$notify({
-          title: "Error message",
-          text: "Code does not match!",
-          type: "error",
-        });
-      }
-    },
   },
 };
 </script>
@@ -403,6 +353,7 @@ export default {
 
 <style scoped>
 .token-body {
+  width: 100%;
 
   background: linear-gradient(
     to right,
@@ -413,6 +364,18 @@ export default {
 }
 .tokens-area {
   background:transparent !important;
+
+}
+/* input{
+  width:320px;
+} */
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 500px) {
+  .token-body {
+ 
+    padding: 30px 10px !important;}
+	
 
 }
 </style>
