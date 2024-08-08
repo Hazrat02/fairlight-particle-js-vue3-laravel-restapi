@@ -1,11 +1,11 @@
 <template>
-    <HomeLayout>
-        <section class="section">
-            working
+    <!-- <HomeLayout> -->
+        <section class="dark-theme">
+            
             <slot />
         </section>
     
-    </HomeLayout>
+    <!-- </HomeLayout> -->
    
 </template>
 <script>
