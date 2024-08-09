@@ -13,8 +13,8 @@ import LeadView from '../views/LeadView.vue'
 import DeshboardView from '../views/Deshboard/DeshboardView.vue'
 // import UserView from '../views/Deshboard/UserView.vue'
 // import KycView from '../views/Deshboard/KycView.vue'
-// import DepositView from '../views/Deshboard/DepositView.vue'
-// import WithdrawView from '../views/Deshboard/WithdrawView.vue'
+import DepositView from '../views/Deshboard/DepositView.vue'
+import WithdrawView from '../views/Deshboard/WithdrawView.vue'
 // import EconomicView from '../views/Deshboard/EconomicView.vue'
 // import TransactionView from '../views/Deshboard/TransactionView.vue'
 // import PaymentDetailsView from '../views/Deshboard/PaymentDetailsView.vue'
@@ -162,25 +162,25 @@ const router = createRouter({
     //     requiresAuth:true,
     //   },
     // },
-    // {
-    //   path: '/deposit',
-    //   name: 'deposit',
+    {
+      path: '/deposit',
+      name: 'deposit',
 
-    //   component:DepositView,
-    //   meta:{
-    //     requiresAuth:true,
-    //   },
-    // },
+      component:DepositView,
+      meta:{
+        requiresAuth:true,
+      },
+    },
     
-    // {
-    //   path: '/withdraw',
-    //   name: 'withdraw',
+    {
+      path: '/withdraw',
+      name: 'withdraw',
 
-    //   component:WithdrawView,
-    //   meta:{
-    //     requiresAuth:true,
-    //   },
-    // },
+      component:WithdrawView,
+      meta:{
+        requiresAuth:true,
+      },
+    },
     // {
     //   path: '/transaction',
     //   name: 'transaction',

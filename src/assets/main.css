@@ -5,7 +5,6 @@
 @import url(./frontend/css/font-awesome.min.css);
 @import url(./frontend/css/jquery-ui.min.css);
 @import url(./frontend/css/meanmenu.min.css);
-
 @import url(./frontend/css/responsive.css);
 @import url(./frontend/css/video-js.css);
 
@@ -53,7 +52,7 @@ body {
 }
 /*-- Preloader css start --*/
 #preloader {
-	    background-color: #1d2430;
+	background-color: #1d243083;
 	bottom: 0;
 	left: 0;
 	position: fixed;
@@ -79,42 +78,6 @@ body {
 #status img {
 }
 
-#return-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #151846;
-    width: 50px;
-    height: 50px;
-    display: block;
-    text-decoration: none;
-    -webkit-border-radius: 35px;
-    -moz-border-radius: 35px;
-    display: none;
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-	z-index:1000;
-}
-#return-to-top i {
-    color: #fff;
-    margin: 0;
-    position: relative;
-    left: 16px;
-    top: 8px;
-    font-size: 30px;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-#return-to-top:hover i {
-    color: #fff;
-    top: 5px;
-}
 /*Responsive Media*/
 /* ....................................
 1.1 Reset CSS 
@@ -5373,13 +5336,14 @@ background-size:cover; display:block; border:none;}
     background: linear-gradient(279deg, #FB5141 40%, #089EFF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding-top:7px;
+    padding-top:7px;border-style: dotted;
+   
 }
 .single-investment-plan ul li{ color:#ccc;}
 .single-investment-plan ul li span{color:#fff;}
 .dark-theme .site-table .table{background: #251e4e;}
 .dark-theme .panel-layout .site-card .site-card-body .progress-steps .single-step{background: #251e4e; border-color:#251e4e;}
-.transaction-list .table tbody tr td{background: #251e4e;}
+.transaction-list .table tbody tr td{background:transparent;border: solid 1px white !important}
 .dark-theme .progress-steps-form .input-group .site-nice-select{background: #251e4e;}
 .dark-theme .site-tab-bars{background: #251e4e;}
 .single-investment-plan{padding:40px 15px;}
@@ -8583,6 +8547,7 @@ body.dark-theme {
 
 .accordion-item .show {
     background: rgba(255, 255, 255, 0.05);
+    
 }
 
 .dark-theme .faq-contents .accordion-item .accordion-header .accordion-button:not(.collapsed) {
@@ -9410,6 +9375,7 @@ body.dark-theme {
     padding: 0;
     width: 240px;
     top: 66px;
+
     border-radius: 3px;
     background: #ffffff;
     margin: 0;
@@ -11579,7 +11545,8 @@ body.dark-theme {
     cursor: default;
     opacity: 0.3;
     margin-right: 20px;
-    border: 2px solid rgba(0, 48, 73, 0.2);
+    border: 2px solid rgba(45,193,201,1) !important ;
+    
     position: relative;
 }
 
@@ -11620,14 +11587,16 @@ body.dark-theme {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background: #ffc300;
+    background: linear-gradient(to right, rgba(57,100,208,1) 0%, rgba(45,193,201,1) 100%);
+
     top: -10px;
     right: -10px;
     content: "";
 }
 
 .progress-steps .single-step.current .number {
-    background: #ffc300;
+  background: linear-gradient(to right, rgba(57,100,208,1) 0%, rgba(45,193,201,1) 100%);
+
     color: #003049;
 }
 
@@ -12436,11 +12405,17 @@ body.dark-theme {
     transition: 0.1s;
 }
 
+
 .panel-layout .side-nav .side-nav-inside .side-nav-menu .side-nav-item.side-nav-dropdown.show .dropdown-link .right-arrow {
     top: 20%;
     transform: scaleY(-1);
 }
 
+.dropdown-menu-end{
+
+  position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(-20px, 52px, 0px);
+
+}
 .panel-layout .side-nav .side-nav-inside .side-nav-menu .side-nav-item.side-nav-dropdown.show .dropdown-items {
     display: block;
     background: #2b3457;

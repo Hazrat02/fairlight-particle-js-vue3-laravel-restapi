@@ -1,160 +1,240 @@
 <template>
   <div>
     <DeshboardLayout>
-      <div class="bg-dash-dark-2 py-4 mb-4">
-        <div class="container-fluid">
-          <h2 class="mb-0">Deposit Funds</h2>
-        </div>
-      </div>
-      <div class="container-fluid pt-4 px-4">
-        <div class="row g-4">
-          <div class="col-sm-6 col-xl-6">
-            <div
-              class="bg-secondary rounded d-flex align-items-center justify-content-between p-4"
-            >
-              <i class="fa fa-chart-line fa-3x text-primary"></i>
-              <div class="ms-3">
-                <p class="mb-2">Wallet Account Balance</p>
-                <h2 class="mb-0">${{ authUser.main_balance }}</h2>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-xl-6">
-            <div
-              class="bg-secondary rounded d-flex align-items-center justify-content-between p-4"
-            >
-              <i class="fa fa-chart-bar fa-3x text-primary"></i>
-              <div class="ms-3">
-                <p class="mb-2">Live Account Balance</p>
-                <h2 class="mb-0">${{ authUser.live_balance }}</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid pt-4 px-4 mb-5">
-        <div class="">
-          <div class="bg-secondary rounded h-100 p-4">
-            <h3 class="mb-4">Deposit Now</h3>
-            <form @submit.prevent="depositNow" class="row">
-              <div class="mb-3 col-md-12 col-lg-6">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Account Category</label
-                >
+      <div class="page-container">
+        <div class="main-content">
+          <div class="section-gap">
+            <div class="container-fluid">
+             
+              <!--Page Content-->
+              <div class="row">
+                <div class="col-xl-12">
+                  <div class="site-card">
+                    <div class="site-card-header">
+                      <h3 class="title">Deposit Money</h3>
+                      <div class="card-header-links">
+                        <a
+                          href="https://ensurepms.com/user/deposit/log"
+                          class="btn1"
+                          >Deposit History</a
+                        >
+                      </div>
+                    </div>
+                    <div class="site-card-body">
+                      <div class="progress-steps">
+                        <div class="single-step current" v-animate
+                                  data-animation="fadeInRight animated"
+                                  data-wow-duration="1.5s">
+                          <div class="number">01</div>
+                          <div class="content">
+                            <h4>Deposit Amount</h4>
+                            <p>Enter your deposit details</p>
+                          </div>
+                        </div>
+                        <div class="single-step" v-animate
+                                  data-animation="fadeInLeft animated"
+                                  data-wow-duration="1.5s" :class="{'current': page === '2' }">
+                          <div class="number" >02</div>
+                          <div class="content">
+                            <h4>Success</h4>
+                            <p>Success Your Deposit</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="progress-steps-form"  v-if="page === '1'">
+                        <form
+                        @submit.prevent="depositNow"
+                        >
+                  
+                          <div class="row">
+                            <div class="col-xl-6 col-md-12 mb-3">
+                              <label
+                                for="exampleFormControlInput1"
+                                class="form-label"
+                                >Payment Method:</label
+                              >
+                              <div class="input-group">
+                                <select
+                                  name="gateway_code"
+                                  id="gatewaySelect"
+                                  class="site-nice-select"
+                                >
+                                  <option selected disabled>
+                                    --Select Gateway--
+                                  </option>
+                                  <option value="BT785485">
+                                    Bank Transfer
+                                  </option>
+                                  <option value="UPI87459">
+                                    Gpay, PhonePay, All UPI Wallet
+                                  </option>
+                                </select>
+                              </div>
+                              <div class="input-info-text charge"></div>
+                            </div>
+                            <div class="col-xl-6 col-md-12">
+                              <label
+                                for="exampleFormControlInput1"
+                                class="form-label"
+                                >Enter Amount:</label
+                              >
+                              <div class="input-group">
+                                <input
+                                  type="text"
+                                  name="amount"
+                                  class="form-control"
+                                  oninput="this.value = validateDouble(this.value)"
+                                  aria-label="Amount"
+                                  id="amount"
+                                  aria-describedby="basic-addon1"
+                                />
+                                <span class="input-group-text" id="basic-addon1"
+                                  >USD</span
+                                >
+                              </div>
+                              <div class="input-info-text min-max"></div>
+                            </div>
+                          </div>
+                          <img
+                            style="max-width: 300px"
+                            class="img-fluid"
+                            id="qrimage"
+                            src=""
+                          />
+                          <div class="row manual-row"></div>
 
-                <select
-                  class="form-select"
-                  id="Account"
-                  required
-                  v-model="address"
-                >
-                  <option selected disabled>Select</option>
-                  <option value="Wallet">
-                    Wallet Account (${{ authUser.main_balance }})
-                  </option>
-                  <option value="Live">
-                    Live Account (${{ authUser.live_balance }})
-                  </option>
-                </select>
-              </div>
-              <div class="mb-3 col-md-12 col-lg-6">
-                <label class="form-label" for="Amount">Deposit Amount</label>
-                <div class="input-group">
-                  <div class="input-group-text">$</div>
-                  <input
-                    required
-                    v-model="amount"
-                    class="form-control"
-                    id="Amount"
-                    type="text"
-                    placeholder="Min 10"
-                  />
+                          <div class="transaction-list table-responsive">
+                            <div class="user-panel-title">
+                              <h3>Review Details:</h3>
+                            </div>
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td><strong>Amount</strong></td>
+                                  <td>
+                                    <span class="amount">4564</span>
+                                    <span class="currency">$</span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><strong>Charge</strong></td>
+                                  <td class="charge2"></td>
+                                </tr>
+                                <tr>
+                                  <td><strong>Payment Method</strong></td>
+                                  <td id="logo">
+                                    <img src="" class="payment-method" alt="" />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><strong>Total</strong></td>
+                                  <td class="total"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="buttons" v-animate
+                                  data-animation="bounceInRight animated"
+                                  data-wow-duration="1.5s">
+                            <button type="submit" class="btn1" >
+                              Proceed to Payment<i
+                                class="fa fa-arrow-right"
+                              ></i>
+                            </button>
+                          </div>
+                        </form>
+
+                        
+                      </div>
+                      <div class="progress-steps-form" v-if="page === '2'" v-animate
+                                  data-animation="bounceInRight animated"
+                                  data-wow-duration="1.5s">
+                        <div class="transaction-status centered">
+                          <div class="icon success">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <h2>$ 56 Deposit Pending</h2>
+                          <p>
+                            The amount has been Pending added into your account
+                          </p>
+                          <p>Transaction ID: TRXJ0MTSFTIPN</p>
+                          <a
+                            href=""
+                            class="btn1"
+                          >
+                            <i class="fa fa-eye"></i>View History
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="col-lg-6">
-                <label class="" for="inlineFormSelectPref"
-                  >Payment Method</label
-                >
-                <select
-                  class="form-select"
-                  id="inlineFormSelectPref"
-                  v-model="method"
-                  required
-                >
-                  <option selected disabled>Select</option>
-                  <option value="btc">Bitcoin</option>
-                  <option value="bnb">BNB</option>
-                  <option value="ltc">Lite Coin</option>
-                  <option value="Trust Wallet">Trust Wallet</option>
-                  <option value="Bit Pay">Bit Pay</option>
-                </select>
-              </div>
-              <div class="mt-4">
-                <button class="btn btn-success" type="submit">
-                  Deposit Now
-                </button>
-              </div>
-            </form>
+              <!--Page Content-->
+            </div>
           </div>
         </div>
       </div>
-      
+
+    
     </DeshboardLayout>
   </div>
 </template>
   
 <script>
-import { useAuthUserStore } from "../../store/user";
-import isAuthenticated from "./../../midleware/auth";
-import { transactionStore } from "./../../store/transaction";
-
+import DeshboardLayout from "./../../Layouts/DashboardLayout.vue";
+import { useAuthUserStore } from "./../../stores/user";
+// import { transactionStore } from "../../store/transaction";
 import axios from "axios";
 export default {
+  components: {
+    DeshboardLayout,
+  },
   data() {
     return {
       authUser: [],
       amount: "",
       address: "Select",
       method: "Select",
+      page: "1",
     };
   },
   methods: {
     async depositNow() {
-      this.$setLoading(true);
+      this.page = '2'
+      // this.$setLoading(true);
 
-      const data = {
-        status: "pending",
-        method: this.method,
-        type: "deposit",
-        amount: this.amount,
-        address: this.address,
-      };
+      // const data = {
+      //   status: "pending",
+      //   method: this.method,
+      //   type: "deposit",
+      //   amount: this.amount,
+      //   address: this.address,
+      // };
 
-      await axios
-        .post("api/deposit", data)
-        .then((response) => {
-          this.$setLoading(false);
-          // transactionStore===================================
-          this.$router.push("/transaction");
+      // await axios
+      //   .post("api/deposit", data)
+      //   .then((response) => {
+      //     this.$setLoading(false);
+      //     this.$router.push("/transaction");
 
-          this.$notify({
-            title: "message",
-            text: response.data.message,
-            type: "success",
-          });
-          const getTransaction = transactionStore();
+      //     this.$notify({
+      //       title: "message",
+      //       text: response.data.message,
+      //       type: "success",
+      //     });
+      //     const getTransaction = transactionStore();
 
-          getTransaction.addTransaction(response.data);
-        })
-        .catch((error) => {
-          // Handle the error
-          this.$setLoading(false);
-          this.$notify({
-            title: "Error message",
-            text: error.response.data.message,
-            type: "error",
-          });
-        });
+      //     getTransaction.addTransaction(response.data);
+      //   })
+      //   .catch((error) => {
+      //     this.$setLoading(false);
+      //     this.$notify({
+      //       title: "Error message",
+      //       text: error.response.data.message,
+      //       type: "error",
+      //     });
+      //   });
     },
   },
 
@@ -181,5 +261,5 @@ export default {
 </script>
 
 <style scoped>
-@import "./../../assets/main.css";
+
 </style>
