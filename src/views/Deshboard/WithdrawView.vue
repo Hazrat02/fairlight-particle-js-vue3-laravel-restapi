@@ -13,11 +13,11 @@
                     <div class="site-card-header">
                       <h3 class="title">Withdraw Money</h3>
                       <div class="card-header-links">
-                        <a
-                          href="https://ensurepms.com/user/Withdraw/log"
+                        <router-link to="/withdraw/log"
                           class="btn1"
-                          >Withdraw History</a
+                          >Withdraw History</router-link
                         >
+                    
                       </div>
                     </div>
                     <div class="site-card-body">

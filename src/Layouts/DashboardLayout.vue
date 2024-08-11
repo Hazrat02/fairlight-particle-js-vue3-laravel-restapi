@@ -143,44 +143,37 @@
           </div>
           <div class="side-nav-inside">
             <ul class="side-nav-menu">
-              <li class="side-nav-item active">
+              <li class="side-nav-item" :class="{
+              active: this.$route.path === '/dashboard'
+            }">
                  <router-link to="/dashboard"
                   ><i class="fa fa-th"></i><span>Dashboard</span>
                   <!-- Replaced with Font Awesome icon -->
                  </router-link>
               </li>
 
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/schemas"
-                  ><i class="fa fa-check-square"></i><span>All Schema</span>
-                  <!-- Replaced with Font Awesome icon -->
-                </a>
-              </li>
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/invest-logs"
-                  ><i class="fa fa-copy"></i><span>Schema Logs</span>
-                  <!-- Replaced with Font Awesome icon -->
-                </a>
-              </li>
 
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/transactions"
-                  ><i class="fa fa-inbox"></i><span>All Transactions</span>
+              <li class="side-nav-item" :class="{
+              active: this.$route.path === '/transaction',
+            }">
+                <router-link to="/transaction">
+                  <i class="fa fa-inbox"></i><span>All Transactions</span>
                   <!-- Replaced with Font Awesome icon -->
-                </a>
+                </router-link>
               </li>
-              <li class="side-nav-item">
+              <!-- <li class="side-nav-item">
                 <a href="https://ensurepms.com/user/my-rewards"
                   ><i class="fa fa-gift"></i><span>My Rewards</span>
-                  <!-- Replaced with Font Awesome icon -->
                 </a>
-              </li>
+              </li> -->
 
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/deposit"
-                  ><i class="fa fa-file-upload"></i><span>Add Money</span>
+              <li class="side-nav-item" :class="{
+              active: this.$route.path === '/deposit',
+            }">
+                <router-link to="/deposit">
+                  <i class="fa fa-arrow-down"></i><span>Deposit</span>
                   <!-- Replaced with Font Awesome icon -->
-                </a>
+                </router-link>
               </li>
               <li class="side-nav-item">
                 <a href="https://ensurepms.com/user/deposit/log"
@@ -282,22 +275,30 @@
       <!-- Show in 575px in Mobile Screen -->
       <div class="mobile-screen-show">
         <div class="bottom-appbar">
-          <a href="https://ensurepms.com/user/dashboard" class="active">
+          <router-link to="/dashboard" :class="{
+              active: this.$route.path === '/dashboard',
+            }">
             <i class="fa fa-tachometer"></i>
             <!-- Replaced with Font Awesome icon -->
-          </a>
-          <a href="https://ensurepms.com/user/deposit" class="">
+          </router-link>
+          <router-link to="/deposit" :class="{
+              active: this.$route.path === '/deposit',
+            }">
             <i class="fa fa-download"></i>
             <!-- Replaced with Font Awesome icon -->
-          </a>
-          <a href="https://ensurepms.com/user/schemas" class="">
+          </router-link>
+          <router-link to="/withdraw" :class="{
+              active: this.$route.path === '/withdraw',
+            }">
             <i class="fa fa-arrow-up"></i>
             <!-- Replaced with Font Awesome icon -->
-          </a>
-          <a href="https://ensurepms.com/user/referral" class="">
-            <i class="fa fa-gift"></i>
+          </router-link>
+          <router-link to="/transaction" :class="{
+              active: this.$route.path === '/transaction',
+            }">
+            <i class="fa fa-exchange"></i>
             <!-- Replaced with Font Awesome icon -->
-          </a>
+          </router-link>
           <a href="https://ensurepms.com/user/settings" class="">
             <i class="fa fa-cogs"></i>
             <!-- Replaced with Font Awesome icon -->

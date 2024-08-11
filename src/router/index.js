@@ -14,9 +14,11 @@ import DeshboardView from '../views/Deshboard/DeshboardView.vue'
 // import UserView from '../views/Deshboard/UserView.vue'
 // import KycView from '../views/Deshboard/KycView.vue'
 import DepositView from '../views/Deshboard/DepositView.vue'
+import depositLog from '../views/Deshboard/depositLog.vue'
 import WithdrawView from '../views/Deshboard/WithdrawView.vue'
+import withdrawLog from '../views/Deshboard/withdrawLog.vue'
 // import EconomicView from '../views/Deshboard/EconomicView.vue'
-// import TransactionView from '../views/Deshboard/TransactionView.vue'
+import TransactionView from '../views/Deshboard/TransactionView.vue'
 // import PaymentDetailsView from '../views/Deshboard/PaymentDetailsView.vue'
 // import AccountView from '../views/Deshboard/AccountView.vue'
 
@@ -171,6 +173,15 @@ const router = createRouter({
         requiresAuth:true,
       },
     },
+    {
+      path: '/deposit/log',
+      name: 'deposit-log',
+
+      component:depositLog,
+      meta:{
+        requiresAuth:true,
+      },
+    },
     
     {
       path: '/withdraw',
@@ -181,15 +192,24 @@ const router = createRouter({
         requiresAuth:true,
       },
     },
-    // {
-    //   path: '/transaction',
-    //   name: 'transaction',
+    {
+      path: '/withdraw/log',
+      name: 'withdraw-log',
 
-    //   component:TransactionView,
-    //   meta:{
-    //     requiresAuth:true,
-    //   },
-    // },
+      component:withdrawLog,
+      meta:{
+        requiresAuth:true,
+      },
+    },
+    {
+      path: '/transaction',
+      name: 'transaction',
+
+      component:TransactionView,
+      meta:{
+        requiresAuth:true,
+      },
+    },
     // {
     //   path: '/payment/details',
     //   name: 'payment',

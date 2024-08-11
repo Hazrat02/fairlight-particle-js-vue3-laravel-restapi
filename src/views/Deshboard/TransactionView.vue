@@ -1,140 +1,128 @@
 <template>
-  <div>
-    <DeshboardLayout>
-      <div class="bg-dash-dark-2 py-4 mb-4">
-        <div class="container-fluid">
-          <h2 class="h5 mb-0">Transaction History</h2>
-        </div>
-      </div>
-      <!-- Breadcrumb-->
 
-      <div class="container-fluid pt-4 px-4">
-      <div class="bg-secondary text-center rounded p-4">
-        <div class="d-flex align-items-center justify-content-between mb-4">
+        <DeshboardLayout>
+          <div class="page-container">
+            <div class="main-content">
+              <div class="section-gap">
+                <div class="container-fluid">
+                  <!--Page Content-->
+                  <div class="row">
+                    <div class="col-xl-12">
+                      <div class="site-card">
+                        <div class="site-card-header">
+                          <h3 class="title">All transaction Log</h3>
+                        </div>
+                        <div class="site-card-body">
+                          <div class="site-table">
+                            <div class="table-filter">
+                              <div class="filter">
+                                <form
+                                  action="https://ensurepms.com/user/deposit/log"
+                                  method="get"
+                                >
+                                  <div class="search">
+                                    <input
+                                      type="text"
+                                      id="search"
+                                      placeholder="Search"
+                                      value=""
+                                      name="query"
+                                    />
 
-                  <div class=" p-2 ms-3 col-3" >
-                    <label>Result: </label> <span> {{this.transaction.length}}</span>
+                                    <button type="submit" class="apply-btn">
+                                      <i icon-name="search"></i>Search
+                                    </button>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                            <div class="table-responsive">
+                              <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th>Description</th>
+                                    <th>Transactions ID</th>
+                                    <th>Amount</th>
+                                    <th>Fee</th>
+                                    <th>Status</th>
+                                    <th>Method</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div class="table-description">
+                                        <div class="icon">
+                                          <i class="fa fa-arrow-down"></i>
+                                        </div>
+                                        <div class="description">
+                                          <strong>usdt</strong>
+                                          <div class="date">Aug 10</div>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td><strong>TRX81HRPQ9UCZ</strong></td>
+                                    <td>
+                                      <strong class="green-color"
+                                        >+56 USD</strong
+                                      >
+                                    </td>
+                                    <td>
+                                      <strong class="red-color">-0 USD</strong>
+                                    </td>
+                                    <td>
+                                      <div class="site-badge warnning">
+                                        Pending
+                                      </div>
+                                    </td>
+                                    <td><strong>BT785485</strong></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-6 p-3">
-                    <input style="border: solid white 1px;"
-                      class="form-control"
-                      type="text"
-                      v-model="search"
-                      placeholder="search.."
-                    />
-                  </div>
-    
+                  <!--Page Content-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </DeshboardLayout>
 
-        </div>
-        <div class="table-responsive">
-          <table
-            class="table text-start align-middle table-bordered table-hover mb-0"
-          >
-            <thead>
-              <tr class="text-white">
-      
-                          <th>#</th>
-                          <th>Date</th>
-                          <th>Type</th>
-                          <th>Payment Method</th>
-                          <th>Amount</th>
-                          <th>Account</th>
-
-                          <th>Status</th>
-                        </tr>
-    
-            </thead>
-            <tbody>
-              <tr v-for="(transactionItem, index) in displayedItems"
-                  :key="index">
-                          <th scope="row">{{index}}</th>
-                          <td>{{ transactionItem.created_at.substring(0, 10) }}</td>
-                          
-                  <td>{{ transactionItem.type }}</td>
-                  <td>{{ transactionItem.method }}</td>
-                  <td>${{ transactionItem.amount }}</td>
-                  <td>{{ transactionItem.address }} Account</td>
-                  <td>
-                    <span
-                      class="badge"
-                      :class="{
-                        'bg-warning': transactionItem.status === 'pending',
-                        'bg-danger': transactionItem.status === 'rejected',
-                        'bg-success': transactionItem.status === 'success',
-                      }"
-                      >{{ transactionItem.status }}</span
-                    >
-                  </td>
-                        </tr>
-            </tbody>
-          </table>
-          <nav v-show="totalPages>1" aria-label="Page navigation example mt-3">
-              <ul class="pagination justify-content-center">
-                <li
-                  class="page-item"
-                  :class="{
-                    disabled: currentPage === 1,
-                  }"
-                >
-                  <button
-                    class="page-link"
-                    @click="previousPage"
-                    :disabled="currentPage === 1"
-                  >
-                    Previous
-                  </button>
-                </li>
-                <li class="page-item">
-                  <span class="page-link"
-                    >Page {{ currentPage }} of {{ totalPages }}</span
-                  >
-                </li>
-
-                <li class="page-item">
-                  <button
-                    class="page-link"
-                    @click="nextPage"
-                    :class="{
-                      disabled: currentPage === totalPages,
-                    }"
-                  >
-                    Next
-                  </button>
-                </li>
-              </ul>
-            </nav>
-        </div>
-      </div>
-    </div>
-
-    </DeshboardLayout>
-  </div>
 </template>
-    
+
+
+
+
+
 
 <script>
 
+import DeshboardLayout from "./../../Layouts/DashboardLayout.vue";
 
 import axios from "axios";
-import { useAuthUserStore } from "./../../store/user";
-import { transactionStore } from "./../../store/transaction";
+import { useAuthUserStore } from "./../../stores/user";
+import { transactionStore } from "./../../stores/transaction";
 
 export default {
-  
+  components: {
+    DeshboardLayout,
+  },
   data() {
     return {
       transaction: "",
       authUser: "",
-     
+
       filteredPayment: "",
 
       // paginate
       currentPage: 1, // The current page number
       itemsPerPage: 10, // Number of items to display per page
-
-    }
+    };
   },
-
 
   computed: {
     // Calculate the total number of pages based on the total number of items and itemsPerPage
@@ -150,8 +138,6 @@ export default {
   },
 
   methods: {
- 
-
     // paginate=================================
     previousPage() {
       if (this.currentPage > 1) {
@@ -163,10 +149,8 @@ export default {
         this.currentPage++;
       }
     },
-    
-
   },
-  
+
   async created() {
     // auth user data +++++++++++++++++++++++++++++
 
@@ -188,23 +172,13 @@ export default {
 
     if (transactionData) {
       this.transaction = transactionData;
-   
     } else {
       // If data is not available, fetch it and set the component property
       this.transaction = await getTransaction.authUserTransaction();
-     
     }
 
-    
-    
     this.$setLoading(false);
   },
-
-
 };
 </script>
 
-
-<style scoped>
- @import "./../../assets/main.css";
-</style>

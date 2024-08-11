@@ -13,10 +13,9 @@
                     <div class="site-card-header">
                       <h3 class="title">Deposit Money</h3>
                       <div class="card-header-links">
-                        <a
-                          href="https://ensurepms.com/user/deposit/log"
+                        <router-link to="/deposit/log"
                           class="btn1"
-                          >Deposit History</a
+                          >Deposit History</router-link
                         >
                       </div>
                     </div>
@@ -135,7 +134,7 @@
                           </div>
                           <div class="buttons" v-animate
                                   data-animation="bounceInRight animated"
-                                  data-wow-duration="1.5s">
+                                  data-wow-duration="1.5s" :class="Proceed">
                             <button type="submit" class="btn1" >
                               Proceed to Payment<i
                                 class="fa fa-arrow-right"
@@ -197,13 +196,15 @@ export default {
       address: "Select",
       method: "Select",
       page: "1",
+      Proceed: "",
     };
   },
   methods: {
     async depositNow() {
+      this.Proceed = 'bounceOutRight animated'
+     
+      this.$setLoading(true);
       this.page = '2'
-      // this.$setLoading(true);
-
       // const data = {
       //   status: "pending",
       //   method: this.method,
