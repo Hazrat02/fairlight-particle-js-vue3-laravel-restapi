@@ -5,7 +5,6 @@
         <div class="main-content">
           <div class="section-gap">
             <div class="container-fluid">
-             
               <!--Page Content-->
               <div class="row">
                 <div class="col-xl-12">
@@ -13,97 +12,152 @@
                     <div class="site-card-header">
                       <h3 class="title">Deposit Money</h3>
                       <div class="card-header-links">
-                        <router-link to="/deposit/log"
-                          class="btn1"
+                        <router-link to="/deposit/log" class="btn1"
                           >Deposit History</router-link
                         >
                       </div>
                     </div>
                     <div class="site-card-body">
                       <div class="progress-steps">
-                        <div class="single-step current" v-animate
-                                  data-animation="fadeInRight animated"
-                                  data-wow-duration="1.5s">
+                        <div
+                          class="single-step current"
+                          v-animate
+                          data-animation="fadeInRight animated"
+                          data-wow-duration="1.5s"
+                        >
                           <div class="number">01</div>
                           <div class="content">
                             <h4>Deposit Amount</h4>
                             <p>Enter your deposit details</p>
                           </div>
                         </div>
-                        <div class="single-step" v-animate
-                                  data-animation="fadeInLeft animated"
-                                  data-wow-duration="1.5s" :class="{'current': page === '2' }">
-                          <div class="number" >02</div>
+                        <div
+                          class="single-step"
+                          v-animate
+                          data-animation="fadeInLeft animated"
+                          data-wow-duration="1.5s"
+                          :class="{ current: page === '2' }"
+                        >
+                          <div class="number">02</div>
                           <div class="content">
                             <h4>Success</h4>
                             <p>Success Your Deposit</p>
                           </div>
                         </div>
                       </div>
-                      <div class="progress-steps-form"  v-if="page === '1'">
-                        <form
-                        @submit.prevent="depositNow"
-                        >
-                  
-                          <div class="row">
-                            <div class="col-xl-6 col-md-12 mb-3">
-                              <label
-                                for="exampleFormControlInput1"
-                                class="form-label"
-                                >Payment Method:</label
+                      <div class="" v-if="page === '1'">
+                        <form @submit.prevent="depositNow">
+                          <div class="p-5">
+                            <div class="">
+                              <!-- Password input -->
+                              <div
+                                style="
+                                  display: flex;
+                                  justify-content: space-between;
+                                "
                               >
-                              <div class="input-group">
-                                <select
-                                  name="gateway_code"
-                                  id="gatewaySelect"
-                                  class="site-nice-select"
-                                >
-                                  <option selected disabled>
-                                    --Select Gateway--
-                                  </option>
-                                  <option value="BT785485">
-                                    Bank Transfer
-                                  </option>
-                                  <option value="UPI87459">
-                                    Gpay, PhonePay, All UPI Wallet
-                                  </option>
-                                </select>
+                                <div>
+                                  <label class="form-label" for="form3Example4"
+                                    >Amount (USDT)</label
+                                  >
+                                  <span style="color: red; font-size: 25px">
+                                    *
+                                  </span>
+                                </div>
                               </div>
-                              <div class="input-info-text charge"></div>
+                              <div class="form-outline mb-4">
+                                <div class="form-outline">
+                                  <div >
+                                    <input
+                                      placeholder="min-10$"
+                                      v-model="amount"
+                                      class="form-control"
+                                      required
+                                    />
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                            <div class="col-xl-6 col-md-12">
-                              <label
-                                for="exampleFormControlInput1"
-                                class="form-label"
-                                >Enter Amount:</label
+                            <div class="">
+                              <!-- Password input -->
+                              <div
+                                style="
+                                  display: flex;
+                                  justify-content: space-between;
+                                "
                               >
-                              <div class="input-group">
-                                <input
-                                  type="text"
-                                  name="amount"
-                                  class="form-control"
-                                  oninput="this.value = validateDouble(this.value)"
-                                  aria-label="Amount"
-                                  id="amount"
-                                  aria-describedby="basic-addon1"
-                                />
-                                <span class="input-group-text" id="basic-addon1"
-                                  >USD</span
-                                >
+                                <div>
+                                  <label class="form-label" for="form3Example4"
+                                    >Deposit Method</label
+                                  >
+                                  <span style="color: red; font-size: 25px">
+                                    *
+                                  </span>
+                                </div>
                               </div>
-                              <div class="input-info-text min-max"></div>
+                              <div class="form-outline mb-4">
+                                <div class="form-outline">
+                                  <div style="position: relative">
+                                    <select
+                                      v-model="method"
+                                      class="form-control"
+                                      required
+                                    >
+                                    <option disabled >
+                                      Select Method
+                                    </option>
+                                    <option value="usdt">Usdt (TRC20)</option>
+                                    <option value="Bitcoin">Bitcoin</option>
+                                    <option value="BNB">BNB (bep20)</option>
+                                    <option value="Bank">Bank</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
+                            <div class="">
+                              <!-- Password input -->
+                              <div
+                                style="
+                                  display: flex;
+                                  justify-content: space-between;
+                                "
+                              >
+                                <div>
+                                  <label class="form-label" for="form3Example4"
+                                    >Account Type</label
+                                  >
+                                  <span style="color: red; font-size: 25px">
+                                    *
+                                  </span>
+                                </div>
+                              </div>
+                              <div class="form-outline mb-4">
+                                <div class="form-outline">
+                                  <div style="position: relative">
+                                    <select
+                                      v-model="address"
+                                      class="form-control"
+                                      required
+                                    >
+                                    <option disabled >
+                                      Select
+                                    </option>
+                                    <option value="Live">Profit Account</option>
+                                    <option value="Wallet">Main Account</option>
+                            
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                           
                           </div>
-                          <img
-                            style="max-width: 300px"
-                            class="img-fluid"
-                            id="qrimage"
-                            src=""
-                          />
+
                           <div class="row manual-row"></div>
 
-                          <div class="transaction-list table-responsive">
-                            <div class="user-panel-title">
+                          <div class="transaction-list table-responsive" v-if="amount && method != 'Select Method' && address != 'Select'">
+                            <div class="">
                               <h3>Review Details:</h3>
                             </div>
                             <table class="table">
@@ -111,56 +165,60 @@
                                 <tr>
                                   <td><strong>Amount</strong></td>
                                   <td>
-                                    <span class="amount">4564</span>
+                                    <span class="amount">{{ this.amount }}</span>
                                     <span class="currency">$</span>
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td><strong>Charge</strong></td>
-                                  <td class="charge2"></td>
+                                  <td><strong>TRXID</strong></td>
+                                  <td class="charge2">{{ generateTRXId() }}</td>
                                 </tr>
                                 <tr>
                                   <td><strong>Payment Method</strong></td>
-                                  <td id="logo">
-                                    <img src="" class="payment-method" alt="" />
+                                  <td >
+                                    {{ this.method }}
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td><strong>Total</strong></td>
-                                  <td class="total"></td>
+                                  <td><strong>Deposit Wallet</strong></td>
+                                  <td class="total" v-if="this.address === 'Live'"> Profit Account </td>
+                                  <td class="total" v-else> Main Account </td>
                                 </tr>
                               </tbody>
                             </table>
                           </div>
-                          <div class="buttons" v-animate
-                                  data-animation="bounceInRight animated"
-                                  data-wow-duration="1.5s" :class="Proceed">
-                            <button type="submit" class="btn1" >
+                          <div
+                            class="buttons"
+                            v-animate
+                            data-animation="bounceInRight animated"
+                            data-wow-duration="1.5s"
+                            :class="Proceed"
+                          >
+                            <button type="submit" class="btn1">
                               Proceed to Payment<i
                                 class="fa fa-arrow-right"
                               ></i>
                             </button>
                           </div>
                         </form>
-
-                        
                       </div>
-                      <div class="progress-steps-form" v-if="page === '2'" v-animate
-                                  data-animation="bounceInRight animated"
-                                  data-wow-duration="1.5s">
+                      <div
+                        class="progress-steps-form"
+                        v-if="page === '2'"
+                        v-animate
+                        data-animation="bounceInRight animated"
+                        data-wow-duration="1.5s"
+                      >
                         <div class="transaction-status centered">
                           <div class="icon success">
                             <i class="fa fa-check"></i>
                           </div>
-                          <h2>$ 56 Deposit Pending</h2>
+                          <h2>$ {{ this.amount }} Deposit Pending</h2>
                           <p>
                             The amount has been Pending added into your account
                           </p>
-                          <p>Transaction ID: TRXJ0MTSFTIPN</p>
-                          <a
-                            href=""
-                            class="btn1"
-                          >
+                          <p>Transaction ID: {{ generateTRXId() }}</p>
+                          <a href="" class="btn1">
                             <i class="fa fa-eye"></i>View History
                           </a>
                         </div>
@@ -174,8 +232,6 @@
           </div>
         </div>
       </div>
-
-    
     </DeshboardLayout>
   </div>
 </template>
@@ -194,17 +250,30 @@ export default {
       authUser: [],
       amount: "",
       address: "Select",
-      method: "Select",
+      method: "Select Method",
       page: "1",
       Proceed: "",
+
+      
     };
   },
   methods: {
+    generateTRXId() {
+      const prefix = "TRX";
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      let trxId = prefix;
+      
+      for (let i = 0; i < 10; i++) {
+        trxId += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+
+      return trxId;
+    },
     async depositNow() {
-      this.Proceed = 'bounceOutRight animated'
-     
+      this.Proceed = "bounceOutRight animated";
+
       this.$setLoading(true);
-      this.page = '2'
+      this.page = "2";
       // const data = {
       //   status: "pending",
       //   method: this.method,
@@ -262,5 +331,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

@@ -12,7 +12,7 @@ import LeadView from '../views/LeadView.vue'
 
 import DeshboardView from '../views/Deshboard/DeshboardView.vue'
 // import UserView from '../views/Deshboard/UserView.vue'
-// import KycView from '../views/Deshboard/KycView.vue'
+import KycView from '../views/Deshboard/KycView.vue'
 import DepositView from '../views/Deshboard/DepositView.vue'
 import depositLog from '../views/Deshboard/depositLog.vue'
 import WithdrawView from '../views/Deshboard/WithdrawView.vue'
@@ -20,7 +20,8 @@ import withdrawLog from '../views/Deshboard/withdrawLog.vue'
 // import EconomicView from '../views/Deshboard/EconomicView.vue'
 import TransactionView from '../views/Deshboard/TransactionView.vue'
 // import PaymentDetailsView from '../views/Deshboard/PaymentDetailsView.vue'
-// import AccountView from '../views/Deshboard/AccountView.vue'
+import AccountView from '../views/Deshboard/AccountView.vue'
+import ChangeView from '../views/Deshboard/ChangeView.vue'
 
 
 // admin
@@ -137,15 +138,15 @@ const router = createRouter({
         requiresAuth:true,
       },
     },
-    // {
-    //   path: '/kyc',
-    //   name: 'kyc',
+    {
+      path: '/kyc',
+      name: 'kyc',
 
-    //   component:KycView,
-    //   meta:{
-    //     requiresAuth:true,
-    //   },
-    // },
+      component:KycView,
+      meta:{
+        requiresAuth:true,
+      },
+    },
     // {
     //   path: '/profile',
     //   name: 'profile',
@@ -219,15 +220,24 @@ const router = createRouter({
     //     requiresAuth:true,
     //   },
     // },
-    // {
-    //   path: '/account',
-    //   name: 'account',
+    {
+      path: '/account',
+      name: 'account',
 
-    //   component:AccountView,
-    //   meta:{
-    //     requiresAuth:true,
-    //   },
-    // },
+      component:AccountView,
+      meta:{
+        requiresAuth:true,
+      },
+    },
+    {
+      path: '/change',
+      name: 'change',
+
+      component:ChangeView,
+      meta:{
+        requiresAuth:true,
+      },
+    },
 
 
 

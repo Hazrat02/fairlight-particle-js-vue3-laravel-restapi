@@ -5211,6 +5211,7 @@ textarea{
   	padding: 0;
 }
 .dark-theme .single-badge{border:none; background:none}
+.dark-theme .form-control{ background:black;color: white;}
 .single-badge .badge .img{width:inherit;}
 .footer .copyright-text{background:none;}
 .how-it-works .how-it-works-single .icon-box{border-radius:50%;}
@@ -7383,6 +7384,7 @@ body.dark-theme {
     border-radius: 4px;
     padding: 0 5px;
     background: transparent;
+
 }
 
 .site-card .site-card-body {
@@ -13234,7 +13236,7 @@ body.dark-theme {
 .site-table .table-filter .filter .search label {
     font-size: 12px;
     font-weight: 700;
-    text-transform: uppercase;
+
     color: #151d30;
     margin-right: 5px;
 }
@@ -13249,7 +13251,7 @@ body.dark-theme {
     padding: 5px 10px;
     font-size: 12px;
     font-weight: 700;
-    text-transform: uppercase;
+
     border-radius: 3px;
     margin-right: 10px;
     min-width: 180px;
@@ -15121,7 +15123,7 @@ body.dark-theme {
 .mobile-transaction-filter .filter .search label {
     font-size: 12px;
     font-weight: 700;
-    text-transform: uppercase;
+
     color: #151d30;
     margin-right: 5px;
 }
@@ -15136,7 +15138,7 @@ body.dark-theme {
     padding: 5px 10px;
     font-size: 12px;
     font-weight: 700;
-    text-transform: uppercase;
+
     border-radius: 3px;
     margin-right: 10px;
     min-width: 130px;

@@ -235,7 +235,7 @@
                         <span class="symbol">$</span>
                         {{ authUser.live_balance }}
                       </div>
-                      <div class="wallet">Live Wallet</div>
+                      <div class="wallet">Profit Wallet</div>
                     </div>
                     <div class="info">
                       <i icon-name="info"></i>Total balance : $
@@ -250,21 +250,21 @@
                 <div class="col-12">
                   <div class="mob-shortcut-btn">
                     <router-link
-                      to="/"
+                      to="/deposit"
                       v-animate
                       data-animation="bounceInDown animated"
                       data-wow-duration="1.0s"
                       ><i class="fa fa-arrow-down"></i> Deposit</router-link
                     >
                     <router-link
-                      to="/"
+                      to="/transaction"
                       v-animate
                       data-animation="bounceInDown animated"
                       data-wow-duration="1.5s"
-                      ><i class="fa fa-shopping-bag"></i> Wallet</router-link
+                      ><i class="fa fa-shopping-bag"></i> All Log</router-link
                     >
                     <router-link
-                      to="/"
+                      to="/withdraw"
                       v-animate
                       data-animation="bounceInDown animated"
                       data-wow-duration="2s"
@@ -292,7 +292,7 @@
                                 alt=""
                               />
                             </div>
-                            <div class="name">Schemas</div>
+                            <div class="name">profile</div>
                           </a>
                         </div>
                       </div>
@@ -306,11 +306,11 @@
                           <a href="">
                             <div class="icon">
                               <img
-                                src="https://ensurepms.com/assets/frontend/materials/schema-log.png"
+                                src="https://ensurepms.com/assets/frontend/materials/withdraw-log.png"
                                 alt=""
                               />
                             </div>
-                            <div class="name">Investment</div>
+                            <div class="name">Withdraw Log</div>
                           </a>
                         </div>
                       </div>

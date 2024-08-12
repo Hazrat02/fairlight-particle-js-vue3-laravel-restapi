@@ -54,21 +54,19 @@
                 </button>
                 <ul class="dropdown-menu " :class="dropShow">
                   <li>
-                    <a
-                      href=""
+                    <router-link to="/account"
                       class="dropdown-item"
                       type="button"
-                      ><i class="fa fa-cog"></i>Settings</a
+                      ><i class="fa fa-cog"></i>Settings</router-link
                     >
                   </li>
                   <li>
-                    <a
-                      href="https://ensurepms.com/user/change-password"
+                   <router-link to="/change"
                       class="dropdown-item"
                       type="button"
                     >
                       <i class="fa fa-lock"></i>Change Password
-                    </a>
+                       </router-link>
                   </li>
                   <li>
                     <a
@@ -175,95 +173,42 @@
                   <!-- Replaced with Font Awesome icon -->
                 </router-link>
               </li>
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/deposit/log"
-                  ><i class="fa fa-folder-plus"></i><span>Add Money Log</span>
+              <li class="side-nav-item" :class="{
+              active: this.$route.path === '/kyc',
+            }">
+                <router-link to="/kyc">
+                  <i class="fa fa-file"></i><span> KYC</span>
                   <!-- Replaced with Font Awesome icon -->
-                </a>
+                </router-link>
               </li>
+              <li class="side-nav-item" :class="{
+              active: this.$route.path === '/deposit/log',
+            }">
+                <router-link to="/deposit/log">
+                  <i class="fa fa-arrow-circle-o-down"></i><span> Deposit Log</span>
+                  <!-- Replaced with Font Awesome icon -->
+                </router-link>
+              </li>
+              <li class="side-nav-item" :class="{
+              active: this.$route.path === '/withdraw/log',
+            }">
+                <router-link to="/withdraw/log">
+                  <i class="fa fa-arrow-circle-up"></i><span> Withdraw  Log</span>
+                  <!-- Replaced with Font Awesome icon -->
+                </router-link>
+              </li>
+         
+              <li class="side-nav-item" :class="{
+              active: this.$route.path === '/account',
+            }">
+                <router-link to="/account">
+                  <i class="fa fa-cog"></i><span> Settings</span>
+                  <!-- Replaced with Font Awesome icon -->
+                </router-link>
+              </li>
+         
 
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/wallet-exchange"
-                  ><i class="fa fa-exchange-alt"></i
-                  ><span>Wallet Exchange</span>
-                  <!-- Replaced with Font Awesome icon -->
-                </a>
-              </li>
-
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/send-money"
-                  ><i class="fa fa-paper-plane"></i><span>Send Money</span>
-                  <!-- Replaced with Font Awesome icon -->
-                </a>
-              </li>
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/send-money/log"
-                  ><i class="fa fa-cloud"></i><span>Send Money Log</span>
-                  <!-- Replaced with Font Awesome icon -->
-                </a>
-              </li>
-
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/withdraw"
-                  ><i class="fa fa-university"></i><span>Withdraw</span>
-                  <!-- Replaced with Font Awesome icon -->
-                </a>
-              </li>
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/withdraw/log"
-                  ><i class="fa fa-credit-card"></i><span>Withdraw Log</span>
-                  <!-- Replaced with Font Awesome icon -->
-                </a>
-              </li>
-
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/ranking-badge"
-                  ><i class="fa fa-star"></i><span>Ranking Badge</span>
-                  <!-- Replaced with Font Awesome icon -->
-                </a>
-              </li>
-
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/referral"
-                  ><i class="fa fa-user-friends"></i><span>Referral</span>
-                  <!-- Replaced with Font Awesome icon -->
-                </a>
-              </li>
-
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/settings"
-                  ><i class="fa fa-cog"></i><span>Settings</span>
-                  <!-- Replaced with Font Awesome icon -->
-                </a>
-              </li>
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/support-ticket/index"
-                  ><i class="fa fa-tools"></i><span>Support Tickets</span>
-                  <!-- Replaced with Font Awesome icon -->
-                </a>
-              </li>
-
-              <li class="side-nav-item">
-                <a href="https://ensurepms.com/user/notification/all"
-                  ><i class="fa fa-bell"></i><span>Notifications</span>
-                  <!-- Replaced with Font Awesome icon -->
-                </a>
-              </li>
-
-              <li class="side-nav-item">
-                <!-- Authentication -->
-                <form method="POST" action="https://ensurepms.com/logout">
-                  <input
-                    type="hidden"
-                    name="_token"
-                    value="CQv1VSBHkGUBhhhIeGxNnyk646PMRykfuci1aDUd"
-                  />
-                  <button type="submit" class="site-btn grad-btn w-100">
-                    <i class="fa fa-sign-out-alt"></i><span>Logout</span>
-                    <!-- Replaced with Font Awesome icon -->
-                  </button>
-                </form>
-              </li>
+   
             </ul>
           </div>
         </div>
