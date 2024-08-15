@@ -1,5 +1,15 @@
 <template>
   <!-- <HomeLayout> -->
+
+    <div id="preloader" v-if="this.$isLoading()">
+    <div id="status">
+      <img
+        src="./../assets/frontend/images/banner/loader.gif"
+        id="preloader_image"
+        alt="loader"
+      />
+    </div>
+  </div>
   <section class="dark-theme">
     <div class="panel-layout" :class="sideShow">
       <!--Header-->
@@ -35,13 +45,6 @@
           </div>
           <div class="nav-right">
             <div class="single-nav-right">
-              <div class="single-right">
-                <div class="color-switcher">
-                  <i class="fa fa-moon dark-icon" data-mode="dark"></i>
-                  <i class="fa fa-sun light-icon" data-mode="light"></i>
-                </div>
-              </div>
-
            
               <div class="single-right">
                 <button
@@ -119,7 +122,7 @@
               </div>
               <div class="wallet-info">
                 <div class="wallet-id">
-                  <i class="fa fa-landmark"></i>Long Term Gain Wallet
+                  <i class="fa fa-landmark"></i>Total Wallet Balance
                   <!-- Replaced with Font Awesome icon -->
                 </div>
                 <div class="balance">$0</div>
@@ -133,7 +136,7 @@
               </router-link>
                <router-link to="/withdraw"
               
-                class="user-sidebar-btn red-btn"
+                class="user-sidebar-btn"
                 ><i class="fa fa-arrow-up"></i>Withdraw
                 <!-- Replaced with Font Awesome icon -->
                </router-link>
@@ -244,10 +247,13 @@
             <i class="fa fa-exchange"></i>
             <!-- Replaced with Font Awesome icon -->
           </router-link>
-          <a href="https://ensurepms.com/user/settings" class="">
+          <router-link to="/account" :class="{
+              active: this.$route.path === '/account',
+            }">
             <i class="fa fa-cogs"></i>
             <!-- Replaced with Font Awesome icon -->
-          </a>
+          </router-link>
+         
         </div>
       </div>
 

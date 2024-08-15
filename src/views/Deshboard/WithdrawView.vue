@@ -46,7 +46,7 @@
                         </div>
                       </div>
                       <div class="" v-if="page === '1'">
-                        <form @submit.prevent="depositNow">
+                        <form @submit.prevent="withdrawNow">
                           <div class="p-5">
                             <div class="">
                               <!-- Password input -->
@@ -171,7 +171,7 @@
                                 </tr>
                                 <tr>
                                   <td><strong>TRXID</strong></td>
-                                  <td class="charge2">{{ generateTRXId() }}</td>
+                                  <td class="charge2">{{ this.trx }}</td>
                                 </tr>
                                 <tr>
                                   <td><strong>Payment Method</strong></td>
@@ -217,7 +217,7 @@
                           <p>
                             The Withdraw has been Pending added into your account
                           </p>
-                          <p>Transaction ID: {{ generateTRXId() }}</p>
+                          <p>Transaction ID: {{ this.trx }}</p>
                           <a href="" class="btn1">
                             <i class="fa fa-eye"></i>View History
                           </a>
@@ -238,8 +238,8 @@
   
 <script>
 import DeshboardLayout from "./../../Layouts/DashboardLayout.vue";
-import { useAuthUserStore } from "./../../stores/user";
-// import { transactionStore } from "../../store/transaction";
+// import { useAuthUserStore } from "./../../stores/user";
+import { transactionStore } from "../../stores/transaction";
 import axios from "axios";
 export default {
   components: {
@@ -253,6 +253,7 @@ export default {
       method: "Select Method",
       page: "1",
       Proceed: "",
+      trx: "",
 
       
     };
@@ -267,64 +268,43 @@ export default {
         trxId += characters.charAt(Math.floor(Math.random() * characters.length));
       }
 
-      return trxId;
+      this.trx = trxId;
     },
-    async depositNow() {
+    async withdrawNow() {
       this.Proceed = "bounceOutRight animated";
 
       this.$setLoading(true);
-      this.page = "2";
-      // const data = {
-      //   status: "pending",
-      //   method: this.method,
-      //   type: "deposit",
-      //   amount: this.amount,
-      //   address: this.address,
-      // };
 
-      // await axios
-      //   .post("api/deposit", data)
-      //   .then((response) => {
-      //     this.$setLoading(false);
-      //     this.$router.push("/transaction");
+      const data = {
+        status: "pending",
+        trx: this.trx,
+        method: this.method,
+        type: "withdraw",
+        amount: this.amount,
+        address: this.address,
+      };
 
-      //     this.$notify({
-      //       title: "message",
-      //       text: response.data.message,
-      //       type: "success",
-      //     });
-      //     const getTransaction = transactionStore();
+      await axios
+        .post("api/deposit", data)
+        .then((response) => {
+          this.$setLoading(false);
+          this.page = "2";
+          const getTransaction = transactionStore();
 
-      //     getTransaction.addTransaction(response.data);
-      //   })
-      //   .catch((error) => {
-      //     this.$setLoading(false);
-      //     this.$notify({
-      //       title: "Error message",
-      //       text: error.response.data.message,
-      //       type: "error",
-      //     });
-      //   });
+          getTransaction.addTransaction(response.data);
+        })
+        .catch((error) => {
+          this.$setLoading(false);
+          this.$toast.error(
+            error.response.data.message,
+           );
+        });
     },
   },
 
   async created() {
-    if (isAuthenticated() == true) {
-      // auth user data +++++++++++++++++++++++++++++
 
-      const userStore = useAuthUserStore();
-      const authUser = userStore.authUser;
-
-      if (authUser) {
-        this.authUser = authUser;
-      } else {
-        // userStore.reSetAuthUser();
-        this.authUser = await userStore.reSetAuthUser();
-      }
-    } else {
-      this.authUser = "";
-    }
-
+    this.generateTRXId()
     this.$setLoading(false);
   },
 };

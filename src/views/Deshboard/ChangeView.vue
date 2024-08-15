@@ -12,11 +12,11 @@
                   <div class="site-card-header">
                     <h3 class="title">Change Password</h3>
                     <div class="card-header-links">
-                      <a
-                        href="https://ensurepms.com/user/settings"
-                        class="card-header-link"
-                        >Back</a
-                      >
+                      <router-link class="btn1" to="/account">
+                        Change profile
+
+                      </router-link>
+         
                     </div>
                   </div>
 

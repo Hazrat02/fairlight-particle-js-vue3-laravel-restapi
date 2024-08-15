@@ -4,20 +4,6 @@
       <div class="main-content">
         <div class="section-gap">
           <div class="container-fluid">
-          
-
-            <div class="row mobile-screen-show">
-              <div class="col-12">
-                <div class="user-kyc-mobile">
-                  <i class="fa fa-fingerprint kyc-star"></i>
-                  <!-- Replaced with Font Awesome icon -->
-                  Please Verify Your Identity
-                  <a href="https://ensurepms.com/user/kyc">Submit Now</a>
-                </div>
-              </div>
-            </div>
-
-            <!--Page Content-->
             <div class="desktop-screen-show">
               <div class="">
                 <section class="video-des bg-img">
@@ -27,7 +13,6 @@
                         <div class="deslidt">
                           <ul>
                             <li>
-                            
                               <div class="serials">
                                 <div
                                   class="col-sm-6 col-xs-12 left-con"
@@ -68,7 +53,6 @@
                                       <div class="dright">
                                         <div class="imgs">
                                           <i class="fa fa-bank"></i>
-                                       
                                         </div>
                                       </div>
                                     </div>
@@ -77,7 +61,6 @@
                               </div>
                             </li>
                             <li>
-                            
                               <div class="serials">
                                 <div
                                   class="col-sm-6 col-xs-12 left-con"
@@ -118,10 +101,6 @@
                                       <div class="dright">
                                         <div class="imgs">
                                           <i class="fa fa-bank"></i>
-                                          <!-- <img
-                                            src="./../assets/frontend/images/video/3.png"
-                                            alt=""
-                                          /> -->
                                         </div>
                                       </div>
                                     </div>
@@ -129,43 +108,106 @@
                                 </div>
                               </div>
                             </li>
-                           
                           </ul>
                         </div>
                       </div>
                     </div>
                   </div>
                 </section>
-                
-              </div></div>
+              </div>
+            </div>
             <div class="desktop-screen-show">
-              
               <div class="row">
                 <div class="col-xl-12">
                   <div class="site-card">
                     <div class="site-card-header">
-                      <h3 class="title">Recent Transactions</h3>
+                      <h3 class="title">Recent Transaction</h3>
                     </div>
-                    <div class="site-card-body table-responsive">
-                      <div class="site-datatable">
-                        <table class="display data-table">
-                          <thead>
-                            <tr>
-                              <th>Description</th>
-                              <th>Transactions ID</th>
-                              <th>Type</th>
-                              <th>Amount</th>
-                              <th>Fee</th>
-                              <th>Status</th>
-                              <th>Gateway</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr class="centered">
-                              <td colspan="7">No Data Found</td>
-                            </tr>
-                          </tbody>
-                        </table>
+                    <div class="site-card-body">
+                      <div class="site-table">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Description</th>
+                                <th>Transactions ID</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Wallet</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr
+                                v-for="(
+                                  transactionItem, index
+                                ) in displayedItems"
+                                :key="index"
+                              >
+                                <td>
+                                  <div class="table-description">
+                                    <div class="icon">
+                                      <i
+                                        class="fa fa-arrow-down"
+                                        v-if="
+                                          transactionItem.type === 'deposit'
+                                        "
+                                      ></i>
+                                      <i class="fa fa-arrow-up" v-else></i>
+                                    </div>
+                                    <div class="description">
+                                      <strong>{{
+                                        transactionItem.method
+                                      }}</strong>
+                                      <div class="date">
+                                        {{
+                                          transactionItem.created_at.substring(
+                                            0,
+                                            10
+                                          )
+                                        }}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td>
+                                  <strong>{{ transactionItem.trx }}</strong>
+                                </td>
+                                <td>
+                                  <strong
+                                    class="green-color"
+                                    v-if="transactionItem.type === 'deposit'"
+                                    >+{{ transactionItem.amount }} USD</strong
+                                  >
+                                  <strong class="red-color" v-else
+                                    >-{{ transactionItem.amount }} USD</strong
+                                  >
+                                </td>
+                                <td>
+                                  <div
+                                    class="site-badge"
+                                    :class="{
+                                      warnning:
+                                        transactionItem.status === 'pending',
+                                      failed:
+                                        transactionItem.status === 'rejected',
+                                      success:
+                                        transactionItem.status === 'success',
+                                    }"
+                                  >
+                                    {{ transactionItem.status }}
+                                  </div>
+                                </td>
+                                <td>
+                                  <strong
+                                    v-if="transactionItem.address === 'Live'"
+                                    >Profit</strong
+                                  >
+                                  <strong v-else> Main </strong>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -762,7 +804,7 @@
 <script>
 import DeshboardLayout from "./../../Layouts/DashboardLayout.vue";
 import { useAuthUserStore } from "./../../stores/user";
-// import { transactionStore } from "../../store/transaction";
+import { transactionStore } from "../../stores/transaction";
 export default {
   components: {
     DeshboardLayout,
@@ -771,14 +813,17 @@ export default {
     return {
       authUser: [],
 
-      transactions: [],
+      transaction: [],
     };
   },
   methods: {},
   computed: {
+    displayedItems() {
+      return this.transaction.slice(0, 3);
+    },
     sumtrx() {
       const withdrawSuccessTransactions = Object.values(
-        this.transactions
+        this.transaction
       ).filter(
         (transaction) =>
           transaction.type === "Withdraw" && transaction.status === "success"
@@ -794,7 +839,7 @@ export default {
     lastWithdrawCreatedAt() {
       // Filter withdraw transactions with status success
       const withdrawSuccessTransactions = Object.values(
-        this.transactions
+        this.transaction
       ).filter(
         (transaction) =>
           transaction.type === "Withdraw" && transaction.status === "success"
@@ -825,7 +870,7 @@ export default {
     lastDepositCreatedAt() {
       // Filter withdraw transactions with status success
       const withdrawSuccessTransactions = Object.values(
-        this.transactions
+        this.transaction
       ).filter(
         (transaction) =>
           transaction.type === "deposit" && transaction.status === "success"
@@ -866,45 +911,35 @@ export default {
       this.authUser = await userStore.reSetAuthUser();
     }
 
-    // const getTransaction = transactionStore();
+    const getTransaction = transactionStore();
 
-    // const transactionData = getTransaction.authTransaction;
+    const transactionData = getTransaction.authTransaction;
 
-    // if (transactionData) {
-    //   this.transactions = transactionData;
-    // } else {
-
-    //   this.transactions = await getTransaction.authUserTransaction();
-    // }
+    if (transactionData) {
+      this.transaction = transactionData;
+    } else {
+      this.transaction = await getTransaction.authUserTransaction();
+    }
 
     this.$setLoading(false);
   },
 };
 </script>
 <style scoped>
- .imgs {
-
+.imgs {
   width: 80px !important;
   height: 80px !important;
-
-
 }
- .imgs i {
-
+.imgs i {
   color: rgb(255, 255, 255);
   font-size: 40px;
-
-
 }
 
 .video-des .deslidt ul li {
-
   margin-bottom: 0px;
 }
 .video-des .deslidt ul li .serials {
-
   margin: 5px;
-
 }
 .video-des .deslidt ul li:first-child {
   padding-top: 20px;

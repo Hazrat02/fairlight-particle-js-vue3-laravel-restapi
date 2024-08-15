@@ -310,3 +310,8 @@
     </div>
   </section>
 </template>
+<style scoped>
+.about-area{
+  background: white !important;
+}
+</style>

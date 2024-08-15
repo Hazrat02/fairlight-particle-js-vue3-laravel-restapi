@@ -4,7 +4,6 @@
       <div class="main-content">
         <div class="section-gap">
           <div class="container-fluid">
-           
             <!--Page Content-->
             <div class="row">
               <div class="col-xl-12">
@@ -16,22 +15,22 @@
                     <div class="site-table">
                       <div class="table-filter">
                         <div class="filter">
-                          <form
-                            action="https://ensurepms.com/user/deposit/log"
-                            method="get"
-                          >
+                          <form>
                             <div class="search">
-                              <input
-                                type="text"
-                                id="search"
-                                placeholder="Search"
-                                value=""
-                                name="query"
-                              />
-                        
-                              <button type="submit" class="apply-btn">
-                                <i icon-name="search"></i>Search
-                              </button>
+                              <div >
+                                <input
+                                  type="text"
+                                  id="search"
+                                  placeholder="Search"
+                                  v-model="searchQuery"
+                                />
+
+                           
+                              </div>
+                            
+                              <div class="apply-btn">
+                                Total : {{ transaction.length }}
+                              </div>
                             </div>
                           </form>
                         </div>
@@ -43,44 +42,109 @@
                               <th>Description</th>
                               <th>Transactions ID</th>
                               <th>Amount</th>
-                              <th>Fee</th>
                               <th>Status</th>
-                              <th>Method</th>
+                              <th>Wallet</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
+                            <tr
+                              v-for="(transactionItem, index) in displayedItems"
+                              :key="index"
+                            >
                               <td>
                                 <div class="table-description">
                                   <div class="icon">
                                     <i class="fa fa-arrow-down"></i>
                                   </div>
                                   <div class="description">
-                                    <strong>usdt</strong>
-                                    <div class="date">Aug 10 </div>
+                                    <strong>{{
+                                      transactionItem.method
+                                    }}</strong>
+                                    <div class="date">
+                                      {{
+                                        transactionItem.created_at.substring(
+                                          0,
+                                          10
+                                        )
+                                      }}
+                                    </div>
                                   </div>
                                 </div>
                               </td>
-                              <td><strong>TRX81HRPQ9UCZ</strong></td>
                               <td>
-                                <strong class="green-color">+56 USD</strong>
+                                <strong>{{ transactionItem.trx }}</strong>
                               </td>
-                              <td><strong class="red-color">-0 USD</strong></td>
                               <td>
-                                <div class="site-badge warnning">Pending</div>
+                                <strong class="green-color"
+                                  >+{{ transactionItem.amount }} USD</strong
+                                >
                               </td>
-                              <td><strong>BT785485</strong></td>
+                              <td>
+                                <div
+                                  class="site-badge"
+                                  :class="{
+                                    warnning:
+                                      transactionItem.status === 'pending',
+                                    failed:
+                                      transactionItem.status === 'rejected',
+                                    success:
+                                      transactionItem.status === 'success',
+                                  }"
+                                >
+                                  {{ transactionItem.status }}
+                                </div>
+                              </td>
+                              <td>
+                                <strong v-if="transactionItem.address === 'Live'">Profit</strong>
+                                <strong v-else > Main </strong>
+                              </td>
                             </tr>
-                           
                           </tbody>
                         </table>
+
+                        <!-- Pagination -->
+                        <nav
+                          class="site-pagination"
+                          style="text-align: center"
+                          v-show="totalPages > 1"
+                        >
+                          <ul class="pagination">
+                            <li
+                              class="page-item"
+                              :class="{ disabled: currentPage === 1 }"
+                              @click="previousPage"
+                              aria-label="&laquo; Previous"
+                            >
+                              <span class="page-link">&lsaquo;</span>
+                            </li>
+
+                            <li
+                              v-for="page in totalPages"
+                              :key="page"
+                              class="page-item"
+                              :class="{ active: page === currentPage }"
+                              @click="goToPage(page)"
+                            >
+                              <span class="page-link">{{ page }}</span>
+                            </li>
+
+                            <li
+                              class="page-item"
+                              :class="{ disabled: currentPage === totalPages }"
+                              @click="nextPage"
+                              aria-label="Next &raquo;"
+                            >
+                              <span class="page-link">&rsaquo;</span>
+                            </li>
+                          </ul>
+                        </nav>
+                        <!-- End Pagination -->
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!--Page Content-->
           </div>
         </div>
       </div>
@@ -90,12 +154,82 @@
 
 <script>
 import DeshboardLayout from "./../../Layouts/DashboardLayout.vue";
-// import { useAuthUserStore } from "./../../stores/user";
-// import { transactionStore } from "../../store/transaction";
+import { transactionStore } from "../../stores/transaction";
 
 export default {
   components: {
     DeshboardLayout,
   },
+  data() {
+    return {
+      transaction: [],
+      filteredTransactions: [],
+      searchQuery: "",
+      currentPage: 1, // The current page number
+      itemsPerPage: 2, // Number of items to display per page
+    };
+  },
+
+  computed: {
+  
+    totalPages() {
+      return Math.ceil(this.filteredTransactions.length / this.itemsPerPage);
+    },
+    displayedItems() {
+      const query = this.searchQuery.toLowerCase();
+      this.filteredTransactions = this.transaction.filter(
+        (item) =>
+          item.amount.toString().includes(query) ||
+          item.trx.toLowerCase().includes(query) ||
+          item.status.toLowerCase().includes(query)
+      );
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      const end = start + this.itemsPerPage;
+      return this.filteredTransactions.slice(start, end);
+    },
+  },
+
+  methods: {
+ 
+    previousPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    },
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+      }
+    },
+    goToPage(page) {
+      this.currentPage = page;
+    },
+  },
+
+  async created() {
+    const getTransaction = transactionStore();
+    const transactionData = getTransaction.authTransaction;
+
+    if (transactionData) {
+      this.transaction = transactionData.filter(
+        (transaction) => transaction.type === "deposit"
+      );
+    } else {
+      const transactions = await getTransaction.authUserTransaction();
+      this.transaction = transactions.filter(
+        (transaction) => transaction.type === "deposit"
+      );
+    }
+
+    this.filteredTransactions = this.transaction;
+    console.log(this.transaction);
+    this.$setLoading(false);
+  },
 };
 </script>
+
+
+<style scoped>
+
+
+</style>
