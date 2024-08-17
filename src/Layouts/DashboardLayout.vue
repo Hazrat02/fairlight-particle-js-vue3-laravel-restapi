@@ -104,28 +104,33 @@
             <div class="user-balance-card">
               <div class="wallet-name">
                 <div class="name">Account Balance</div>
-                <div class="default">Wallet</div>
+                <div class="default green-color" v-if=" authUser.id_kyc === 'success' || authUser.ad_kyc  === 'success' || authUser.ec_kyc  === 'success' "> <i class="fa fa-check"></i> Verified</div>
+                <div class="default yellow-color" v-if=" authUser.id_kyc === 'pending' || authUser.ad_kyc  === 'pending' || authUser.ec_kyc  === 'pending' "><router-link to="/kyc" > <i class="fa fa-spinner"></i> Pending </router-link></div>
+                <div class="default red-color" v-else><router-link to="/kyc" ><i class="fa fa-warning"></i> Unverified</router-link></div>
               </div>
               <div class="wallet-info">
                 <div class="wallet-id">
                   <i class="fa fa-wallet"></i>Main Wallet
                   <!-- Replaced with Font Awesome icon -->
                 </div>
-                <div class="balance">$0</div>
+                <div class="balance">${{ authUser.main_balance }}</div>
               </div>
               <div class="wallet-info">
                 <div class="wallet-id">
                   <i class="fa fa-landmark"></i>Profit Wallet
                   <!-- Replaced with Font Awesome icon -->
                 </div>
-                <div class="balance">$0</div>
+                <div class="balance">${{ authUser.live_balance }}</div>
               </div>
               <div class="wallet-info">
                 <div class="wallet-id">
                   <i class="fa fa-landmark"></i>Total Wallet Balance
                   <!-- Replaced with Font Awesome icon -->
                 </div>
-                <div class="balance">$0</div>
+                <div class="balance">${{
+                        Number(authUser.main_balance) +
+                        Number(authUser.live_balance)
+                      }}</div>
               </div>
             </div>
             <div class="actions">
@@ -270,7 +275,8 @@
 </template>
 <script>
 import HomeLayout from "./HomeLayout.vue";
-
+import {  logout } from "./../middleware/index";
+import { useAuthUserStore } from "./../stores/user";
 export default {
   components: {
     HomeLayout,
@@ -281,6 +287,7 @@ export default {
     
       showSidebar: false,
       showDrop: false,
+      authUser :[],
     };
   },
   computed: {
@@ -341,5 +348,21 @@ export default {
       this.$setLoading(false);
     },
   },
+  
+  async created() {
+
+      const userStore = useAuthUserStore();
+      const authUser = userStore.authUser;
+
+      if (authUser) {
+        this.authUser = authUser;
+      } else {
+        // userStore.reSetAuthUser();
+        this.authUser = await userStore.reSetAuthUser();
+      }
+    
+  },
+
 };
+
 </script>

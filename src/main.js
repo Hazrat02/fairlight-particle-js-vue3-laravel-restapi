@@ -22,7 +22,7 @@ import {setloading,isLoading} from './utils/extra.js'
 
 
 const options = {
-    position: POSITION.BOTTOM_RIGHT,
+    position: POSITION.TOP_RIGHT,
     timeout: 5000,
     closeOnClick: true,
     pauseOnFocusLoss: true,

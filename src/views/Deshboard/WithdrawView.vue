@@ -195,7 +195,7 @@
                             :class="Proceed"
                           >
                             <button type="submit" class="btn1">
-                              Proceed to Payment<i
+                              Proceed to Withdraw<i
                                 class="fa fa-arrow-right"
                               ></i>
                             </button>
@@ -238,7 +238,7 @@
   
 <script>
 import DeshboardLayout from "./../../Layouts/DashboardLayout.vue";
-// import { useAuthUserStore } from "./../../stores/user";
+import { useAuthUserStore } from "./../../stores/user";
 import { transactionStore } from "../../stores/transaction";
 import axios from "axios";
 export default {
@@ -271,41 +271,128 @@ export default {
       this.trx = trxId;
     },
     async withdrawNow() {
-      this.Proceed = "bounceOutRight animated";
-
       this.$setLoading(true);
 
       const data = {
-        status: "pending",
-        trx: this.trx,
+        status:'pending',
         method: this.method,
         type: "withdraw",
         amount: this.amount,
+        trx: this.trx,
         address: this.address,
       };
 
-      await axios
-        .post("api/deposit", data)
-        .then((response) => {
-          this.$setLoading(false);
-          this.page = "2";
-          const getTransaction = transactionStore();
-
-          getTransaction.addTransaction(response.data);
-        })
-        .catch((error) => {
+      if (this.address === "Wallet" || this.address === "wallet") {
+        if (this.amount > this.authUser.main_balance) {
           this.$setLoading(false);
           this.$toast.error(
+           `Your balance is too low. Current balance: ${this.authUser.main_balance} $`
+           );
+    
+        } else {
+          await axios
+            .post("api/deposit", data)
+            .then((response) => {
+              this.$setLoading(false);
+              this.authUser.main_balance =
+                this.authUser.main_balance - this.amount;
+              this.page = '2'
+
+              // transactionStore===================================
+
+    
+              const getTransaction = transactionStore();
+
+              getTransaction.addTransaction(response.data);
+            })
+            .catch((error) => {
+              // Handle the error
+              this.$setLoading(false);
+              this.$toast.error(
             error.response.data.message,
            );
-        });
+            });
+        }
+      } else {
+        if (this.amount > this.authUser.live_balance) {
+          this.$setLoading(false);
+          this.$toast.error(
+            `Your balance is too low. Current balance: ${this.authUser.live_balance} $`
+           );
+
+        } else {
+          await axios
+            .post("api/deposit", data)
+            .then((response) => {
+              this.$setLoading(false);
+              this.authUser.live_balance=this.authUser.live_balance - this.amount;
+                
+
+              this.page = '2'
+
+              // transactionStore===================================
+
+             
+              const getTransaction = transactionStore();
+
+              getTransaction.addTransaction(response.data);
+            })
+            .catch((error) => {
+              // Handle the error
+              this.$setLoading(false);
+              this.$toast.error(
+                error.response.data.message
+           );
+       
+            });
+        }
+      }
     },
+    // async withdrawNow() {
+    //   this.Proceed = "bounceOutRight animated";
+
+    //   this.$setLoading(true);
+
+    //   const data = {
+    //     status: "pending",
+    //     trx: this.trx,
+    //     method: this.method,
+    //     type: "withdraw",
+    //     amount: this.amount,
+    //     address: this.address,
+    //   };
+
+    //   await axios
+    //     .post("api/deposit", data)
+    //     .then((response) => {
+    //       this.$setLoading(false);
+    //       this.page = "2";
+    //       const getTransaction = transactionStore();
+
+    //       getTransaction.addTransaction(response.data);
+    //     })
+    //     .catch((error) => {
+    //       this.$setLoading(false);
+    //       this.$toast.error(
+    //         error.response.data.message,
+    //        );
+    //     });
+    // },
   },
 
   async created() {
 
+    const userStore = useAuthUserStore();
+      const authUser = userStore.authUser;
+
+      if (authUser) {
+        this.authUser = authUser;
+      } else {
+        // userStore.reSetAuthUser();
+        this.authUser = await userStore.reSetAuthUser();
+      }
     this.generateTRXId()
-    this.$setLoading(false);
+
   },
 };
 </script>
