@@ -3,7 +3,7 @@
 
     <div id="preloader" v-if="this.$isLoading()">
     <div id="status">
-      <img
+      <img style="border-radius: 100px;"
         src="./../assets/frontend/images/banner/loader.gif"
         id="preloader_image"
         alt="loader"

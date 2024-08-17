@@ -29,7 +29,7 @@
                                       </div>
                                       <div class="dright">
                                         <div class="content">
-                                          <h3>38283 $</h3>
+                                          <h3>$ {{ sumtrx('deposit','success') }}</h3>
                                           <p>total deposit</p>
                                         </div>
                                       </div>
@@ -46,7 +46,7 @@
                                     <div class="dbox">
                                       <div class="dleft">
                                         <div class="content">
-                                          <h3>4324 $</h3>
+                                          <h3>$ {{ sumtrx('withdraw','success') }}</h3>
                                           <p>Total Withdraw</p>
                                         </div>
                                       </div>
@@ -66,19 +66,67 @@
                                   class="col-sm-6 col-xs-12 left-con"
                                   v-animate
                                   data-animation="fadeInUp animated"
+                                  data-wow-duration="1.0s"
+                                >
+                                  <div class="box-con">
+                                    <div class="dbox">
+                                      <div class="dleft">
+                                        <div class="imgs">
+                                          <i class="fa fa-arrow-down"></i>
+                                        </div>
+                                      </div>
+                                      <div class="dright">
+                                        <div class="content">
+                                          <h3>$ {{ sumtrx('deposit','pending') }}</h3>
+                                          <p>pending deposit</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  class="col-sm-6 col-xs-12 right-con"
+                                  data-wow-duration="1.3s"
+                                  v-animate
+                                  data-animation="fadeInUp animated"
+                                >
+                                  <div class="box-con">
+                                    <div class="dbox">
+                                      <div class="dleft">
+                                        <div class="content">
+                                          <h3>${{ sumtrx('withdraw','pending') }}</h3>
+                                          <p>Pending Withdraw</p>
+                                        </div>
+                                      </div>
+                                      <div class="dright">
+                                        <div class="imgs">
+                                          <i class="fa fa-id-card"></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="serials">
+                                <div
+                                  class="col-sm-6 col-xs-12 left-con"
+                                  v-animate
+                                  data-animation="fadeInUp animated"
                                   data-wow-duration="1.6s"
                                 >
                                   <div class="box-con">
                                     <div class="dbox">
                                       <div class="dleft">
                                         <div class="imgs">
-                                          <i class="fa fa-download"></i>
+                                          <i class="fa fa-area-chart"></i>
                                         </div>
                                       </div>
                                       <div class="dright">
                                         <div class="content">
-                                          <h3>38283 $</h3>
-                                          <p>total deposit</p>
+                                          <h3>{{ this.transaction.length }}</h3>
+                                          <p>Total Transaction</p>
                                         </div>
                                       </div>
                                     </div>
@@ -94,13 +142,13 @@
                                     <div class="dbox">
                                       <div class="dleft">
                                         <div class="content">
-                                          <h3>4324 $</h3>
-                                          <p>Total Withdraw</p>
+                                          <h3>$ {{ sumtrx('withdraw','rejected') }}</h3>
+                                          <p>Rejected Withdraw</p>
                                         </div>
                                       </div>
                                       <div class="dright">
                                         <div class="imgs">
-                                          <i class="fa fa-bank"></i>
+                                          <i class="fa fa-trash"></i>
                                         </div>
                                       </div>
                                     </div>
@@ -327,7 +375,7 @@
                         data-wow-duration="1.0s"
                       >
                         <div class="single">
-                          <a href="">
+                          <router-link to="/account">
                             <div class="icon">
                               <img
                                 src="https://ensurepms.com/assets/frontend/materials/schema.png"
@@ -335,7 +383,7 @@
                               />
                             </div>
                             <div class="name">profile</div>
-                          </a>
+                          </router-link>
                         </div>
                       </div>
                       <div
@@ -345,7 +393,7 @@
                         data-wow-duration="1.3s"
                       >
                         <div class="single">
-                          <a href="">
+                          <router-link to="/withdraw/log">
                             <div class="icon">
                               <img
                                 src="https://ensurepms.com/assets/frontend/materials/withdraw-log.png"
@@ -353,7 +401,7 @@
                               />
                             </div>
                             <div class="name">Withdraw Log</div>
-                          </a>
+                          </router-link>
                         </div>
                       </div>
                       <div
@@ -363,7 +411,7 @@
                         data-wow-duration="1.6s"
                       >
                         <div class="single">
-                          <a href="">
+                          <router-link to="/transaction">
                             <div class="icon">
                               <img
                                 src="https://ensurepms.com/assets/frontend/materials/transactions.png"
@@ -371,7 +419,7 @@
                               />
                             </div>
                             <div class="name">Transactions</div>
-                          </a>
+                          </router-link>
                         </div>
                       </div>
                       <div
@@ -381,7 +429,7 @@
                         data-wow-duration="1.9s"
                       >
                         <div class="single">
-                          <a href="">
+                          <router-link to="/deposit">
                             <div class="icon">
                               <img
                                 src="https://ensurepms.com/assets/frontend/materials/deposit.png"
@@ -389,7 +437,7 @@
                               />
                             </div>
                             <div class="name">Deposit</div>
-                          </a>
+                          </router-link>
                         </div>
                       </div>
                       <div
@@ -399,7 +447,7 @@
                         data-wow-duration="2.2s"
                       >
                         <div class="single">
-                          <a href="">
+                          <router-link to="/deposit/log">
                             <div class="icon">
                               <img
                                 src="https://ensurepms.com/assets/frontend/materials/deposit-log.png"
@@ -407,7 +455,7 @@
                               />
                             </div>
                             <div class="name">Deposit Log</div>
-                          </a>
+                          </router-link>
                         </div>
                       </div>
                       <div
@@ -417,15 +465,15 @@
                         data-wow-duration="2.5s"
                       >
                         <div class="single">
-                          <a href="">
+                          <router-link to="/kyc">
                             <div class="icon">
                               <img
                                 src="https://ensurepms.com/assets/frontend/materials/wallet-exchange.png"
                                 alt=""
                               />
                             </div>
-                            <div class="name">Wallet Exch.</div>
-                          </a>
+                            <div class="name">KYC</div>
+                          </router-link>
                         </div>
                       </div>
                     </div>
@@ -578,7 +626,7 @@
                                   <i class="fa fa-compress"></i>
                                 </div>
                                 <div class="content">
-                                  <div class="amount count">0</div>
+                                  <div class="amount count">{{ this.transaction.length }}</div>
                                   <div class="name">All Transactions</div>
                                 </div>
                               </div>
@@ -591,11 +639,11 @@
                             >
                               <div class="single-card">
                                 <div class="icon">
-                                  <i class="fa fa-arrow-down"></i>
+                                  <i class="fa fa-pie-chart"></i>
                                 </div>
                                 <div class="content">
                                   <div class="amount">
-                                    $<span class="count">0</span>
+                                    $<span class="count">{{ sumtrx('deposit','success') }}</span>
                                   </div>
                                   <div class="name">Total Deposit</div>
                                 </div>
@@ -609,13 +657,85 @@
                             >
                               <div class="single-card">
                                 <div class="icon">
-                                  <i class="fa fa-arrow-up"></i>
+                                  <i class="fa fa-bar-chart"></i>
                                 </div>
                                 <div class="content">
                                   <div class="amount">
-                                    $<span class="count">0</span>
+                                    $<span class="count">{{ sumtrx('withdraw','success') }}</span>
                                   </div>
                                   <div class="name">Total Withdraw</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="col-12"
+                              v-animate
+                              data-animation="fadeInUp animated"
+                              data-wow-duration="2s"
+                            >
+                              <div class="single-card">
+                                <div class="icon">
+                                  <i class="fa fa-arrow-down"></i>
+                                </div>
+                                <div class="content">
+                                  <div class="amount">
+                                    $<span class="count">{{ sumtrx('deposit','pending') }}</span>
+                                  </div>
+                                  <div class="name">Pending Deposit</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="col-12"
+                              v-animate
+                              data-animation="fadeInUp animated"
+                              data-wow-duration="2s"
+                            >
+                              <div class="single-card">
+                                <div class="icon">
+                                  <i class="fa fa-arrow-circle-up"></i>
+                                </div>
+                                <div class="content">
+                                  <div class="amount">
+                                    $<span class="count">{{ sumtrx('withdraw','pending') }}</span>
+                                  </div>
+                                  <div class="name">Pending Withdraw</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="col-12"
+                              v-animate
+                              data-animation="fadeInUp animated"
+                              data-wow-duration="2s"
+                            >
+                              <div class="single-card">
+                                <div class="icon">
+                                  <i class="fa fa-window-close"></i>
+                                </div>
+                                <div class="content">
+                                  <div class="amount">
+                                    $<span class="count">{{ sumtrx('withdraw','rejected') }}</span>
+                                  </div>
+                                  <div class="name">Rejected Withdraw</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="col-12"
+                              v-animate
+                              data-animation="fadeInUp animated"
+                              data-wow-duration="2s"
+                            >
+                              <div class="single-card">
+                                <div class="icon">
+                                  <i class="fa fa-trash"></i>
+                                </div>
+                                <div class="content">
+                                  <div class="amount">
+                                    $<span class="count">{{ sumtrx('deposit','rejected') }}</span>
+                                  </div>
+                                  <div class="name">Rejected Deposit</div>
                                 </div>
                               </div>
                             </div>
@@ -746,46 +866,51 @@
                   >
                     <div class="title">Recent Transactions</div>
                     <div class="contents">
-                      <div class="single-transaction">
+                      <div class="single-transaction"    v-for="(
+                                  transactionItem, index
+                                ) in displayedItems"
+                                :key="index">
                         <div class="transaction-left">
                           <div class="transaction-des">
                             <div class="transaction-title">
-                              Deposit With Gpay, PhonePay, All UPI Wallet
+                              {{
+                                        transactionItem.type
+                                      }} With {{transactionItem.method}}
                             </div>
-                            <div class="transaction-id">TRXP4JLVPVCX9</div>
+                            <div class="transaction-id">{{transactionItem.trx}}</div>
                             <div class="transaction-date">
-                              Aug 09 2024 12:55
+                              {{
+                                        transactionItem.created_at.substring(
+                                          0,
+                                          10
+                                        )
+                                      }}
                             </div>
                           </div>
                         </div>
                         <div class="transaction-right">
-                          <div class="transaction-amount">+45 USD</div>
-                          <div class="transaction-fee sub">-0 USD Fee</div>
-                          <div class="transaction-gateway">UPI87459</div>
+                          <div class="transaction-amount" v-if="transactionItem.type === 'deposit'">+{{
+                                        transactionItem.amount
+                                      }} USD</div>
+                          <div class="transaction-amount" v-else>-{{
+                                        transactionItem.amount 
 
-                          <div class="transaction-status pending">Pending</div>
+                                      }} USD</div>
+
+                          <div class="transaction-status " :class="{
+                                    pending:
+                                      transactionItem.status === 'pending',
+                                      cancel:
+                                      transactionItem.status === 'rejected',
+                                    success:
+                                      transactionItem.status === 'success',
+                                }">{{
+                                        transactionItem.status 
+
+                                      }}</div>
                         </div>
                       </div>
-                      <div class="single-transaction">
-                        <div class="transaction-left">
-                          <div class="transaction-des">
-                            <div class="transaction-title">
-                              Deposit With Bank Transfer
-                            </div>
-                            <div class="transaction-id">TRXV8HUPDSHN9</div>
-                            <div class="transaction-date">
-                              Aug 09 2024 12:53
-                            </div>
-                          </div>
-                        </div>
-                        <div class="transaction-right">
-                          <div class="transaction-amount">+56 USD</div>
-                          <div class="transaction-fee sub">-0 USD Fee</div>
-                          <div class="transaction-gateway">BT785485</div>
-
-                          <div class="transaction-status pending">Pending</div>
-                        </div>
-                      </div>
+                  
                     </div>
                   </div>
                 </div>
@@ -816,26 +941,43 @@ export default {
       transaction: [],
     };
   },
-  methods: {},
+  methods: {
+
+
+    // sumtrx(type,status) {
+    //   const withdrawSuccessTransactions = Object.values(
+    //     this.transaction
+    //   ).filter(
+    //     (transaction) =>
+    //       transaction.type == type && transaction.status === status
+    //   );
+
+    //   const sum = withdrawSuccessTransactions.reduce(
+    //     (total, transaction) => total + transaction.amount,
+    //     0
+    //   );
+
+    //   return sum;
+    // },
+  },
   computed: {
+    sumtrx() {
+    return (type, status) => {
+      const filteredTransactions = this.transaction.filter(
+        (transaction) =>
+          transaction.type === type && transaction.status === status
+      );
+
+      return filteredTransactions.reduce(
+        (total, transaction) => total + Number(transaction.amount), // Ensure numeric addition
+        0
+      );
+    };
+  },
     displayedItems() {
       return this.transaction.slice(0, 3);
     },
-    sumtrx() {
-      const withdrawSuccessTransactions = Object.values(
-        this.transaction
-      ).filter(
-        (transaction) =>
-          transaction.type === "Withdraw" && transaction.status === "success"
-      );
-
-      const sum = withdrawSuccessTransactions.reduce(
-        (total, transaction) => total + transaction.amount,
-        0
-      );
-
-      return sum;
-    },
+   
     lastWithdrawCreatedAt() {
       // Filter withdraw transactions with status success
       const withdrawSuccessTransactions = Object.values(

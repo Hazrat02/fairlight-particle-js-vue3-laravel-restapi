@@ -11,14 +11,25 @@ export const transactionStore = defineStore("transaction", {
       this.allTransaction = payload.allTransaction;
       this.authTransaction = payload.authTransaction;
     },
-    addTransaction(data) {
+    // addTransaction(data) {
       
+    //   const dataArray = Array.isArray(data) ? data : [data];
+      
+    //   // Adds the elements of dataArray to the end of the authTransaction array
+    //   this.authTransaction.unshift(...dataArray);
+    //   this.allTransaction.unshift(...dataArray);
+      
+    // },
+    addTransaction(data) {
       const dataArray = Array.isArray(data) ? data : [data];
       
-      // Adds the elements of dataArray to the end of the authTransaction array
+      // Ensure amount is treated as a number
+      dataArray.forEach(item => {
+        item.amount = Number(item.amount);
+      });
+      
       this.authTransaction.unshift(...dataArray);
       this.allTransaction.unshift(...dataArray);
-      
     },
     async getTransaction() {
       try {

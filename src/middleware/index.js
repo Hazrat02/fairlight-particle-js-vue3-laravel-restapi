@@ -1,5 +1,6 @@
 import { reactive, toRef } from 'vue';
 import axios from 'axios';
+import { setloading } from '../utils/extra';
 
 // Reactive state for authentication
 const state = reactive({
@@ -57,9 +58,14 @@ export function setupRouterGuard(router) {
         axios.defaults.baseURL = 'https://api.fairlightinvestments.com/';
         // axios.defaults.baseURL = 'http://127.0.0.1:8000/';
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+        setloading(true); // Set loading to true before navigation
         next();
-        setloading(true);
       }
     }
+  });
+
+  // Hook to run after each navigation
+  router.afterEach(() => {
+    setloading(false); // Set loading to false after the navigation is complete
   });
 }

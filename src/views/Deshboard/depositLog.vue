@@ -21,7 +21,7 @@
                                 <input
                                   type="text"
                                   id="search"
-                                  placeholder="Search"
+                                  placeholder="Search(trxID,amount)"
                                   v-model="searchQuery"
                                 />
 
@@ -222,7 +222,6 @@ export default {
     }
 
     this.filteredTransactions = this.transaction;
-    console.log(this.transaction);
     this.$setLoading(false);
   },
 };

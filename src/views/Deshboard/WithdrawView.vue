@@ -218,9 +218,9 @@
                             The Withdraw has been Pending added into your account
                           </p>
                           <p>Transaction ID: {{ this.trx }}</p>
-                          <a href="" class="btn1">
+                          <router-link to="/withdraw/log" class="btn1">
                             <i class="fa fa-eye"></i>View History
-                          </a>
+                          </router-link>
                         </div>
                       </div>
                     </div>
