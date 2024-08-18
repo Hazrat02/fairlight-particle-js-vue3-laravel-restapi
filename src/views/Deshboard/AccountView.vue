@@ -13,7 +13,7 @@
                     <h3 class="title">Profile Settings</h3>
                   </div>
                   <div class="site-card-body">
-                    <form enctype="multipart/form-data">
+                    <form enctype="multipart/form-data" @submit.prevent="userUpdate">
                       <div class="row">
                         <div class="col-xl-3">
                           <div class="mb-3">
@@ -56,8 +56,7 @@
                         </div>
                       
                       </div>
-                    </form>
-                    <div
+                      <div
                             class="buttons"
                             v-animate
                             data-animation="bounceInRight animated"
@@ -70,6 +69,8 @@
                               ></i>
                             </button>
                           </div>
+                    </form>
+                    
                   </div>
                   
                 </div>
@@ -114,11 +115,10 @@ export default {
       this.$setLoading(true);
 
       const formData = new FormData(); // Create a FormData object
-      formData.append("birth", this.birth);
+      // formData.append("birth", this.birth);
       formData.append("phone", this.phone);
-      formData.append("password", this.password);
-      formData.append("password_confirmation", this.password_confirmation);
-      formData.append("profile", this.profile); // Append the file to the FormData object
+   
+      // formData.append("profile", this.profile); // Append the file to the FormData object
 
       await axios
         .post("/api/user/edit", formData, {
@@ -128,19 +128,16 @@ export default {
         })
         .then((response) => {
           (this.authUser = response.data.user),
-            this.$notify({
-              title: "message",
-              text: response.data.message,
-              type: "success",
-            });
+          this.$toast.success(
+                response.data.message
+           );
         })
         .catch((error) => {
           this.$setLoading(false);
-          this.$notify({
-            title: "Error message",
-            text: error.response.data.message,
-            type: "error",
-          });
+          this.$toast.error(
+            error.response.data.message
+           );
+         
         });
 
       this.$setLoading(false);

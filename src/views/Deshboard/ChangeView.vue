@@ -4,7 +4,6 @@
       <div class="main-content">
         <div class="section-gap">
           <div class="container-fluid">
-
             <!--Page Content-->
             <div class="row">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -14,146 +13,114 @@
                     <div class="card-header-links">
                       <router-link class="btn1" to="/account">
                         Change profile
-
                       </router-link>
-         
                     </div>
                   </div>
 
+                  <div class="p-5">
+                    <form @submit.prevent="userUpdate" class="mt-5">
+                      <!-- Password input -->
 
-
-
-
-        
-     
-                <div class="p-5">
-                  <form @submit.prevent="change" class="mt-5">
-     
-
-                    <!-- Password input -->
-
-                    <div class="form-outline mb-4">
-                      <div class="form-outline">
-                        <div style="position: relative">
-                          <input
-                            name="password"
-                            placeholder="******"
-                            v-model="oldpass"
-                            :type="passwordFieldType"
-                            id="password"
-                            class="form-control"
-                            required
-                          />
-                          <i
-                            style="
-                              position: absolute;
-                              top: 15%;
-                              right: 5%;
-                              font-size: 25px;
-                            "
-                            class="fa"
-                            :class="icon"
-                            @click="togglePasswordVisibility"
-                          ></i>
-                     
-                        </div>
-                      </div>
-
-                      <div
-                        style="display: flex; justify-content: space-between"
-                      >
-                        <div>
-                          <label class="form-label" for="form3Example4"
-                            >Old Password</label
-                          >
-                          <span style="color: red; font-size: 25px"> * </span>
-                        </div>
-                        
-                      </div>
-                    </div>
-                    <div class="form-outline mb-4">
-                      <div class="form-outline">
-                        <div style="position: relative">
-                          <input
-                        
-                            placeholder="******"
-                            v-model="newpass"
-                            :type="passwordFieldType"
-                       
-                            class="form-control"
-                            required
-                          />
-
-                     
-                        </div>
-                      </div>
-
-                      <div
-                        style="display: flex; justify-content: space-between"
-                      >
-                        <div>
-                          <label class="form-label" for="form3Example4"
-                            >New Password</label
-                          >
-                          <span style="color: red; font-size: 25px"> * </span>
-                        </div>
-                        
-                      </div>
-                    </div>
-                    <div class="form-outline mb-4">
-                      <div class="form-outline">
-                        <div style="position: relative">
-                          <input
-                            name="password"
-                            placeholder="******"
-                            v-model="retypepass"
-                            :type="passwordFieldType"
-                            id="password"
-                            class="form-control"
-                            required
-                          />
-
-                          
-                        </div>
-                      </div>
-
-                      <div
-                        style="display: flex; justify-content: space-between"
-                      >
-                        <div>
-                          <label class="form-label" for="form3Example4"
-                            >Retype New Password</label
-                          >
-                          <span style="color: red; font-size: 25px"> * </span>
-                        </div>
-                        
-                      </div>
-                    </div>
-
-                    <div class="buttons" v-animate
-                                  data-animation="bounceInRight animated"
-                                  data-wow-duration="1.5s" :class="Proceed">
-                            <button type="submit" class="btn1" >
-                              Change Now<i
-                                class="fa fa-arrow-right"
-                              ></i>
-                            </button>
+                      <div class="form-outline mb-4">
+                        <div class="form-outline">
+                          <div style="position: relative">
+                            <input
+                              name="password"
+                              placeholder="******"
+                              v-model="old"
+                              :type="passwordFieldType"
+                              id="password"
+                              class="form-control"
+                              required
+                            />
+                            <i
+                              style="
+                                position: absolute;
+                                top: 15%;
+                                right: 5%;
+                                font-size: 25px;
+                              "
+                              class="fa"
+                              :class="icon"
+                              @click="togglePasswordVisibility"
+                            ></i>
                           </div>
-                  </form>
-                  
-                </div>
-  
+                        </div>
 
+                        <div
+                          style="display: flex; justify-content: space-between"
+                        >
+                          <div>
+                            <label class="form-label" for="form3Example4"
+                              >Old Password</label
+                            >
+                            <span style="color: red; font-size: 25px"> * </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <div class="form-outline">
+                          <div style="position: relative">
+                            <input
+                              placeholder="******"
+                              v-model="password"
+                              :type="passwordFieldType"
+                              class="form-control"
+                              required
+                            />
+                          </div>
+                        </div>
 
+                        <div
+                          style="display: flex; justify-content: space-between"
+                        >
+                          <div>
+                            <label class="form-label" for="form3Example4"
+                              >New Password</label
+                            >
+                            <span style="color: red; font-size: 25px"> * </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <div class="form-outline">
+                          <div style="position: relative">
+                            <input
+                              placeholder="******"
+                              v-model="password_confirmation"
+                              :type="passwordFieldType"
+                              id="password"
+                              class="form-control"
+                              required
+                            />
+                          </div>
+                        </div>
 
+                        <div
+                          style="display: flex; justify-content: space-between"
+                        >
+                          <div>
+                            <label class="form-label" for="form3Example4"
+                              >Retype New Password</label
+                            >
+                            <span style="color: red; font-size: 25px"> * </span>
+                          </div>
+                        </div>
+                      </div>
 
-
-
-
-
-
-
-
+                      <div
+                        class="buttons"
+                        v-animate
+                        data-animation="bounceInRight animated"
+                        data-wow-duration="1.5s"
+                        :class="Proceed"
+                      >
+                        <button type="submit" class="btn1">
+                          Change Now<i class="fa fa-arrow-right"></i>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
 
                   <!-- <div class="site-card-body">
                     <div class="progress-steps-form">
@@ -245,9 +212,46 @@ export default {
       authUser: [],
       showicon: true,
       showPassword: false,
+      old: "",
+
+      password: "",
+      password_confirmation: "",
     };
   },
+
   methods: {
+    async userUpdate() {
+      this.$setLoading(true);
+
+      const formData = new FormData(); // Create a FormData object
+
+      formData.append("old", this.old);
+      formData.append("password", this.password);
+      formData.append("password_confirmation", this.password_confirmation);
+
+      await axios
+        .post("/api/change", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data", // Set content type for file upload
+          },
+        })
+        .then((response) => {
+          (this.authUser = response.data.user),
+          this.$toast.success(
+                response.data.message
+           );
+           
+        })
+        .catch((error) => {
+          this.$setLoading(false);
+          this.$toast.error(
+                error.response.data.message
+           );
+         
+        });
+
+      this.$setLoading(false);
+    },
 
     togglePasswordVisibility() {
       this.showPassword = !this.showPassword;

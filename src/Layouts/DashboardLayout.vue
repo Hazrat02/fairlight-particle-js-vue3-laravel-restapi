@@ -71,20 +71,29 @@
                       <i class="fa fa-lock"></i>Change Password
                        </router-link>
                   </li>
-                  <li>
-                    <a
-                      href="https://ensurepms.com/user/support-ticket/index"
+
+                  <li class="mobile-screen-show">
+                    <router-link to="/kyc"
                       class="dropdown-item"
-                      type="button"
+                    
                     >
-                      <i class="fa fa-headset"></i>Support Tickets
-                    </a>
+                      <i class="fa fa-id-card"></i>KYC
+                    </router-link>
                   </li>
+                  <li class="mobile-screen-show">
+                    <router-link to="/transaction"
+                      class="dropdown-item"
+                    
+                    >
+                      <i class="fa fa-bar-chart"></i>Transaction
+                    </router-link>
+                  </li>
+            
                   <li class="logout">
                     <a
-                      href=""
+                     @click="logout"
                       class="dropdown-item"
-                      type="button"
+                     style="cursor: pointer;"
                       ><i class="fa fa-power-off"></i>Logout</a
                     >
                   </li>
@@ -277,6 +286,8 @@
 import HomeLayout from "./HomeLayout.vue";
 import {  logout } from "./../middleware/index";
 import { useAuthUserStore } from "./../stores/user";
+import axios from 'axios';
+
 export default {
   components: {
     HomeLayout,
