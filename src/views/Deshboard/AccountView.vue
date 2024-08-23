@@ -116,7 +116,7 @@ export default {
 
       const formData = new FormData(); // Create a FormData object
       // formData.append("birth", this.birth);
-      formData.append("phone", this.phone);
+      formData.append("Phone", this.phone);
    
       // formData.append("profile", this.profile); // Append the file to the FormData object
 
@@ -128,6 +128,7 @@ export default {
         })
         .then((response) => {
           (this.authUser = response.data.user),
+          console.log(response.data)
           this.$toast.success(
                 response.data.message
            );

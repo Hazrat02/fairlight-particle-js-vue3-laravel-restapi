@@ -258,9 +258,13 @@
             </RouterLink>
           </div>
           <br />
-          <div class="btc_footer_logo_right">
+          <div class="">
             <p>
-              123, A block, Street Name, City Name, Country Name , Zip 1234567
+              FairLight Investments - Address: 515 N Flagler Dr, West Palm Beach, FL 33401, United States
+
+            </p>
+            <p >
+              Email : <a href="mail.google.com">support@fairlightinvestments.com</a>
             </p>
           </div>
         </div>
@@ -268,23 +272,13 @@
           class="col-lg-5 col-md-5 col-sm-6 col-xs-12 col-lg-offset-1 col-md-offset-1"
         >
           <div class="">
-            <p>Phone : (555) 2346-789</p>
-            <p class="btc_email_footer">
-              Email : <a href="mail.google.com">support@example.com</a>
-            </p>
+           
+          
           </div>
-          <div class="btc_footer_social_wrapper">
-            <ul>
-              <li>
-                <a href="#"><i class="fa fa-facebook"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-btc"></i></a>
-              </li>
-            </ul>
+          <div class="">
+           <p>
+            We believe in concentration as, in our experience, backing our best ideas drives the strongest long-term returns. We focus on small and mid cap companies because, in our view, these businesses receive less investor attention, have greater growth prospects, and are more likely to be acquired by larger companies.
+           </p>
           </div>
         </div>
       </div>
@@ -305,7 +299,7 @@
               >
                 <p>
             
-                  © 2020-2028 <a href="https://fairlightinvestments.com/"><span>Fairlight</span></a> | All
+                  © 2009-2028 <a href="https://fairlightinvestments.com/"><span>Fairlight</span></a> | All
                   rights reserved.
                 </p>
               </div>
@@ -320,8 +314,8 @@
               >
                 <ul>
                   <li><router-link to="/contact">Contact Us</router-link></li>
-                  <li><router-link to="/servics">Our Servics</router-link></li>
-                  <li><router-link to="/risk/disclosure">Risk disclusion</router-link></li>
+                  <li><router-link to="/servics">Our Services</router-link></li>
+                  <li><router-link to="/risk/disclosure">Risk Disclosure</router-link></li>
                 </ul>
               </div>
             </div>
@@ -332,7 +326,7 @@
 
     <div
       class=""
-      style="position: fixed; z-index: 333333333; bottom: 10px; left: 10px"
+      style="position: fixed; z-index: 44444444443; bottom: 10px; right: 10px"
     >
       <a href="https://api.whatsapp.com/send/?phone=%2B8801783195999&text=Hi">
         <img
@@ -422,4 +416,5 @@ export default {
 .active {
   color: rgb(43, 169, 188) !important;
 }
+
 </style>

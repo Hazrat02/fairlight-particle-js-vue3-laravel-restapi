@@ -57,7 +57,7 @@ export default {
           data-animation="fadeInUp animated"
           data-wow-duration="1s"
                 >
-                  Risk disclusion
+                Risk Disclosure
                 </h2>
                 <h4
                   class=" mt-5"
@@ -66,8 +66,7 @@ export default {
           data-animation="fadeInUp animated"
           data-wow-duration="1.3s"
                 >
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less.
-                </h4>
+                We Fairlight Investments herein highlight that investing in alternate investment opportunities involves high risk and you (user of the BetterInvest Platform) consent that, prior to making any decision with respect to an investment on our platform, you have evaluated the risks with respect to the investment , its objectives and your financial capacity. It is herein highlighted that prior to making any investment decision on our platform, you have agreed and understood the following.                </h4>
               </div>
             </div>
           </div>
@@ -83,44 +82,26 @@ export default {
                 <div class="conte">
                   <div class="dbox">
                     <div class="dleft">
-                      <img
-                        src="./../assets/frontend/images/team/5.png"
+                      <img style="width: 140px;height: 140px;border-radius: 100px;"
+                        src="./../assets/frontend/images/team/6.jfif"
                         alt=""
                       />
                     </div>
                     <div class="dright">
                       <div class="content">
-                        <h3>Mason Liam</h3>
-                        <span>(Co-Founder & CEO)   It is a long established fact that a reader will be </span>
-                        <ul>
-                          <!-- <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                          </li> -->
-                        </ul>
+                        <h3>Loss of Investment</h3>
+                        <span>Investing through our platform involves risks with no assurance of returns or full value. </span>
+  
                       </div>
                     </div>
                   </div>
                   <div class="con">
 
                     <div>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout. The point of using Lorem Ipsum is that it
-                      has a more-or-less.
+                      By investing through our platform, you accept that returns are not guaranteed, and your investment may be at risk. You acknowledge the potential loss of your funds and understand the risks involved. We do not guarantee the full value of your investment.
                       
                     </div>
-                    <div class="">
-                      <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    >
-                         </a>
-                    </div>
+
                  
 
                   
@@ -140,44 +121,26 @@ export default {
                 <div class="conte">
                   <div class="dbox">
                     <div class="dleft">
-                      <img
-                        src="./../assets/frontend/images/team/5.png"
+                      <img style="width: 140px;height: 140px;border-radius: 100px;"
+                        src="./../assets/frontend/images/team/7.avif"
                         alt=""
                       />
                     </div>
                     <div class="dright">
                       <div class="content">
-                        <h3>Mason Liam</h3>
-                        <span>(Co-Founder & CEO)   It is a long established fact that a reader will be </span>
-                        <ul>
-                          <!-- <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                          </li> -->
-                        </ul>
+                        <h3>‍Adverse Marketing Conditions</h3>
+                        <span>Past Performance ≠ Future Results</span>
+
                       </div>
                     </div>
                   </div>
                   <div class="con">
 
                     <div>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout. The point of using Lorem Ipsum is that it
-                      has a more-or-less.
+                      Our platform's projections are based on past performance, but this does not guarantee future outcomes. Acknowledge that past performance is not a reliable indicator of future results.
                       
                     </div>
-                    <div class="">
-                      <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    >
-                         </a>
-                    </div>
+
                  
 
                   
@@ -196,44 +159,63 @@ export default {
                 <div class="conte">
                   <div class="dbox">
                     <div class="dleft">
-                      <img
-                        src="./../assets/frontend/images/team/5.png"
+                      <img style="width: 140px;height: 140px;border-radius: 100px;"
+                        src="./../assets/frontend/images/team/7.webp"
                         alt=""
                       />
                     </div>
                     <div class="dright">
                       <div class="content">
-                        <h3>Mason Liam</h3>
-                        <span>(Co-Founder & CEO)   It is a long established fact that a reader will be </span>
-                        <ul>
-                          <!-- <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                          </li> -->
-                        </ul>
+                        <h3>Leverage</h3>
+                        <span>No Leverage Options for Current Investments </span>
+
                       </div>
                     </div>
                   </div>
                   <div class="con">
 
                     <div>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout. The point of using Lorem Ipsum is that it
-                      has a more-or-less.
+                      The investment opportunities available on our platform currently do not provide any leverage options. This means that you can only invest the amount you commit, without the ability to amplify your exposure through borrowed funds.
                       
                     </div>
-                    <div class="">
-                      <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    >
-                         </a>
+    
+
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div
+              class="col-lg-6 col-md-6 col-sm-6 col-xs-12 "
+              data-wow-duration="1.3s"
+              v-animate
+          data-animation="fadeInUp animated"
+            >
+              <div class="team-list">
+                <div class="conte">
+                  <div class="dbox">
+                    <div class="dleft">
+                      <img style="width: 140px;height: 140px;border-radius: 100px;"
+                        src="./../assets/frontend/images/team/8.avif"
+                        alt=""
+                      />
                     </div>
+                    <div class="dright">
+                      <div class="content">
+                        <h3>‍Minority Investment</h3>
+                        <span>Minority Stake with Limited Influence</span>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="con">
+
+                    <div>
+                      Investments represent a minority stake with no control over SPV management. Your ability to benefit depends on the existing management and board decisions.
+                      
+                    </div>
+
                  
 
                   
@@ -252,100 +234,27 @@ export default {
                 <div class="conte">
                   <div class="dbox">
                     <div class="dleft">
-                      <img
-                        src="./../assets/frontend/images/team/5.png"
+                      <img style="width: 140px;height: 140px;border-radius: 100px;"
+                        src="./../assets/frontend/images/team/9.png"
                         alt=""
                       />
                     </div>
                     <div class="dright">
                       <div class="content">
-                        <h3>Mason Liam</h3>
-                        <span>(Co-Founder & CEO)   It is a long established fact that a reader will be </span>
-                        <ul>
-                          <!-- <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                          </li> -->
-                        </ul>
+                        <h3>‍Lack of Liquidity</h3>
+                        <span>
+                          Long-Term Investment with Limited Liquidity </span>
+
                       </div>
                     </div>
                   </div>
                   <div class="con">
 
                     <div>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout. The point of using Lorem Ipsum is that it
-                      has a more-or-less.
+                      Investments on our platform are long-term and may not be liquid at the projected price. Liquidity is subject to market conditions and cannot be guaranteed. These opportunities are not suitable for investors needing immediate liquidity and should only be considered if you can hold the investment indefinitely.
                       
                     </div>
-                    <div class="">
-                      <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    >
-                         </a>
-                    </div>
-                 
-
-                  
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div
-              class="col-lg-6 col-md-6 col-sm-6 col-xs-12 "
-              data-wow-duration="1.3s"
-              v-animate
-          data-animation="fadeInUp animated"
-            >
-              <div class="team-list">
-                <div class="conte">
-                  <div class="dbox">
-                    <div class="dleft">
-                      <img
-                        src="./../assets/frontend/images/team/5.png"
-                        alt=""
-                      />
-                    </div>
-                    <div class="dright">
-                      <div class="content">
-                        <h3>Mason Liam</h3>
-                        <span>(Co-Founder & CEO)   It is a long established fact that a reader will be </span>
-                        <ul>
-                          <!-- <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                          </li> -->
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="con">
-
-                    <div>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout. The point of using Lorem Ipsum is that it
-                      has a more-or-less.
-                      
-                    </div>
-                    <div class="">
-                      <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    >
-                         </a>
-                    </div>
+      
                  
 
                   
@@ -364,45 +273,27 @@ export default {
                 <div class="conte">
                   <div class="dbox">
                     <div class="dleft">
-                      <img
-                        src="./../assets/frontend/images/team/5.png"
+                      <img style="width: 140px;height: 140px;border-radius: 100px;"
+                        src="./../assets/frontend/images/team/9.jfif"
                         alt=""
                       />
                     </div>
                     <div class="dright">
                       <div class="content">
-                        <h3>Mason Liam</h3>
-                        <span>(Co-Founder & CEO)   It is a long established fact that a reader will be </span>
-                        <ul>
-                          <!-- <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                          </li> -->
-                        </ul>
+                        <h3>‍Natural or Man Made Disasters</h3>
+                        <span>
+                          Impact of Natural and Man-Made Disasters </span>
+             
                       </div>
                     </div>
                   </div>
                   <div class="con">
 
                     <div>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout. The point of using Lorem Ipsum is that it
-                      has a more-or-less.
+                      Natural disasters (e.g., hurricanes, floods) and man-made events (e.g., terrorism, military actions) may negatively affect the Indian economy and impact the investment opportunity.
                       
                     </div>
-                    <div class="">
-                      <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    >
-                         </a>
-                    </div>
-                 
+    
 
                   
                   </div>
@@ -420,45 +311,26 @@ export default {
                 <div class="conte">
                   <div class="dbox">
                     <div class="dleft">
-                      <img
-                        src="./../assets/frontend/images/team/5.png"
+                      <img style="width: 140px;height: 140px;border-radius: 100px;"
+                        src="./../assets/frontend/images/team/10.jpg"
                         alt=""
                       />
                     </div>
                     <div class="dright">
                       <div class="content">
-                        <h3>Mason Liam</h3>
-                        <span>(Co-Founder & CEO)   It is a long established fact that a reader will be </span>
-                        <ul>
-                          <!-- <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                          </li> -->
-                        </ul>
+                        <h3>‍Delayed payments</h3>
+                        <span>Acknowledgment of Potential Payment Delays </span>
+
                       </div>
                     </div>
                   </div>
                   <div class="con">
 
                     <div>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout. The point of using Lorem Ipsum is that it
-                      has a more-or-less.
+                      Payments for investments may be subject to reasonable or significant delays, and you may receive funds later than the agreed date. We are not responsible for ensuring timely payouts for investment opportunities.
                       
                     </div>
-                    <div class="">
-                      <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    >
-                         </a>
-                    </div>
-                 
+          
 
                   
                   </div>
@@ -476,44 +348,63 @@ export default {
                 <div class="conte">
                   <div class="dbox">
                     <div class="dleft">
-                      <img
-                        src="./../assets/frontend/images/team/5.png"
+                      <img style="width: 140px;height: 140px;border-radius: 100px;"
+                        src="./../assets/frontend/images/team/12.jpg"
                         alt=""
                       />
                     </div>
                     <div class="dright">
                       <div class="content">
-                        <h3>Mason Liam</h3>
-                        <span>(Co-Founder & CEO)   It is a long established fact that a reader will be </span>
-                        <ul>
-                          <!-- <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                          </li> -->
-                        </ul>
+                        <h3>Incomplete Information</h3>
+                        <span>Responsibility for Investment Due Diligence</span>
+
                       </div>
                     </div>
                   </div>
                   <div class="con">
 
                     <div>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout. The point of using Lorem Ipsum is that it
-                      has a more-or-less.
+                      Information provided about investment opportunities on our platform may be incomplete. You are responsible for thoroughly examining and analyzing each opportunity before investing. We may not provide full details on every listed investment.
                       
                     </div>
-                    <div class="">
-                      <a href="#" class="blog-btn"
-                      >read more <i class="fa fa-arrow-circle-o-right"></i
-                    >
-                         </a>
+
+
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
+              data-wow-duration="1.6s"
+              v-animate
+          data-animation="fadeInUp animated"
+            >
+              <div class="team-list">
+                <div class="conte">
+                  <div class="dbox">
+                    <div class="dleft">
+                      <img style="width: 140px;height: 140px;border-radius: 100px;"
+                        src="./../assets/frontend/images/team/13.jpg"
+                        alt=""
+                      />
                     </div>
+                    <div class="dright">
+                      <div class="content">
+                        <h3>‍‍Changes in Indian Law</h3>
+                        <span>
+                          Evolving Legal and Regulatory Risks</span>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="con">
+
+                    <div>
+                      The legal and regulatory environment for investment opportunities on our platform is subject to change, which may negatively affect performance. Such changes could impact your investment. This summary does not cover all risks; potential investors should review all related documents thoroughly before investing. We act as facilitators and do not guarantee investment returns.
+                      
+                    </div>
+     
                  
 
                   

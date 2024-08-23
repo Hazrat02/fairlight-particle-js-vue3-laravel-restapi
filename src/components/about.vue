@@ -12,44 +12,37 @@
                   class="f-40 fw-400"
                   data-wow-duration="1.0s"
                 >
-                  About The Project
+                  About us
                 </h2>
                 <p
                   v-animate
                   data-animation="fadeInUp animated"
                   data-wow-duration="1.3s"
                 >
-                  Bit Money is a lending and investment, multicurrency and
-                  multifunctional online platform based on blockchain
-                  technology. There investors and borrowers meet each other and
-                  have the opportunity to lend money on mutually beneficial.
+                  Fairlight invests globally in 30-40 of the highest quality
+                  small and mid cap businesses, many of which investors are
+                  unfamiliar with.
                 </p>
                 <p
                   v-animate
                   data-animation="fadeInUp animated"
                   data-wow-duration="1.6s"
                 >
-                  Bit Money is a unique service that allows individuals to
-                  access loans from the comfort of their home in fiat currencies
-                  or crypto-currencies.
+                  We believe in concentration as, in our experience, backing our
+                  best ideas drives the strongest long-term returns. We focus on
+                  small and mid cap companies because, in our view, these
+                  businesses receive less investor attention, have greater
+                  growth prospects, and are more likely to be acquired by larger
+                  companies.
                 </p>
-                <p
-                  v-animate
-                  data-animation="fadeInUp animated"
-                  data-wow-duration="1.9s"
-                >
-                  Bit Money is a multi-functional platform which allows each
-                  participant to keep money in a multi-currency online wallet,
-                  buy and sell currency on the exchange, invest money, get a
-                  loan in a convenient currency.
-                </p>
-                <div class="buttons">
+                <div class="buttons mt-3" v-if="this.$route.path === '/'">
                   <router-link to="/about" href="#" class="btn3"
-                    >See more..</router-link
+                    >See more</router-link
                   >
                 </div>
               </div>
             </div>
+
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div
                 v-animate
@@ -61,6 +54,37 @@
               </div>
             </div>
           </div>
+
+          <p
+            v-if="this.$route.path === '/about'"
+            class="mt-4"
+            v-animate
+            data-animation="fadeInUp animated"
+            data-wow-duration="1.9s"
+          >
+            Fairlight employs three styles of investing within the global small
+            and mid cap market: high-quality growth, stable compounders, and
+            special situation/low-risk turnarounds.
+            <br />
+            Executing these distinct investment styles presents a broad array of
+            opportunities, with each style tending to perform differently during
+            various stages of an investment cycle.
+          </p>
+          <p
+            v-if="this.$route.path === '/about'"
+            v-animate
+            data-animation="fadeInUp animated"
+            data-wow-duration="2.3s"
+          >
+            Our strategy is executed with an ethical mindset, with hard screens
+            against industries such as gaming, tobacco, and armaments. We are
+            committed to actively avoiding companies which unequivocally cause
+            harm to people and the environment.
+            <br />
+            We believe strong corporate cultures can be an enduring source of
+            competitive advantage. One which we travel globally to analyze,
+            contrast, and compare.
+          </p>
         </div>
       </section>
       <!--About area end here-->
@@ -90,228 +114,8 @@
         </svg>
       </div>
     </div>
-    <div class="wd_scroll_wrap">
-      <section class="features-area section">
-        <div id="features-js">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div
-                  class="section-heading2 " 
-                  v-animate
-                  data-animation="fadeInUp animated"
-                  data-wow-duration="1.0s"
-                 
-                >
-                  <h2>Our Features</h2>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="featured-lists">
-                  <ul>
-                    <li>
-                      <div 
-                        class="col-sm-6 pd-0 hidden-xs"
-                        v-animate
-                  data-animation="fadeInUp animated"
-                        data-wow-duration="1.3s"
-                       
-                      >
-                        <div class="contents-l mr-b30">
-                          <h2>Lending</h2>
-                          <p>
-                            Unique platform for lending and investment with a
-                            safety fund <br />and cooperation with world-wide
-                            arbitration.
-                          </p>
-                          <a href="#" class="btn1">read more</a>
-                        </div>
-                      </div>
-                      <div
-                        class="col-sm-6 pd-0"
-                        v-animate
-                  data-animation="fadeInUp animated"
-                        data-wow-duration="1.3s"
-                        
-                      >
-                        <div class="imgs-l">
-                          <figure>
-                            <img
-                              src="./../assets/frontend/images/features/1.png"
-                              alt=""
-                            />
-                          </figure>
-                        </div>
-                      </div>
-                      <div
-                        class="col-sm-6 pd-0"
-                        data-wow-duration="1.3s"
-                        v-animate
-                  data-animation="fadeInUp animated"
-                      >
-                        <div class="contents-l mr-b30">
-                          <h2>Lending</h2>
-                          <p>
-                            ss Unique platform for lending and investment with a
-                            safety fund <br />and cooperation with world-wide
-                            arbitration.
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="rl">
-                      <div
-                        class="col-sm-6 pd-0 floatright mr-b30 hidden-xs "
-                        data-wow-duration="1.6s"
-                        v-animate
-                  data-animation="fadeInUp animated"
-                      >
-                        <div class="contents-r">
-                          <h2>Exchange Money</h2>
-                          <p>
-                            Exchange between all popular currencies with a
-                            couple of clicks. <br />Instant send from one
-                            currency to another.
-                          </p>
-                        </div>
-                      </div>
-                      <div
-                        class="col-sm-6 pd-0 "
-                        data-wow-duration="1.6s"
-                      v-animate
-                  data-animation="fadeInUp animated"
-                      >
-                        <div class="imgs-r">
-                          <figure>
-                            <img
-                              src="./../assets/frontend/images/features/2.png"
-                              alt=""
-                            />
-                          </figure>
-                        </div>
-                      </div>
-                      <div
-                        class="col-sm-6 pd-0 floatright mr-b30 visible-xs"
-                        data-wow-duration="1.6s"
-                       v-animate
-                  data-animation="fadeInUp animated"
-                      >
-                        <div class="contents-r">
-                          <h2>Exchange Money</h2>
-                          <p>
-                            Exchange between all popular currencies with a
-                            couple of clicks. <br />Instant send from one
-                            currency to another.
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div
-                        class="col-sm-6 pd-0 hidden-xs"
-                        data-wow-duration="1.9s"
-                       v-animate
-                  data-animation="fadeInUp animated"
-                      >
-                        <div class="contents-l mr-b30">
-                          <h2>Investment</h2>
-                          <p>
-                            Improved system of borrower's verification.
-                            Providing <br />verification services for other
-                            services.
-                          </p>
-                        </div>
-                      </div>
-                      <div
-                        class="col-sm-6 pd-0"
-                        data-wow-duration="1.9s"
-                        v-animate
-                  data-animation="fadeInUp animated"
-                      >
-                        <div class="imgs-l">
-                          <figure>
-                            <img
-                              src="./../assets/frontend/images/features/3.png"
-                              alt=""
-                            />
-                          </figure>
-                        </div>
-                      </div>
-                      <div
-                        class="col-sm-6 pd-0 visible-xs"
-                        data-wow-duration="1.9s"
-                       v-animate
-                  data-animation="fadeInUp animated"
-                      >
-                        <div class="contents-l mr-b30">
-                          <h2>Investment</h2>
-                          <p>
-                            Improved system of borrower's verification.
-                            Providing <br />verification services for other
-                            services.
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="rl">
-                      <div
-                        class="col-sm-6 pd-0 floatright mr-b30 hidden-xs"
-                        data-wow-duration="2.1s"
-                       v-animate
-                  data-animation="fadeInUp animated"
-                      >
-                        <div class="contents-r">
-                          <h2>Online Wallet</h2>
-                          <p>
-                            Keep your money, exchange your money, invest your
-                            money, pay <br />services and make purchases.
-                          </p>
-                        </div>
-                      </div>
-                      <div
-                        class="col-sm-6 pd-0"
-                        data-wow-duration="2.1s"
-                        v-animate
-                  data-animation="fadeInUp animated"
-                      >
-                        <div class="imgs-r">
-                          <figure>
-                            <img
-                              src="./../assets/frontend/images/features/4.png"
-                              alt=""
-                            />
-                          </figure>
-                        </div>
-                      </div>
-                      <div
-                        class="col-sm-6 pd-0 floatright mr-b30 visible-xs "
-                        data-wow-duration="2.1s"
-                        v-animate
-                  data-animation="fadeInUp animated"
-                      >
-                        <div class="contents-r">
-                          <h2>Online Wallet</h2>
-                          <p>
-                            Keep your money, exchange your money, invest your
-                            money, pay <br />services and make purchases.
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    
   </section>
 </template>
 <style scoped>
-.about-area{
-  background: white !important;
-}
 </style>

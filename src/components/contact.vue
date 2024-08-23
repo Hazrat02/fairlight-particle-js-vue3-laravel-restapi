@@ -13,7 +13,7 @@ export default {
       email: "",
       sub: "",
       sms: "",
-      faqId:0,
+      faqId:1,
     };
   },
 
@@ -59,30 +59,7 @@ export default {
 </script>
 
 <template>
-  <div class="sud" style="background-color: #08091b">
-    <svg
-      version="1.1"
-      id="Layer_1"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      x="0px"
-      y="0px"
-      viewBox="0 0 1920 181.1"
-      style="enable-background: new 0 0 1920 181.1"
-      xml:space="preserve"
-    >
-      <g>
-        <path
-          class="st0"
-          d="M0,80c0,0,28.9-4.2,43-13c14.3-9,71-35.7,137,5c17.3,7.7,33.3,13,48,11c17.3,0.3,50.3,4.7,66,23
-                     c20.3,9.7,68,40.3,134-12c24-11,59-16.3,104,2c21,7.3,85,27.7,117-14c24-30.7,62.7-55,141-12c26,10.3,72,14.7,110-14
-                     c37.7-19,89.7-29,122,53c23,32.7,47.7,66.3,97,26c24-22.7,51-78.3,137-38c0,0,28.3,15.7,52,15c23.7-0.7,50.7,4.3,76,41
-                     c19.7,19.7,71,36.7,121-2c0,0,22.3-16,55-12c0,0,32.7,6.7,56-71c23.3-76,79-92,122-29c9.3,13.7,25,42,62,43c37,1,51.7,25.3,67,48
-                     c15.3,22.7,51,22.7,53,23v28.1H0V80z"
-        />
-      </g>
-    </svg>
-  </div>
+
   <div class="btc_contact_main_wrapper pb-4">
     <div class="btc_contact_img_overlay"></div>
     <div class="container">
@@ -97,7 +74,7 @@ export default {
             <form class="row" @submit.prevent="contact">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="btc_contact_heading_wrapper">
-                  <h3>Contact with <span> US</span></h3>
+                  <h3>Contact <span> US</span></h3>
                   <div class="btc_contact_cont_bottom_line"></div>
                   <div class="btc_contact_cont_bottom_line_state"></div>
                 </div>
@@ -157,53 +134,7 @@ export default {
                   <button type="submit" class="btn3">Send Mail</button>
                 </div>
               </div>
-              <div class="text-center">
-                <div class="btc_footer_social_wrapper mt-5 text-center">
-                  <ul>
-                    <li
-                      v-animate
-                      data-animation="animated bounceInDown"
-                      data-wow-duration="1s"
-                      class=""
-                    >
-                      <a href="#"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li
-                      v-animate
-                      data-animation="animated bounceInDown"
-                      data-wow-duration="2s"
-                      class=""
-                    >
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li
-                      v-animate
-                      data-animation="animated bounceInDown"
-                      data-wow-duration="1.2s"
-                      class=""
-                    >
-                      <a href="#"><i class="fa fa-send-o"></i></a>
-                    </li>
-                    <li
-                      v-animate
-                      data-animation="animated bounceInDown"
-                      data-wow-duration="1.4s"
-                      class=""
-                    >
-                      <a href="https://coinmarketcap.com/currencies/bitcoin/"><i class="fa fa-bitcoin"></i></a>
-                    </li>
-                    <li
-                      v-animate
-                      data-animation="animated bounceInDown"
-                      data-wow-duration="1.6s"
-                      class=""
-                    >
-                    
-                      <a href="mailto:support@fairlightinvestments.com"><i class="fa fa-envelope"></i></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              
             </form>
           </div>
         </div>
@@ -213,15 +144,10 @@ export default {
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="btc_contact_accord_heading_wrapper">
                   <h5>Start Now</h5>
-                  <h3>Ready to Earn with Bitcoin?</h3>
-                  <span>#</span>
-                  <p>
-                    Proin gravida nibh vel velit auctor et. Aenean sollicitudin,
-                    lorem quis bdum auctor, nisi elit consequat ipsum, nec
-                    sagittis sem.
-                  </p>
+                  <h3>Ready to earn?</h3>
+                
                   <div>
-                    Phone : (555) 2346-789 <br />Email : support@example.com
+               Email : support@fairlightinvestments.com
                   </div>
                 </div>
                 <div class="trucking_faq_wrapeer">
@@ -244,8 +170,7 @@ export default {
                         'collapsed': faqId != 1,
                       }"
                             >
-                              How Cryptocurrency Begun and Its Impact To
-                              Financial ?</a
+                            What will be the nature of Investments?</a
                             >
                           </h4>
                         </div>
@@ -259,9 +184,7 @@ export default {
                           <div class="panel-body">
                             <div class="panel_cont">
                               <p>
-                                Morbi accumsan ipsum velit. Nam nec aks tel lus
-                                a odio tincidunt auctor. Proi gravida nibh vel
-                                velit auctor.
+                                Investments will be a combination of both equity and debt instruments.
                               </p>
                             </div>
                           </div>
@@ -281,8 +204,8 @@ export default {
                         'collapsed': faqId != 2,
                       }"
                             >
-                              How Cryptocurrency Begun and Its Impact To
-                              Financial ?</a
+                            What are the various sectors of my fund diversification?
+                            </a
                             >
                           </h4>
                         </div>
@@ -296,9 +219,7 @@ export default {
                           <div class="panel-body">
                             <div class="panel_cont">
                               <p>
-                                Morbi accumsan ipsum velit. Nam nec aks tel lus
-                                a odio tincidunt auctor. Proi gravida nibh vel
-                                velit auctor.
+                                Funds are primarily diversified across - Debt ETF, Govt. Bonds, Exchange Commissions, Precious Metal ETFs.
                               </p>
                             </div>
                           </div>
@@ -318,8 +239,8 @@ export default {
                         'collapsed': faqId != 3,
                       }"
                             >
-                              How Cryptocurrency Begun and Its Impact To
-                              Financial ?</a
+                            What is the minimum investment that one can start with?
+                            </a
                             >
                           </h4>
                         </div>
@@ -333,9 +254,7 @@ export default {
                           <div class="panel-body">
                             <div class="panel_cont">
                               <p>
-                                Morbi accumsan ipsum velit. Nam nec aks tel lus
-                                a odio tincidunt auctor. Proi gravida nibh vel
-                                velit auctor.
+                                We always recommend our clients to opt for higher investments allowing larger liquidity pools to benefit from higher return on investments. However for beginners we recommend no less than $5000.
                               </p>
                             </div>
                           </div>
@@ -355,8 +274,7 @@ export default {
                         'collapsed': faqId != 4,
                       }"
                             >
-                              How Cryptocurrency Begun and Its Impact To
-                              Financial ?</a
+                            What about the safety of my investment capital?</a
                             >
                           </h4>
                         </div>
@@ -370,9 +288,7 @@ export default {
                           <div class="panel-body">
                             <div class="panel_cont">
                               <p>
-                                Morbi accumsan ipsum velit. Nam nec aks tel lus
-                                a odio tincidunt auctor. Proi gravida nibh vel
-                                velit auctor.
+                                Most investors primarily worry about the safety of the investment capital over the return on investments. Here we always look into the best interest of our investors and have a balanced risk to return on investment ratio. This is why for smart diversification, we insist on higher investments allowing us to mitigate risk and reap best return on your investments.
                               </p>
                             </div>
                           </div>

@@ -108,9 +108,7 @@
                       </div>
                     </div>
 
-                    <button type="submit" class="btn1">
-                      LogIn Now
-                    </button>
+                    <button type="submit" class="btn1">LogIn Now</button>
                   </form>
                   <div class="mt-5">
                     <label
@@ -152,6 +150,7 @@
 import AuthLayout from "@/Layouts/AuthLayout.vue";
 
 import axios from "axios";
+import { POSITION } from "vue-toastification";
 
 import { useAuthUserStore } from "./../../stores/user";
 import { login } from "../../middleware/index";
@@ -186,7 +185,7 @@ export default {
       this.showPassword = !this.showPassword;
       this.showicon = !this.showicon;
     },
-   
+
     async login() {
       this.$setLoading(true);
       const data = {
@@ -197,7 +196,6 @@ export default {
       await axios
         .post("/api/auth/login", data)
         .then((response) => {
-
           login(response.data.authorisation.token);
 
           const userStore = useAuthUserStore();
@@ -211,20 +209,13 @@ export default {
 
           this.$setLoading(false);
           this.$toast.success("User succesfully login");
-          
         })
         .catch((error) => {
           // Handle the error
           this.$setLoading(false);
-          console.log(error);
-          if (error.response.data.message) {
-            this.$toast.error(error.response.data.message);
+          // console.log(error);
+          this.$toast.error(error.response.data.message);
 
-          }else{
-            this.$toast.error('Server is busy now.try again.');
-
-          }
-          
           
         });
 
@@ -236,16 +227,16 @@ export default {
 
 <style scoped>
 .token-body {
-
   background: linear-gradient(
     to right,
     rgba(36, 39, 48, 0.833) 0%,
     rgba(10, 47, 58, 0.568) 100%
   ) !important;
-  backdrop-filter: blur(1440px) !important; /* Adjust the blur value as needed */
+  backdrop-filter: blur(
+    1440px
+  ) !important; /* Adjust the blur value as needed */
 }
 .tokens-area {
-  background:transparent !important;
-
+  background: transparent !important;
 }
 </style>
