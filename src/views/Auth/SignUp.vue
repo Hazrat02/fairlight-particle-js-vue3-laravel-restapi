@@ -22,11 +22,13 @@
                   animation-name: fadeInUp;
                 "
               >
-                Rounds of Sale of Tokens
+              Create Your Account
               </h2>
 
-              There are many variations of passages of Lorem Ipsum available.
-              There are many variations of passages.
+              <p>
+                Join us by filling out the registration form below. Provide your details to create a new account and start exploring our investment opportunities.
+              </p>
+              <p>If you already have an account, please log in instead. For any questions or support, feel free to reach out to our team.</p>
             </div>
             <div
               class="col-lg-7 col-md-7 col-sm-12 col-xs-12 text-right wow fadeInUp animated"

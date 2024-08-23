@@ -2,8 +2,8 @@
   <AuthLayout>
     <div class="wd_scroll_wrap">
       <section class="tokens-area">
-        <div class="pt-5">
-          <div class="container accordion-body">
+        <div class="pt-5 mb-3">
+          <div class="container accordion-body ">
             <div
               class="col-lg-5 col-md-5 col-sm-12 col-xs-12 text-left wow fadeInUp animated"
               data-wow-duration="1.3s"
@@ -22,11 +22,13 @@
                   animation-name: fadeInUp;
                 "
               >
-                Rounds of Sale of Tokens
+              Reset Your Password
               </h2>
 
-              There are many variations of passages of Lorem Ipsum available.
-              There are many variations of passages.
+              <p>
+                Forgot your password? No worries. Enter your email address below, and we'll send you a link to reset your password. 
+              </p>
+              <p>Follow the instructions in the email to create a new password and regain access to your account. If you need further assistance, our support team is here to help.</p>
             </div>
             <div
               class="col-lg-7 col-md-7 col-sm-12 col-xs-12 text-right wow fadeInUp animated"
@@ -189,23 +191,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-              <p
-                class="token-con wow fadeInUp animated"
-                data-wow-duration="1.9s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1.9s;
-                  animation-name: fadeInUp;
-                "
-              >
-                The sale of tokens It is a long established fact that a reader
-                will be distracted by the<span>
-                  readable content of a page when looking at its layout.</span
-                >There are many variations of passages of Lorem Ipsum available.
-                There are many variations of passages.
-              </p>
-            </div>
+           
           </div>
         </div>
       </section>

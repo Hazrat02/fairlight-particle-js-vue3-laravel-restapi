@@ -36,7 +36,7 @@
             </button>
             <div class="mob-logo">
               <router-link to="/">
-                <img
+                <img style="height: 60px;border-radius: 20px;"
                   src="./../assets/frontend/images/logo/logo2.gif"
                   alt="Site Name"
                 />

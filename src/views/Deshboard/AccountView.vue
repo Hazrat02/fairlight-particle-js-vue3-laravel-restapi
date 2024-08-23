@@ -11,6 +11,7 @@
                 <div class="site-card">
                   <div class="site-card-header">
                     <h3 class="title">Profile Settings</h3>
+                    <router-link class="btn1" to="/change"> Change Password</router-link>
                   </div>
                   <div class="site-card-body">
                     <form enctype="multipart/form-data" @submit.prevent="userUpdate">
@@ -19,7 +20,7 @@
                           <div class="mb-3">
                             <div class="body-title">Profile image:</div>
                             <div class="wrap-custom-file">
-                              <input type="file" accept=".gif, .jpg, .png" />
+                              <input id="avatar" type="file" accept=".gif, .jpg, .png" />
 
                               <label for="avatar">
                                 <img
@@ -33,6 +34,15 @@
                           </div>
                         </div>
                       </div>
+                      <div class="mb-3">
+                          <label class=" " for="mobile">Name</label>
+                          <input
+                            class="form-control"
+                            id="mobile"
+                            type="text"
+                            v-model="name"
+                          />
+                        </div>
                       <div class="progress-steps-form">
                         <div class="mb-3">
                           <label class=" " for="modalInputEmail1"
@@ -50,10 +60,11 @@
                           <input
                             class="form-control"
                             id="mobile"
-                            type="text"
+                            type="number"
                             v-model="phone"
                           />
                         </div>
+                    
                       
                       </div>
                       <div
@@ -105,6 +116,7 @@ export default {
       profile: "",
       birth: "545",
       phone: "2323",
+      name: "",
     };
   },
   methods: {
@@ -115,10 +127,11 @@ export default {
       this.$setLoading(true);
 
       const formData = new FormData(); // Create a FormData object
-      // formData.append("birth", this.birth);
+      formData.append("birth", this.birth);
       formData.append("Phone", this.phone);
+      formData.append("name", this.name);
    
-      // formData.append("profile", this.profile); // Append the file to the FormData object
+      formData.append("profile", this.profile); // Append the file to the FormData object
 
       await axios
         .post("/api/user/edit", formData, {
@@ -164,6 +177,7 @@ export default {
 
     this.birth = this.authUser.birth;
     this.phone = this.authUser.Phone;
+    this.name = this.authUser.name;
 
     this.$setLoading(false);
   },
