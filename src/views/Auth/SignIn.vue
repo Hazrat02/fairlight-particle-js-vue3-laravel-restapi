@@ -25,7 +25,7 @@
               Log In to Your Account
               </h2>
 
-              Welcome back! Please enter your username and password to access your account. If you don't have an account yet, you can easily create one by signing up. For any issues or assistance, please contact our support team.
+              Welcome back! Please enter your email and password to access your account. If you don't have an account yet, you can easily create one by signing up. For any issues or assistance, please contact our support team.
             </div>
             <div
               class="col-lg-7 col-md-7 col-sm-12 col-xs-12 text-right wow fadeInUp animated"

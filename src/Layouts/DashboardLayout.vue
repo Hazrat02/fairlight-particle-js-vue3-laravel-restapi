@@ -370,6 +370,11 @@ export default {
       } else {
         // userStore.reSetAuthUser();
         this.authUser = await userStore.reSetAuthUser();
+       
+      }
+
+      if (this.authUser.role === "0") {
+        this.$router.push("/admin/dashboard");
       }
     
   },

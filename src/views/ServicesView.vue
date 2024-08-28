@@ -29,20 +29,16 @@ export default {
 <template>
 
     <HomeLayout>
-      <div  class="wd_scroll_wrap">
+      <div class="wd_scroll_wrap">
       <section class="projects bg-img pd-t100 pd-b70 jarallax">
         <div class="container">
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
               <div class="section-heading">
                 <h2
-                  class="wow fadeInUp animated"
+                  v-animate
+                  data-animation="fadeInUp animated"
                   data-wow-duration="1.0s"
-                  style="
-                    visibility: visible;
-                    animation-duration: 1s;
-                    animation-name: fadeInUp;
-                  "
                 >
                   Advantage of the Project
                 </h2>
@@ -52,31 +48,25 @@ export default {
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div
-                class="project-list wow fadeInUp animated"
+                v-animate
+                data-animation="fadeInUp animated"
+                class="project-list"
                 data-wow-duration="1.0s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1s;
-                  animation-name: fadeInUp;
-                "
               >
                 <div class="content">
                   <span class="icons"
                     ><img src="./../assets/frontend/images/icons/6.png" alt=""
                   /></span>
-                  <h3>Blockchain <br />Technology</h3>
+                  <h3>Global network of Small  & MidCap Industries </h3>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div
-                class="project-list wow fadeInUp animated"
+                class="project-list"
+                v-animate
+                data-animation="fadeInUp animated"
                 data-wow-duration="1.3s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1.3s;
-                  animation-name: fadeInUp;
-                "
               >
                 <div class="content">
                   <span class="icons"
@@ -88,31 +78,25 @@ export default {
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div
-                class="project-list wow fadeInUp animated"
+                v-animate
+                data-animation="fadeInUp animated"
+                class="project-list"
                 data-wow-duration="1.6s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1.6s;
-                  animation-name: fadeInUp;
-                "
               >
                 <div class="content">
                   <span class="icons"
                     ><img src="./../assets/frontend/images/icons/8.png" alt=""
                   /></span>
-                  <h3>Multicurrency <br />Coins</h3>
+                  <h3>High Weekly <br />ROI </h3>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div
-                class="project-list wow fadeInUp animated"
+                v-animate
+                data-animation="fadeInUp animated"
+                class="project-list"
                 data-wow-duration="1.9s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1.9s;
-                  animation-name: fadeInUp;
-                "
               >
                 <div class="content">
                   <span class="icons"
@@ -124,13 +108,10 @@ export default {
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div
-                class="project-list wow fadeInUp animated"
+                v-animate
+                data-animation="fadeInUp animated"
+                class="project-list"
                 data-wow-duration="2.1s"
-                style="
-                  visibility: visible;
-                  animation-duration: 2.1s;
-                  animation-name: fadeInUp;
-                "
               >
                 <div class="content">
                   <span class="icons"
@@ -142,13 +123,10 @@ export default {
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div
-                class="project-list wow fadeInUp animated"
+                v-animate
+                data-animation="fadeInUp animated"
+                class="project-list"
                 data-wow-duration="2.4s"
-                style="
-                  visibility: visible;
-                  animation-duration: 2.4s;
-                  animation-name: fadeInUp;
-                "
               >
                 <div class="content">
                   <span class="icons"
@@ -161,6 +139,10 @@ export default {
           </div>
         </div>
       </section>
+
+
+
+     
     </div>
 
     <div class="wd_scroll_wrap">

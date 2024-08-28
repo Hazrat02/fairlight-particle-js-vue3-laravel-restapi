@@ -27,13 +27,13 @@ import ChangeView from '../views/Deshboard/ChangeView.vue'
 // admin
 
 
-// import AdminDeshboardview from '../views/Admin/DeshboardView.vue'
-// import UserManageview from '../views/Admin/UserManageview.vue'
-// import LeadsManageview from '../views/Admin/LeadsManageview.vue'
-// import Leadsview from '../views/Admin/Leadsview.vue'
+import AdminDeshboardview from '../views/Admin/DeshboardView.vue'
+import UserManageview from './../views/Admin/UserManageView.vue'
+import LeadsManageview from '../views/Admin/LeadsManageView.vue'
+import Leadsview from '../views/Admin/LeadsView.vue'
 
-// import AdminTransactionView from '../views/Admin/TransactionView.vue'
-// import UserDetailsview from '../views/Admin/UserDetailsView.vue'
+import AdminTransactionView from '../views/Admin/TransactionView.vue'
+import UserDetailsview from '../views/Admin/UserDetailsView.vue'
 
 
 import LoginComponent from '../views/Auth/SignIn.vue'
@@ -243,61 +243,61 @@ const router = createRouter({
 
 
     // admin----------------------------
-    // {
-    //   path: '/admin/dashboard',
-    //   name: 'admindashboard',
+    {
+      path: '/admin/dashboard',
+      name: 'admindashboard',
 
-    //   component:AdminDeshboardview,
-    //   meta:{
-    //     requiresAuth:true,
-    //   },
-    // },
-    // {
-    //   path: '/admin/user',
-    //   name: 'alluser',
+      component:AdminDeshboardview,
+      meta:{
+        requiresAuth:true,
+      },
+    },
+    {
+      path: '/admin/user',
+      name: 'alluser',
 
-    //   component:UserManageview,
-    //   meta:{
-    //     requiresAuth:true,
-    //   },
-    // },
-    // {
-    //   path: '/admin/user.details/:id?',
-    //   name: 'userdetails',
+      component:UserManageview,
+      meta:{
+        requiresAuth:true,
+      },
+    },
+    {
+      path: '/admin/user.details/:id?',
+      name: 'userdetails',
 
-    //   component:UserDetailsview,
-    //   meta:{
-    //     requiresAuth:true,
-    //   },
-    // },
-    // {
-    //   path: '/admin/leads',
-    //   name: 'leads',
+      component:UserDetailsview,
+      meta:{
+        requiresAuth:true,
+      },
+    },
+    {
+      path: '/admin/leads',
+      name: 'leads',
 
-    //   component:LeadsManageview,
-    //   meta:{
-    //     requiresAuth:true,
-    //   },
-    // },
-    // {
-    //   path: '/admin/leadcollect',
-    //   name: 'lead',
+      component:LeadsManageview,
+      meta:{
+        requiresAuth:true,
+      },
+    },
+    {
+      path: '/admin/leadcollect',
+      name: 'lead',
 
-    //   component:Leadsview,
-    //   meta:{
-    //     requiresAuth:true,
-    //   },
-    // },
+      component:Leadsview,
+      meta:{
+        requiresAuth:true,
+      },
+    },
     
-    // {
-    //   path: '/admin/transaction',
-    //   name: 'Admintransaction',
+    {
+      path: '/admin/transaction',
+      name: 'Admintransaction',
 
-    //   component:AdminTransactionView,
-    //   meta:{
-    //     requiresAuth:true,
-    //   },
-    // },
+      component:AdminTransactionView,
+      meta:{
+        requiresAuth:true,
+      },
+    },
     
   ],
   scrollBehavior(to, from, savedPosition) {
