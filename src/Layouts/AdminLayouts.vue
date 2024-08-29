@@ -56,13 +56,7 @@
                     <!-- Replaced with Font Awesome icon -->
                   </button>
                   <ul class="dropdown-menu " :class="dropShow">
-                    <li>
-                      <router-link to="/account"
-                        class="dropdown-item"
-                        type="button"
-                        ><i class="fa fa-cog"></i>Settings</router-link
-                      >
-                    </li>
+   
                     <li>
                      <router-link to="/change"
                         class="dropdown-item"
@@ -72,22 +66,7 @@
                          </router-link>
                     </li>
   
-                    <li class="mobile-screen-show">
-                      <router-link to="/kyc"
-                        class="dropdown-item"
-                      
-                      >
-                        <i class="fa fa-id-card"></i>KYC
-                      </router-link>
-                    </li>
-                    <li class="mobile-screen-show">
-                      <router-link to="/transaction"
-                        class="dropdown-item"
-                      
-                      >
-                        <i class="fa fa-bar-chart"></i>Transaction
-                      </router-link>
-                    </li>
+
               
                     <li class="logout">
                       <a
@@ -223,28 +202,27 @@
               <i class="fa fa-tachometer"></i>
               <!-- Replaced with Font Awesome icon -->
             </router-link>
-            <router-link to="/deposit" class="active" :class="{
-                active: this.$route.path === '/deposit',
+            <router-link to="/admin/leads"  :class="{
+                active: this.$route.path === '/admin/leads',
               }">
-              <i class="fa fa-download"></i>
+              <i class="fa fa-wechat"></i>
+            </router-link>
+            <router-link to="/admin/user" :class="{
+                active: this.$route.path === '/admin/user',
+              }">
+              <i class="fa fa-users"></i>
               <!-- Replaced with Font Awesome icon -->
             </router-link>
-            <router-link to="/withdraw" :class="{
-                active: this.$route.path === '/withdraw',
-              }">
-              <i class="fa fa-arrow-up"></i>
-              <!-- Replaced with Font Awesome icon -->
-            </router-link>
-            <router-link to="/transaction" :class="{
-                active: this.$route.path === '/transaction',
+            <router-link to="/admin/transaction" :class="{
+                active: this.$route.path === '/admin/transaction',
               }">
               <i class="fa fa-exchange"></i>
               <!-- Replaced with Font Awesome icon -->
             </router-link>
-            <router-link to="/account" :class="{
-                active: this.$route.path === '/account',
+            <router-link to="/admin/leadcollect" :class="{
+                active: this.$route.path === '/admin/leadcollect',
               }">
-              <i class="fa fa-cogs"></i>
+              <i class="fa fa-empire"></i>
               <!-- Replaced with Font Awesome icon -->
             </router-link>
            

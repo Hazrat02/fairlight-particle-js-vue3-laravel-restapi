@@ -1,43 +1,40 @@
 <template>
   <div>
     <AdminDeshboardLayout>
-      <div class="bg-dash-dark-2 py-4 mb-4">
-        <div class="container-fluid">
-          <h2 class=" mb-0">All Message</h2>
-        </div>
-      </div>
-      <!-- Breadcrumb-->
-      <div class="container">
-        <div class="bg-secondary text-center rounded p-4 mt-4">
-          <div class="row justify-content-between">
-                  <div class="p-2 ms-3 col-3">
-                    <label>Result: </label>
-                    <span> {{ this.contactData.length }}</span>
-                  </div>
-                 
+      <div class="page-container">
+        <div class="main-content">
+          <div class="section-gap">
+            <div class="container-fluid">
+              <div class="bg-dash-dark-2 py-4 mb-4">
+                <div class="container-fluid">
+                  <h2 class="mb-0">All Message</h2>
                 </div>
+              </div>
+          
+           
+                <div class="text-center rounded">
+                 
 
-          <div class="table-responsive">
-            <table
-              class="table text-start align-middle table-bordered table-hover mb-0"
-            >
-              <thead>
-                <tr class="text-white">
-                  <th>#</th>
+                  <div class="table-responsive">
+                    <table
+                      class="table text-start align-middle table-bordered table-hover mb-0"
+                    >
+                      <thead>
+                        <tr class="text-white">
+                          <th>#</th>
                           <th>Name</th>
                           <th>Email</th>
                           <th>Subject</th>
                           <th>Message</th>
                           <th>Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
                           v-for="(contactItem, index) in displayedItems"
                           :key="index"
                         >
                           <th scope="row">{{ index }}</th>
-                         
 
                           <td>{{ contactItem.name }}</td>
                           <td>{{ contactItem.email }}</td>
@@ -47,50 +44,50 @@
                             {{ contactItem.created_at.substring(0, 10) }}
                           </td>
                         </tr>
-              </tbody>
-            </table>
-            <nav
-              v-show="totalPages > 1"
-              aria-label="Page navigation example mt-3"
-            >
-              <ul class="pagination justify-content-center">
-                <li
-                  class="page-item"
-                  :class="{
-                    disabled: currentPage === 1,
-                  }"
-                >
-                  <button
-                    class="page-link"
-                    @click="previousPage"
-                    :disabled="currentPage === 1"
+                      </tbody>
+                    </table>
+                    <nav
+                    class="site-pagination"
+                    style="text-align: center"
+                    v-show="totalPages > 1"
                   >
-                    Previous
-                  </button>
-                </li>
-                <li class="page-item">
-                  <span class="btn"
-                    >Page {{ currentPage }} of {{ totalPages }}</span
-                  >
-                </li>
+                    <ul class="pagination">
+                      <li
+                        class="page-item"
+                        :class="{ disabled: currentPage === 1 }"
+                        @click="previousPage"
+                        aria-label="&laquo; Previous"
+                      >
+                        <span class="page-link">&lsaquo;</span>
+                      </li>
 
-                <li class="page-item">
-                  <button
-                    class="page-link"
-                    @click="nextPage"
-                    :class="{
-                      disabled: currentPage === totalPages,
-                    }"
-                  >
-                    Next
-                  </button>
-                </li>
-              </ul>
-            </nav>
+                      <li
+                        v-for="page in totalPages"
+                        :key="page"
+                        class="page-item"
+                        :class="{ active: page === currentPage }"
+                        @click="goToPage(page)"
+                      >
+                        <span class="page-link">{{ page }}</span>
+                      </li>
+
+                      <li
+                        class="page-item"
+                        :class="{ disabled: currentPage === totalPages }"
+                        @click="nextPage"
+                        aria-label="Next &raquo;"
+                      >
+                        <span class="page-link">&rsaquo;</span>
+                      </li>
+                    </ul>
+                  </nav>
+                  </div>
+                </div>
+           
+            </div>
           </div>
         </div>
       </div>
-    
     </AdminDeshboardLayout>
   </div>
 </template>
@@ -100,13 +97,11 @@
 import { contactStore } from "../../stores/contact";
 import AdminDeshboardLayout from "./../../Layouts/AdminLayouts.vue";
 export default {
-  components :{
-    AdminDeshboardLayout
+  components: {
+    AdminDeshboardLayout,
   },
   data() {
     return {
-
-
       contactData: [],
 
       // paginate
@@ -115,8 +110,6 @@ export default {
     };
   },
   computed: {
-  
-   
     // Calculate the total number of pages based on the total number of items and itemsPerPage
     totalPages() {
       return Math.ceil(this.contactData.length / this.itemsPerPage);
@@ -156,9 +149,6 @@ export default {
         this.currentPage++;
       }
     },
-
-
-
   },
 };
 </script>

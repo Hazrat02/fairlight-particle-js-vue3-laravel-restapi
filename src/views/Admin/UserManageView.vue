@@ -1,90 +1,111 @@
 <template>
   <div>
     <AdminDeshboardLayout>
-      <div class="bg-dash-dark-2 py-4 mb-4">
-        <div class="container-fluid">
-          <h2 class=" mb-0">All User</h2>
-        </div>
-      </div>
-      <!-- Breadcrumb-->
-      <div class="container ">
-        <div class="bg-secondary text-center rounded p-4 mt-4">
-          <h3 class="p-2 ms-3 text-start">Recent Registrations</h3>
+      <div class="page-container">
+        <div class="main-content">
+          <div class="section-gap">
+            <div class="container-fluid">
+              <div class="py-4 mb-4">
+                <div class="container-fluid">
+                  <h2 class="mb-0">All User</h2>
+                </div>
+              </div>
+              <!-- Breadcrumb-->
 
-          <div class="table-responsive">
-            <table
-              class="table text-start align-middle table-bordered table-hover mb-0"
-            >
-              <thead>
-                <tr class="text-white">
-                  <th>#</th>
-                          <th>User Name</th>
-                          <th>Date of Birth</th>
-                          <th>Date of Reg.</th>
-                          <th>Country</th>
-                          <th>Phone</th>
-                          <th>Email</th>
-                          <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                          v-for="(user, index) in displayedItems"
-                          :key="index"
-                        >
-                          <th scope="row">{{ index }}</th>
-                          <td>{{ user.name }}</td>
-                          <td>{{ user.birth.substring(0, 10) }}</td>
-                          <td>{{ user.created_at.substring(0, 10) }}</td>
-                          <td>{{ user.country }}</td>
-                          <td>{{ user.Phone }}</td>
-                          <td>{{ user.email }}</td>
-                          <td>
-                            <div class="d-flex justify-content-center gap-2">
-                              
-                              <router-link :to="{ name: 'userdetails', params: { id: user.id } }"> <i class="fa fa-eye" style="color: beige"></i></router-link>
+              <div class="">
+                <div class="table-responsive">
+                  <table
+                    class="table text-start align-middle table-bordered table-hover mb-0"
+                  >
+                    <thead>
+                      <tr class="text-white">
+                        <th>#</th>
+                        <th>User Name</th>
+                        <th>Date of Birth</th>
+                        <th>Date of Reg.</th>
+                        <th>Country</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="(user, index) in displayedItems" :key="index">
+                        <th scope="row">{{ index }}</th>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.birth.substring(0, 10) }}</td>
+                        <td>{{ user.created_at.substring(0, 10) }}</td>
+                        <td>{{ user.country }}</td>
+                        <td>{{ user.Phone }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                          <div
+                            class="d-flex justify-content-center"
+                            style="gap: 20px"
+                          >
+                            <router-link
+                              :to="{
+                                name: 'userdetails',
+                                params: { id: user.id },
+                              }"
+                            >
+                              <i class="fa fa-eye" style="color: beige"></i
+                            ></router-link>
 
+                            <a>
+                              <i
+                                class="fa fa-trash"
+                                style="color: brown"
+                                @click="userDelete(user.id)"
+                              ></i>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
 
-                              <a>
-                                <i
-                                  class="fa fa-trash"
-                                  style="color: brown"
-                                  @click="userDelete(user.id)"
-                                ></i>
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-              </tbody>
-            </table>
-            <nav v-show="totalPages > 1" aria-label="Page navigation example mt-3">
-                                    <ul class="pagination justify-content-center">
-                                        <li class="page-item" :class="{
-                                            disabled: currentPage === 1,
-                                        }">
-                                            <button class="page-link" @click="previousPage" :disabled="currentPage === 1">
-                                                Previous
-                                            </button>
-                                        </li>
-                                        <li class="page-item">
-                                            <span class="btn ">Page {{ currentPage }} of {{ totalPages }}</span>
-                                        </li>
+                  <nav
+                    class="site-pagination"
+                    style="text-align: center"
+                    v-show="totalPages > 1"
+                  >
+                    <ul class="pagination">
+                      <li
+                        class="page-item"
+                        :class="{ disabled: currentPage === 1 }"
+                        @click="previousPage"
+                        aria-label="&laquo; Previous"
+                      >
+                        <span class="page-link">&lsaquo;</span>
+                      </li>
 
-                                        <li class="page-item">
-                                            <button class="page-link" @click="nextPage" :class="{
-                                                disabled: currentPage === totalPages,
-                                            }">
-                                                Next
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </nav>
+                      <li
+                        v-for="page in totalPages"
+                        :key="page"
+                        class="page-item"
+                        :class="{ active: page === currentPage }"
+                        @click="goToPage(page)"
+                      >
+                        <span class="page-link">{{ page }}</span>
+                      </li>
+
+                      <li
+                        class="page-item"
+                        :class="{ disabled: currentPage === totalPages }"
+                        @click="nextPage"
+                        aria-label="Next &raquo;"
+                      >
+                        <span class="page-link">&rsaquo;</span>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        
       </div>
-      
     </AdminDeshboardLayout>
   </div>
 </template>
@@ -95,8 +116,8 @@ import axios from "axios";
 import { useAuthUserStore } from "../../stores/user";
 import AdminDeshboardLayout from "./../../Layouts/AdminLayouts.vue";
 export default {
-  components :{
-    AdminDeshboardLayout
+  components: {
+    AdminDeshboardLayout,
   },
   data() {
     return {
@@ -122,12 +143,6 @@ export default {
       axios
         .get(`/api/user.delete/${id}`)
         .then((response) => {
-
-
-
-
-
-
           const User = useAuthUserStore();
           this.alluser = User.deleteUser(id);
 
