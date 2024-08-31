@@ -4,64 +4,7 @@
       <div class="page-container">
         <div class="main-content">
           <div class="section-gap">
-            <div class="team2-area ">
-              <div class="row">
-                <div
-                  class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
-                  data-wow-duration="1.3s"
-                  v-animate
-                  data-animation="fadeInUp animated"
-                >
-                  <div class="team-list pb-3">
-                    <div class="conte">
-                      <div class="dbox">
-                        <div class="dleft">
-                          <div class="details">
-                            <i style="font-size: 50px" class="fa fa-users"></i>
-                          </div>
-                        </div>
 
-                        <div class="dright">
-                          <div class="content">
-                            <h3>6565 $</h3>
-                            <span>Total Users</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
-                  data-wow-duration="1.6s"
-                  v-animate
-                  data-animation="fadeInRight animated"
-                >
-                  <div class="team-list pb-3">
-                    <div class="conte">
-                      <div class="dbox">
-                        <div class="dleft">
-                          <div class="details">
-                            <i
-                              style="font-size: 50px"
-                              class="fa fa-download"
-                            ></i>
-                          </div>
-                        </div>
-
-                        <div class="dright">
-                          <div class="content">
-                            <h3>erwrw</h3>
-                            <span>Total Deposit</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
 
             <div class="container-fluid">
               <!--Page Content-->
@@ -371,11 +314,11 @@ export default {
       await axios
         .put(`api/transaction.edit/${id}`, data)
         .then((response) => {
-          this.$notify({
-            title: "message",
-            text: response.data.message,
-            type: "success",
-          });
+
+          this.$toast.success(
+                response.data.message
+           );
+
 
           const index = this.transaction.findIndex((item) => item.id === id);
           if (index !== -1) {
@@ -386,11 +329,10 @@ export default {
         })
         .catch((error) => {
           this.$setLoading(false);
-          this.$notify({
-            title: "Error message",
-            text: error.response.data.message,
-            type: "error",
-          });
+          this.$toast.error(
+                error.response.data.message
+           );
+         
         });
 
       this.$setLoading(false);

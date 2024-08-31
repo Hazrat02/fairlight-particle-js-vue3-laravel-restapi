@@ -58,7 +58,7 @@
                   <ul class="dropdown-menu " :class="dropShow">
    
                     <li>
-                     <router-link to="/change"
+                     <router-link to="/admin/change"
                         class="dropdown-item"
                         type="button"
                       >
@@ -92,9 +92,8 @@
               <div class="user-balance-card">
                 <div class="wallet-name">
                   <div class="name">Account Balance</div>
-                  <div class="default green-color" v-if=" authUser.id_kyc === 'success' || authUser.ad_kyc  === 'success' || authUser.ec_kyc  === 'success' "> <i class="fa fa-check"></i> Verified</div>
-                  <div class="default yellow-color" v-if=" authUser.id_kyc === 'pending' || authUser.ad_kyc  === 'pending' || authUser.ec_kyc  === 'pending' "><router-link to="/kyc" > <i class="fa fa-spinner"></i> Pending </router-link></div>
-                  <div class="default red-color" v-else><router-link to="/kyc" ><i class="fa fa-warning"></i> Unverified</router-link></div>
+                  <div class="default green-color" > <i class="fa fa-check"></i> Admin</div>
+                
                 </div>
                 <div class="wallet-info">
                   <div class="wallet-id">
@@ -121,19 +120,7 @@
                         }}</div>
                 </div>
               </div>
-              <div class="actions">
-                <router-link to="/deposit"
-                  class="user-sidebar-btn"
-                  ><i class="fa fa-arrow-down"></i>Deposit
-                  <!-- Replaced with Font Awesome icon -->
-                </router-link>
-                 <router-link to="/withdraw"
-                
-                  class="user-sidebar-btn"
-                  ><i class="fa fa-arrow-up"></i>Withdraw
-                  <!-- Replaced with Font Awesome icon -->
-                 </router-link>
-              </div>
+              
             </div>
             <div class="side-nav-inside">
               <ul class="side-nav-menu">

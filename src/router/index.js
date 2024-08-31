@@ -14,8 +14,9 @@ import DeshboardView from '../views/Deshboard/DeshboardView.vue'
 // import UserView from '../views/Deshboard/UserView.vue'
 import KycView from '../views/Deshboard/KycView.vue'
 import DepositView from '../views/Deshboard/DepositView.vue'
-import depositLog from '../views/Deshboard/depositLog.vue'
 import WithdrawView from '../views/Deshboard/WithdrawView.vue'
+import depositLog from '../views/Deshboard/depositLog.vue'
+
 import withdrawLog from '../views/Deshboard/withdrawLog.vue'
 // import EconomicView from '../views/Deshboard/EconomicView.vue'
 import TransactionView from '../views/Deshboard/TransactionView.vue'
@@ -34,6 +35,9 @@ import Leadsview from '../views/Admin/LeadsView.vue'
 
 import AdminTransactionView from '../views/Admin/TransactionView.vue'
 import UserDetailsview from '../views/Admin/UserDetailsView.vue'
+import AdminDepositView from '../views/Admin/DepositView.vue'
+import AdminWithdrawView from '../views/Admin/WithdrawView.vue'
+import AdminChangeView from '../views/Admin/ChangeView.vue'
 
 
 import LoginComponent from '../views/Auth/SignIn.vue'
@@ -271,6 +275,24 @@ const router = createRouter({
       },
     },
     {
+      path: '/admin/deposit/:id?',
+      name: 'AdminDeposit',
+
+      component:AdminDepositView,
+      meta:{
+        requiresAuth:true,
+      },
+    },
+    {
+      path: '/admin/withdraw/:id?',
+      name: 'AdminWithdraw',
+
+      component:AdminWithdrawView,
+      meta:{
+        requiresAuth:true,
+      },
+    },
+    {
       path: '/admin/leads',
       name: 'leads',
 
@@ -294,6 +316,15 @@ const router = createRouter({
       name: 'Admintransaction',
 
       component:AdminTransactionView,
+      meta:{
+        requiresAuth:true,
+      },
+    },
+    {
+      path: '/admin/change',
+      name: 'adminchange',
+
+      component:AdminChangeView ,
       meta:{
         requiresAuth:true,
       },
