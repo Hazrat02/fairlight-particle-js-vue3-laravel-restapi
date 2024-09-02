@@ -115,7 +115,7 @@
                 <div class="name">Account Balance</div>
                 <div class="default green-color" v-if=" authUser.id_kyc === 'success' || authUser.ad_kyc  === 'success' || authUser.ec_kyc  === 'success' "> <i class="fa fa-check"></i> Verified</div>
                 <div class="default yellow-color" v-if=" authUser.id_kyc === 'pending' || authUser.ad_kyc  === 'pending' || authUser.ec_kyc  === 'pending' "><router-link to="/kyc" > <i class="fa fa-spinner"></i> Pending </router-link></div>
-                <div class="default red-color" v-else><router-link to="/kyc" ><i class="fa fa-warning"></i> Unverified</router-link></div>
+                <div class="default red-color" v-if="(authUser.id_kyc === 'rejected' || authUser.ad_kyc === 'rejected' ||authUser.ec_kyc === 'rejected') && (authUser.id_kyc != 'pending' && authUser.ad_kyc  != 'pending' && authUser.ec_kyc  != 'pending') && (authUser.id_kyc != 'success' && authUser.ad_kyc != 'success' && authUser.ec_kyc != 'success')"><router-link to="/kyc" ><i class="fa fa-warning"></i> Unverified</router-link></div>
               </div>
               <div class="wallet-info">
                 <div class="wallet-id">

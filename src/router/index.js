@@ -38,6 +38,7 @@ import UserDetailsview from '../views/Admin/UserDetailsView.vue'
 import AdminDepositView from '../views/Admin/DepositView.vue'
 import AdminWithdrawView from '../views/Admin/WithdrawView.vue'
 import AdminChangeView from '../views/Admin/ChangeView.vue'
+import transferView from '../views/Admin/transferView.vue'
 
 
 import LoginComponent from '../views/Auth/SignIn.vue'
@@ -288,6 +289,15 @@ const router = createRouter({
       name: 'AdminWithdraw',
 
       component:AdminWithdrawView,
+      meta:{
+        requiresAuth:true,
+      },
+    },
+    {
+      path: '/admin/transfer/:id?',
+      name: 'transferView',
+
+      component:transferView,
       meta:{
         requiresAuth:true,
       },

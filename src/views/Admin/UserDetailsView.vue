@@ -5,7 +5,7 @@
         <div class="main-content">
           <div class="section-gap">
             <div class="emp-profile">
-              <form method="post">
+              <div>
                 <div class="row">
                   <div class="col-md-4">
                     <div class="profile-img">
@@ -44,12 +44,14 @@
                           ><i class="fa fa-arrow-down"></i> Deposit</router-link
                         >
                         <router-link
-                          to="/transaction"
+                        :to="{
+                                name: 'transferView',
+                                params: { id: this.$route.params.id },
+                              }"
                           v-animate
                           data-animation="bounceInDown animated"
                           data-wow-duration="1.5s"
-                          ><i class="fa fa-shopping-bag"></i> All
-                          Log</router-link
+                          ><i class="fa fa-exchange"></i>Transfer</router-link
                         >
                         <router-link
                         :to="{
@@ -165,59 +167,7 @@
                           </div>
                         </div>
                       </div>
-                      <div
-                        class="tab-pane fade"
-                        id="profile"
-                        role="tabpanel"
-                        aria-labelledby="profile-tab"
-                      >
-                        <div class="row">
-                          <div class="col-md-6">
-                            <label>Experience</label>
-                          </div>
-                          <div class="col-md-6">
-                            <p>Expert</p>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <label>Hourly Rate</label>
-                          </div>
-                          <div class="col-md-6">
-                            <p>10$/hr</p>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <label>Total Projects</label>
-                          </div>
-                          <div class="col-md-6">
-                            <p>230</p>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <label>English Level</label>
-                          </div>
-                          <div class="col-md-6">
-                            <p>Expert</p>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <label>Availability</label>
-                          </div>
-                          <div class="col-md-6">
-                            <p>6 months</p>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <label>Your Bio</label><br />
-                            <p>Your detail description</p>
-                          </div>
-                        </div>
-                      </div>
+                     
                     </div>
 
                     <section class="tables py-0" v-if="currentSection == 'trx'">
@@ -368,20 +318,21 @@
 
                     <div v-if="currentSection == 'doc'">
                     <section class="pt-0 mt-4" v-if="idkyc">
-                      <div class="">
-                        <div class="row justify-content-between">
+           
+     
                           <div class="col-12">
-                            <div class="card bg-secondary">
+                            <div class="">
                               <div class="card-body">
                                 <div
-                                  class="row gy-3 align-items-center"
+                                  class="align-items-center"
                                   v-if="authUser.id_kyc != 'No'"
                                 >
-                                  <div class="col-12">
+                                  <div class="col-12 mb-3">
                                     <div class="">
                                       <div>
                                         <b for="">Proof of ID: </b
                                         ><button
+                                        type="button"
                                           v-if="authUser.id_kyc == 'pending'"
                                           class="btn btn-success mt-2"
                                           @click="kyc('id_kyc')"
@@ -407,7 +358,7 @@
                                                   :href="idkyc.id_front"
                                                   v-if="idkyc.id_front"
                                                 >
-                                                {{ idkyc.id_front }}
+                                        
                                                   <img
                                                     class="img-fluid"
                                                     :src="idkyc.id_front"
@@ -446,13 +397,14 @@
                                     </div>
                                   </div>
                                   <div
-                                    class="row align-items-center"
+                                    class="row align-items-center mb-3"
                                     v-if="authUser.ad_kyc != 'No'"
                                   >
                                     <div class="">
                                       <div>
                                         <b for="">Proof of Address: </b>
                                         <button
+                                         type="button"
                                           v-if="authUser.ad_kyc == 'pending'"
                                           class="btn btn-success mt-2"
                                           @click="kyc('ad_kyc')"
@@ -461,7 +413,7 @@
                                         </button>
                                       </div>
                                     </div>
-                                    <div class="col-md-6 col-12">
+                                    <div class="col-12">
                                       <div class="col-lg-10">
                                         <div>
                                           <b for="">Country: </b
@@ -488,7 +440,7 @@
                                         </div>
                                       </div>
                                     </div>
-                                    <div class="col-md-6 col-12">
+                                    <div class="col-12">
                                       <div class="card">
                                         <div class="card-body">
                                           <div
@@ -518,13 +470,14 @@
                                     </div>
                                   </div>
                                   <div
-                                    class="row align-items-center"
+                                    class="row align-items-center mb-3"
                                     v-if="idkyc.se_file"
                                   >
                                     <div class="">
                                       <div>
                                         <b for="">Proof of Selfie: </b>
                                         <button
+                                        type="button"
                                           v-if="authUser.id_kyc == 'pending'"
                                           class="btn btn-success mt-2"
                                           @click="kyc('id_kyc')"
@@ -538,7 +491,7 @@
                                       <div class="card">
                                         <div class="card-body">
                                           <div
-                                            class="row justify-content-between"
+                                            class=""
                                           >
                                             <div class="">
                                               <div
@@ -613,1257 +566,20 @@
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
+                
+                 
                     </section>
 
                     <div v-else>No Data</div>
                   </div>
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <section class="pt-0 mt-4">
-        <div class="container-fluid">
-          <div class="row justify-content-center gy-4">
-            <div class="col-lg-4">
-              <!-- User block-->
-              <div class="card mb-4 bg-secondary">
-                <div class="card-body text-center">
-                  <img
-                    v-if="authUser.profile"
-                    class="rounded-circle img-fluid"
-                    :src="authUser.profile"
-                    style="width: 150px; height: 150px"
-                    alt="Richard Nevoreski"
-                  />
-                  <img
-                    v-else
-                    class="rounded-circle img-fluid"
-                    style="width: 150px; height: 150px"
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                    alt="Richard Nevoreski"
-                  />
-
-                  <h5 class="my-3">{{ authUser.name }}</h5>
-                  <p class="text-muted mb-1">Email: {{ authUser.email }}</p>
-                  <p class="text-muted mb-1">
-                    Wallet: {{ authUser.main_balance }}
-                  </p>
-                  <p class="text-muted mb-1">
-                    Live: {{ authUser.live_balance }}
-                  </p>
-
-                  <div class="d-flex justify-content-center mb-2">
-                    <a
-                      data-bs-toggle="modal"
-                      data-bs-target="#depositModal"
-                      class="btn btn-outline-success"
-                    >
-                      Deposit
-                    </a>
-                    <a
-                      data-bs-toggle="modal"
-                      data-bs-target="#withdrawModal"
-                      class="btn btn-primary"
-                    >
-                      Withdarw
-                    </a>
-
-                    <button
-                      class="btn btn-outline-success ms-1"
-                      data-bs-toggle="modal"
-                      data-bs-target="#transferModal"
-                    >
-                      Transfer
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12">
-              <div class="card">
-                <header class="">
-                  <nav class="bg-dark pt-1 z-index-10">
-                    <div class="px-1">
-                      <ul
-                        class="list-inline list-unstyled mb-0 d-flex align-items-center justify-content-between"
-                      >
-                        <li class="sidebar-item">
-                          <a
-                            class="sidebar-link"
-                            :class="{
-                              'bg-dash-dark-2': currentSection === 'profile',
-                            }"
-                            @click="handleClick('profile')"
-                          >
-                            Profile</a
-                          >
-                        </li>
-                        <li class="sidebar-item">
-                          <a
-                            class="sidebar-link"
-                            :class="{
-                              'bg-dash-dark-2': currentSection === 'trx',
-                            }"
-                            @click="handleClick('trx')"
-                          >
-                            TRX</a
-                          >
-                        </li>
-
-                        <li class="sidebar-item">
-                          <a
-                            class="sidebar-link"
-                            :class="{
-                              'bg-dash-dark-2': currentSection === 'doc',
-                            }"
-                            @click="handleClick('doc')"
-                          >
-                            Doc</a
-                          >
-                        </li>
-                        <li class="sidebar-item">
-                          <a
-                            class="sidebar-link"
-                            :class="{
-                              'bg-dash-dark-2': currentSection === 'economic',
-                            }"
-                            @click="handleClick('economic')"
-                          >
-                            Economic</a
-                          >
-                        </li>
-                        <li class="sidebar-item">
-                          <a
-                            class="sidebar-link"
-                            :class="{
-                              'bg-dash-dark-2': currentSection === 'payment',
-                            }"
-                            @click="handleClick('payment')"
-                          >
-                            Payment</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </nav>
-                </header>
-                <div class="card-body bg-secondary">
-                  <div
-                    v-if="currentSection === 'profile'"
-                    class="row gy-3 align-items-center"
-                  >
-                    <div class="col-md-6 col-12">
-                      <div class="card mb-4 bg-secondary">
-                        <div class="card-body">
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <p class="mb-0">Full Name</p>
-                            </div>
-                            <div class="col-sm-9">
-                              <p class="text-muted mb-0">{{ authUser.name }}</p>
-                            </div>
-                          </div>
-                          <hr />
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <p class="mb-0">Email</p>
-                            </div>
-                            <div class="col-sm-9">
-                              <p class="text-muted mb-0">
-                                {{ authUser.email }}
-                              </p>
-                            </div>
-                          </div>
-                          <hr />
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <p class="mb-0">Phone</p>
-                            </div>
-                            <div class="col-sm-9">
-                              <p class="text-muted mb-0">
-                                {{ authUser.Phone }}
-                              </p>
-                            </div>
-                          </div>
-                          <hr />
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <p class="mb-0">Communication Language</p>
-                            </div>
-                            <div class="col-sm-9">
-                              <p class="text-muted mb-0">Einglish</p>
-                            </div>
-                          </div>
-                          <hr />
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <p class="mb-0">Address</p>
-                            </div>
-                            <div class="col-sm-9">
-                              <p class="text-muted mb-0">
-                                {{ authUser.country }}
-                              </p>
-                            </div>
-                          </div>
-                          <hr />
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <p class="mb-0">Password</p>
-                            </div>
-                            <div class="col-sm-9">
-                              <p class="text-muted mb-0">Hidden</p>
-                            </div>
-                          </div>
-                          <hr />
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <p class="mb-0">Wallet</p>
-                            </div>
-                            <div class="col-sm-9">
-                              <p class="text-muted mb-0">
-                                {{ authUser.wallet }}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="card bg-secondary mb-4 mb-lg-0">
-                        <div class="card-body p-0">
-                          <ul class="list-group list-group-flush rounded-3">
-                            <li
-                              class="list-group-item d-flex justify-content-between align-items-center p-3"
-                            >
-                              <p class="text-warning">{{ authUser.id_kyc }}</p>
-                              <p class="mb-0">Proof of ID approved</p>
-                            </li>
-                            <li
-                              class="list-group-item d-flex justify-content-between align-items-center p-3"
-                            >
-                              <p class="text-success">{{ authUser.ad_kyc }}</p>
-                              <p class="mb-0">Proof of Address approved</p>
-                            </li>
-                            <li
-                              class="list-group-item d-flex justify-content-between align-items-center p-3"
-                            >
-                              <p style="color: #55acee">
-                                {{ authUser.ec_kyc }}
-                              </p>
-                              <p class="mb-0">Economic Profile approved</p>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div v-if="currentSection == 'payment'">
-                    <section class="container" v-if="authPayment">
-                      <div class="card bg-secondary p-4">
-                        <div
-                          class="card-body row justify-content-evenly"
-                          v-if="authPayment.method == 'bank'"
-                        >
-                          <div class="col-lg-8">
-                            <div class="row">
-                              <div class="col-sm-3">
-                                <p class="mb-0">Payment Method</p>
-                              </div>
-                              <div class="col-sm-9">
-                                <p class="text-muted mb-0">
-                                  {{ authPayment.method }}
-                                </p>
-                              </div>
-                            </div>
-                            <hr />
-                            <div class="row">
-                              <div class="col-sm-3">
-                                <p class="mb-0">Bank Holder Name</p>
-                              </div>
-                              <div class="col-sm-9">
-                                <p class="text-muted mb-0">
-                                  {{ authPayment.holder }}
-                                </p>
-                              </div>
-                            </div>
-                            <hr />
-                            <div class="row">
-                              <div class="col-sm-3">
-                                <p class="mb-0">Account Number</p>
-                              </div>
-                              <div class="col-sm-9">
-                                <p class="text-muted mb-0">
-                                  {{ authPayment.bank_address }}
-                                </p>
-                              </div>
-                            </div>
-                            <hr />
-                            <div class="row">
-                              <div class="col-sm-3">
-                                <p class="mb-0">Recipient Bank Name</p>
-                              </div>
-                              <div class="col-sm-9">
-                                <p class="text-muted mb-0">
-                                  {{ authPayment.bank_name }}
-                                </p>
-                              </div>
-                            </div>
-                            <hr />
-                            <div class="row">
-                              <div class="col-sm-3">
-                                <p class="mb-0">Recipient Bank IFSC</p>
-                              </div>
-                              <div class="col-sm-9">
-                                <p class="text-muted mb-0">
-                                  {{ authPayment.ifsc }}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-4" style="object-fit: cover">
-                            <img
-                              v-if="authPayment.doc"
-                              class="img-fluid"
-                              :src="authPayment.doc"
-                              alt=""
-                            />
-                            <img
-                              v-else
-                              class="img-fluid"
-                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW_80vVH0RghGLTxWZjz0EYc9JanOzT-m0wEUvdU0caY6bKU5n8oF5hbOHZlU9GVUM1dQ&usqp=CAU"
-                              alt=""
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="card-body row justify-content-evenly"
-                          v-if="authPayment.method == 'crypto'"
-                        >
-                          <div class="col-lg-8">
-                            <div class="row">
-                              <div class="col-sm-3">
-                                <p class="mb-0">Payment Method</p>
-                              </div>
-                              <div class="col-sm-9">
-                                <p class="text-muted mb-0">
-                                  {{ authPayment.method }}
-                                </p>
-                              </div>
-                            </div>
-                            <hr />
-                            <div class="row">
-                              <div class="col-sm-3">
-                                <p class="mb-0">Wallet Address:</p>
-                              </div>
-                              <div class="col-sm-9">
-                                <p class="text-muted mb-0">
-                                  {{ authPayment.wallet_address }}
-                                </p>
-                              </div>
-                            </div>
-                            <hr />
-                            <div class="row">
-                              <div class="col-sm-3">
-                                <p class="mb-0">Currency:</p>
-                              </div>
-                              <div class="col-sm-9">
-                                <p class="text-muted mb-0">USDT</p>
-                              </div>
-                            </div>
-                            <hr />
-                            <div class="row">
-                              <div class="col-sm-3">
-                                <p class="mb-0">Wallet Tag Number:</p>
-                              </div>
-                              <div class="col-sm-9">
-                                <p class="text-muted mb-0">
-                                  {{ authPayment.tag }}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-4" style="object-fit: cover">
-                            <img
-                              v-if="authPayment.qr"
-                              class="img-fluid"
-                              :src="authPayment.qr"
-                              alt=""
-                            />
-                            <img
-                              v-else
-                              class="img-fluid"
-                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW_80vVH0RghGLTxWZjz0EYc9JanOzT-m0wEUvdU0caY6bKU5n8oF5hbOHZlU9GVUM1dQ&usqp=CAU"
-                              alt=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-
-                    <div v-else>No Data</div>
-                  </div>
-                  <div v-if="currentSection == 'doc'">
-                    <section class="pt-0 mt-4" v-if="idkyc">
-                      <div class="">
-                        <div class="row justify-content-between">
-                          <div class="col-12">
-                            <div class="card bg-secondary">
-                              <div class="card-body">
-                                <div
-                                  class="row gy-3 align-items-center"
-                                  v-if="authUser.id_kyc != 'No'"
-                                >
-                                  <div class="col-12">
-                                    <div class="">
-                                      <div>
-                                        <b for="">Proof of ID: </b
-                                        ><button
-                                          v-if="authUser.id_kyc == 'pending'"
-                                          class="btn btn-success mt-2"
-                                          @click="kyc('id_kyc')"
-                                        >
-                                          Approve
-                                        </button>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                      <div class="card bg-secondary">
-                                        <div class="card-body">
-                                          <div
-                                            class="row gy-3 justify-content-between"
-                                          >
-                                            <div class="col-lg-6">
-                                              <b>Id Front:</b>
-                                              <div
-                                                class="card mb-0"
-                                                style="border: solid white 2px"
-                                              >
-                                                <a
-                                                  :href="idkyc.id_front"
-                                                  v-if="idkyc.id_front"
-                                                >
-                                                  <img
-                                                    class="img-fluid"
-                                                    :src="idkyc.id_front"
-                                                    alt=""
-                                                  />
-                                                </a>
-                                                <span v-else>No Data</span>
-                                              </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                              <b>Id Back:</b>
-                                              <div
-                                                class="card mb-0"
-                                                style="
-                                                  border: solid rgb(101, 95, 95)
-                                                    2px;
-                                                "
-                                              >
-                                                <a
-                                                  :href="idkyc.id_back"
-                                                  v-if="idkyc.id_back"
-                                                >
-                                                  <img
-                                                    class="img-fluid"
-                                                    :src="idkyc.id_back"
-                                                    alt=""
-                                                  />
-                                                </a>
-
-                                                <span v-else>No Data</span>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div
-                                    class="row align-items-center"
-                                    v-if="authUser.ad_kyc != 'No'"
-                                  >
-                                    <div class="">
-                                      <div>
-                                        <b for="">Proof of Address: </b>
-                                        <button
-                                          v-if="authUser.ad_kyc == 'pending'"
-                                          class="btn btn-success mt-2"
-                                          @click="kyc('ad_kyc')"
-                                        >
-                                          Approve
-                                        </button>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="col-lg-10">
-                                        <div>
-                                          <b for="">Country: </b
-                                          ><span>{{ idkyc.country }}</span>
-                                        </div>
-                                      </div>
-                                      <div class="col-lg-10">
-                                        <div>
-                                          <b for="">City: </b
-                                          ><span>{{ idkyc.city }}</span>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-lg-10">
-                                        <div>
-                                          <b for="">Address: </b
-                                          ><span>{{ idkyc.address }}</span>
-                                        </div>
-                                      </div>
-                                      <div class="col-lg-10">
-                                        <div>
-                                          <b for="">Postel Number: </b
-                                          ><span>{{ idkyc.postel }}</span>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="card">
-                                        <div class="card-body">
-                                          <div
-                                            class="row gy-3 r justify-content-center"
-                                          >
-                                            <div class="">
-                                              <div
-                                                class="card mb-0"
-                                                style="border: solid white 2px"
-                                              >
-                                                <a
-                                                  :href="idkyc.ad_file"
-                                                  v-if="idkyc.ad_file"
-                                                >
-                                                  <img
-                                                    class="img-fluid"
-                                                    :src="idkyc.ad_file"
-                                                    alt=""
-                                                  />
-                                                </a>
-                                                <span v-else> No Data </span>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div
-                                    class="row align-items-center"
-                                    v-if="idkyc.se_file"
-                                  >
-                                    <div class="">
-                                      <div>
-                                        <b for="">Proof of Selfie: </b>
-                                        <button
-                                          v-if="authUser.id_kyc == 'pending'"
-                                          class="btn btn-success mt-2"
-                                          @click="kyc('id_kyc')"
-                                        >
-                                          Approve
-                                        </button>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                      <div class="card">
-                                        <div class="card-body">
-                                          <div
-                                            class="row justify-content-between"
-                                          >
-                                            <div class="">
-                                              <div
-                                                class="card mb-0"
-                                                style="border: solid white 2px"
-                                              >
-                                                <a
-                                                  :href="idkyc.se_file"
-                                                  v-if="idkyc.se_file"
-                                                >
-                                                  <img
-                                                    class="img-fluid"
-                                                    :src="idkyc.se_file"
-                                                    alt=""
-                                                  />
-                                                </a>
-                                                <span v-else> No Data </span>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div
-                                    class="row align-items-center"
-                                    v-if="idkyc.ot_file"
-                                  >
-                                    <div class="">
-                                      <div>
-                                        <b for="">Proof of Other: </b>
-                                        <button
-                                          v-if="authUser.id_kyc == 'pending'"
-                                          class="btn btn-success mt-2"
-                                          @click="kyc('id_kyc')"
-                                        >
-                                          Approve
-                                        </button>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                      <div class="card">
-                                        <div class="card-body">
-                                          <div
-                                            class="row justify-content-between"
-                                          >
-                                            <div class="">
-                                              <div
-                                                class="card mb-0"
-                                                style="border: solid white 2px"
-                                              >
-                                                <a
-                                                  :href="idkyc.ot_file"
-                                                  v-if="idkyc.ot_file"
-                                                >
-                                                  <img
-                                                    class="img-fluid"
-                                                    :src="idkyc.ot_file"
-                                                    alt=""
-                                                  />
-                                                </a>
-                                                <span v-else> No Data </span>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-
-                    <div v-else>No Data</div>
-                  </div>
-                  <section class="tables py-0" v-if="currentSection == 'trx'">
-                    <div class=" ">
-                      <div class="row gy-4">
-                        <div class="col-lg-12">
-                          <div class="card mb-0 bg-secondary">
-                            <div class="row justify-content-between">
-                              <div class="p-2 ms-3 col-3">
-                                <label>Result: </label>
-                                <span> {{ this.authTransaction.length }}</span>
-                              </div>
-                              <div class="col-6 p-3">
-                                <div class="input-group">
-                                  <div class="input-group-text">
-                                    <select
-                                      class="form-select"
-                                      v-model="selectedOption"
-                                    >
-                                      <option selected disabled>Select</option>
-                                      <option value="all">All</option>
-                                      <option value="pending">Pending</option>
-                                      <option value="success">Success</option>
-                                      <option value="rejected">Rejected</option>
-                                    </select>
-                                  </div>
-                                  <input
-                                    style="border: solid white 1px"
-                                    class="form-control"
-                                    type="text"
-                                    v-model="searchQuery"
-                                    placeholder="search.."
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="card-body pt-0">
-                              <div class="table-responsive">
-                                <table class="table mb-0">
-                                  <thead>
-                                    <tr>
-                                      <th>#</th>
-                                      <th>Date</th>
-                                      <th>Type</th>
-                                      <th>Payment Method</th>
-                                      <th>Amount</th>
-                                      <th>Account</th>
-
-                                      <th>Status</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr
-                                      v-for="(
-                                        transactionItem, index
-                                      ) in displayedItems"
-                                      :key="index"
-                                    >
-                                      <th scope="row">{{ index }}</th>
-                                      <td>
-                                        {{
-                                          transactionItem.created_at.substring(
-                                            0,
-                                            10
-                                          )
-                                        }}
-                                      </td>
-
-                                      <td>{{ transactionItem.type }}</td>
-                                      <td>{{ transactionItem.method }}</td>
-                                      <td>${{ transactionItem.amount }}</td>
-                                      <td>
-                                        {{ transactionItem.address }} Account
-                                      </td>
-                                      <td>
-                                        <span
-                                          v-if="
-                                            transactionItem.status != 'pending'
-                                          "
-                                          class="badge"
-                                          :class="{
-                                            'bg-danger':
-                                              transactionItem.status ===
-                                              'rejected',
-                                            'bg-success':
-                                              transactionItem.status ===
-                                              'success',
-                                          }"
-                                        >
-                                          {{ transactionItem.status }}
-                                        </span>
-                                        <span
-                                          v-else
-                                          class="d-flex justify-content-evenly"
-                                        >
-                                          <i
-                                            @click="
-                                              trxEdit(
-                                                transactionItem.id,
-                                                'success'
-                                              )
-                                            "
-                                            class="fa fa-check"
-                                            style="
-                                              color: green;
-                                              font-size: 20px;
-                                            "
-                                          >
-                                          </i>
-                                          <i
-                                            @click="
-                                              trxEdit(
-                                                transactionItem.id,
-                                                'rejected'
-                                              )
-                                            "
-                                            else
-                                            class="fa fa-times"
-                                            style="color: red; font-size: 20px"
-                                          ></i>
-                                        </span>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                                <nav
-                                  v-show="totalPages > 1"
-                                  aria-label="Page navigation example mt-3"
-                                >
-                                  <ul class="pagination justify-content-center">
-                                    <li
-                                      class="page-item"
-                                      :class="{
-                                        disabled: currentPage === 1,
-                                      }"
-                                    >
-                                      <button
-                                        class="page-link"
-                                        @click="previousPage"
-                                        :disabled="currentPage === 1"
-                                      >
-                                        Previous
-                                      </button>
-                                    </li>
-                                    <li class="page-item">
-                                      <span class="page-link"
-                                        >Page {{ currentPage }} of
-                                        {{ totalPages }}</span
-                                      >
-                                    </li>
-
-                                    <li class="page-item">
-                                      <button
-                                        class="page-link"
-                                        @click="nextPage"
-                                        :class="{
-                                          disabled: currentPage === totalPages,
-                                        }"
-                                      >
-                                        Next
-                                      </button>
-                                    </li>
-                                  </ul>
-                                </nav>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <section class="" v-if="currentSection == 'economic'">
-                  <div
-                    class="container-fluid bg-secondary pb-4"
-                    v-if="geteconomic"
-                  >
-                    <div class="row justify-content-center gy-4">
-                      <div class="col-12">
-                        <div class="">
-                          <div class="">
-                            <div class="row gy-3 align-items-center">
-                              <div class="col-12 col-md-6">
-                                <div class="card mb-4 bg-secondary">
-                                  <div class="card-body">
-                                    <div class="row">
-                                      <div class="col-sm-3">
-                                        <p class="mb-0">Employment status:</p>
-                                      </div>
-                                      <div class="col-sm-9">
-                                        <p class="text-muted mb-0">
-                                          {{ geteconomic.employ }}
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                      <div class="col-sm-3">
-                                        <p class="mb-0">Industry:</p>
-                                      </div>
-                                      <div class="col-sm-9">
-                                        <p class="text-muted mb-0">
-                                          {{ geteconomic.industry }}
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                      <div class="col-sm-3">
-                                        <p class="mb-0">
-                                          Source of Income/Funds:
-                                        </p>
-                                      </div>
-                                      <div class="col-sm-9">
-                                        <p class="text-muted mb-0">
-                                          {{ geteconomic.source_of_income }}
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                      <div class="col-sm-3">
-                                        <p class="mb-0">
-                                          Estimated Annual Income (USD):
-                                        </p>
-                                      </div>
-                                      <div class="col-sm-9">
-                                        <p class="text-muted mb-0">
-                                          {{ geteconomic.est_annual_income }}
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                      <div class="col-sm-3">
-                                        <p class="mb-0">
-                                          Have you ever traded in derivatives or
-                                          FX & CFD products before?:
-                                        </p>
-                                      </div>
-                                      <div class="col-sm-9">
-                                        <p class="text-muted mb-0">
-                                          {{ geteconomic.ever_traded }}
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                      <div class="col-sm-3">
-                                        <p class="mb-0">
-                                          Do you have previous work experience
-                                          or any qualification that can help you
-                                          to understand the risks related to
-                                          trading in leveraged products?:
-                                        </p>
-                                      </div>
-                                      <div class="col-sm-9">
-                                        <p class="text-muted mb-0">
-                                          {{ geteconomic.previous_work_exp }}
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                      <div class="col-sm-3">
-                                        <p class="mb-0">
-                                          Are you a US citizen for tax
-                                          purposes?:
-                                        </p>
-                                      </div>
-                                      <div class="col-sm-9">
-                                        <p class="text-muted mb-0">
-                                          {{ geteconomic.are_you_us_citizen }}
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <button
-                                  v-if="authUser.ec_kyc == 'pending'"
-                                  class="btn btn-success"
-                                  @click="kyc('ec_kyc')"
-                                >
-                                  Approve
-                                </button>
-                              </div>
-                              <div class="col-md-6 col-12">
-                                <div class="card bg-secondary mb-4 mb-lg-0">
-                                  <div class="card-body p-0">
-                                    <ul
-                                      class="list-group list-group-flush rounded-3"
-                                    >
-                                      <li
-                                        class="list-group-item d-flex justify-content-between align-items-center p-3"
-                                      >
-                                        <p class="text-warning">
-                                          {{ authUser.id_kyc }}
-                                        </p>
-                                        <p class="mb-0">Proof of ID approved</p>
-                                      </li>
-                                      <li
-                                        class="list-group-item d-flex justify-content-between align-items-center p-3"
-                                      >
-                                        <p class="text-success">
-                                          {{ authUser.ad_kyc }}
-                                        </p>
-                                        <p class="mb-0">
-                                          Proof of Address approved
-                                        </p>
-                                      </li>
-                                      <li
-                                        class="list-group-item d-flex justify-content-between align-items-center p-3"
-                                      >
-                                        <p style="color: #55acee">
-                                          {{ authUser.ec_kyc }}
-                                        </p>
-                                        <p class="mb-0">
-                                          Economic Profile approved
-                                        </p>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div v-else>No Data</div>
-                </section>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="modal fade text-start"
-          id="depositModal"
-          tabindex="-1"
-          aria-labelledby="depositModal"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content bg-secondary">
-              <div class="modal-header">
-                <h5 class="modal-title" id="depositModal">Deposit Money</h5>
-                <button
-                  class="btn-close btn-close-white"
-                  type="button"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <form
-                  enctype="multipart/form-data"
-                  @submit.prevent="trx2('deposit')"
-                >
-                  <div class="mb-2">
-                    <label class="" for="Account">Account Category</label>
-                    <select
-                      class="form-select"
-                      id="Account"
-                      required
-                      v-model="address"
-                    >
-                      <option selected disabled>Select</option>
-                      <option value="Wallet">
-                        Wallet Account (${{ authUser.main_balance }})
-                      </option>
-                      <option value="Live">
-                        Live Account (${{ authUser.live_balance }})
-                      </option>
-                    </select>
-                  </div>
-                  <div class="mb-2">
-                    <label class="" for="Amount">Deposit Amount</label>
-                    <div class="input-group">
-                      <div class="input-group-text">$</div>
-                      <input
-                        required
-                        v-model="amount"
-                        class="form-control"
-                        id="Amount"
-                        type="text"
-                        placeholder="Min 10"
-                      />
-                    </div>
-                  </div>
-                  <div class="mb-2">
-                    <label class="" for="inlineFormSelectPref"
-                      >Payment Method</label
-                    >
-                    <select
-                      class="form-select"
-                      id="inlineFormSelectPref"
-                      v-model="method"
-                      required
-                    >
-                      <option selected disabled>Select</option>
-                      <option value="btc">Bitcoin</option>
-                      <option value="bnb">BNB</option>
-                      <option value="ltc">Lite Coin</option>
-                      <option value="Trust Wallet">Trust Wallet</option>
-                      <option value="Bit Pay">Bit Pay</option>
-                    </select>
-                  </div>
-                  <div class="mt-1">
-                    <button class="btn btn-success" type="submit">
-                      Deposit Now
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button
-                  class="btn btn-primary"
-                  type="button"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="modal fade text-start"
-          id="withdrawModal"
-          tabindex="-1"
-          aria-labelledby="withdrawModal"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content bg-secondary">
-              <div class="modal-header">
-                <h5 class="modal-title" id="withdrawModal">Withdraw Money</h5>
-                <button
-                  class="btn-close btn-close-white"
-                  type="button"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <form
-                  enctype="multipart/form-data"
-                  @submit.prevent="trx2('withdraw')"
-                >
-                  <div class="mb-2">
-                    <label class="" for="Account">Account Category</label>
-                    <select
-                      class="form-select"
-                      id="Account"
-                      required
-                      v-model="address"
-                    >
-                      <option selected disabled>Select</option>
-                      <option value="Wallet">
-                        Wallet Account (${{ authUser.main_balance }})
-                      </option>
-                      <option value="Live">
-                        Live Account (${{ authUser.live_balance }})
-                      </option>
-                    </select>
-                  </div>
-                  <div class="mb-2">
-                    <label class="" for="Amount">Deposit Amount</label>
-                    <div class="input-group">
-                      <div class="input-group-text">$</div>
-                      <input
-                        required
-                        v-model="amount"
-                        class="form-control"
-                        id="Amount"
-                        type="text"
-                        placeholder="Min 10"
-                      />
-                    </div>
-                  </div>
-                  <div class="mb-2">
-                    <label class="" for="inlineFormSelectPref"
-                      >Payment Method</label
-                    >
-                    <select
-                      class="form-select"
-                      id="inlineFormSelectPref"
-                      v-model="method"
-                      required
-                    >
-                      <option selected disabled>Select</option>
-                      <option value="btc">Bitcoin</option>
-                      <option value="bnb">BNB</option>
-                      <option value="ltc">Lite Coin</option>
-                      <option value="Trust Wallet">Trust Wallet</option>
-                      <option value="Bit Pay">Bit Pay</option>
-                    </select>
-                  </div>
-                  <div class="mt-1">
-                    <button class="btn btn-success" type="submit">
-                      Withdraw Now
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button
-                  class="btn btn-primary"
-                  type="button"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="modal fade text-start"
-          id="transferModal"
-          tabindex="-1"
-          aria-labelledby="transferModal"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content bg-secondary">
-              <div class="modal-header">
-                <h5 class="modal-title" id="transferModal">Transfer Money</h5>
-                <button
-                  class="btn-close btn-close-white"
-                  type="button"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <form enctype="multipart/form-data" @submit.prevent="transfer">
-                  <div class="mb-2">
-                    <select
-                      class="form-select"
-                      id="Account"
-                      required
-                      v-model="address"
-                    >
-                      <option selected disabled>Select</option>
-                      <option value="Wallet">
-                        Wallet Account (${{ authUser.main_balance }})
-                      </option>
-                      <option value="Live">
-                        Live Account (${{ authUser.live_balance }})
-                      </option>
-                    </select>
-                  </div>
-
-                  <div class="centered-line mt-5 mb-5">
-                    <hr />
-                    <div class="centered-text">To</div>
-                  </div>
-                  <div class="mb-2">
-                    <input
-                      disabled
-                      v-model="fromAddress"
-                      class="form-control disabled"
-                      type="text"
-                    />
-                  </div>
-                  <div class="mb-2">
-                    <label class="mt-2" for="Amount">Transfer Amount</label>
-                    <div class="input-group">
-                      <div class="input-group-text">$</div>
-                      <input
-                        required
-                        v-model="amount"
-                        class="form-control"
-                        id="Amount"
-                        type="text"
-                        placeholder="Min 10"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="mt-2">
-                    <button class="btn btn-success" type="submit">
-                      Transfer Now
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button
-                  class="btn btn-primary"
-                  type="button"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </AdminDeshboardLayout>
   </div>
 </template>
@@ -1940,13 +656,7 @@ export default {
         );
       }
     },
-    fromAddress() {
-      if (this.address === "Wallet") {
-        return "Live Account"; // No filter applied, return all transactions
-      } else {
-        return "Wallet Account";
-      }
-    },
+
     // Calculate the total number of pages based on the total number of items and itemsPerPage
     totalPages() {
       return Math.ceil(this.filteredTransactions.length / this.itemsPerPage);
@@ -2057,7 +767,10 @@ export default {
       await axios
         .put(`api/kyc.edit/${this.$route.params.id}`, data)
         .then((response) => {
+
+
           this.authUser = response.data.user;
+          console.log(response);
           this.$setLoading(false);
 
           this.$toast.success(
@@ -2159,6 +872,7 @@ export default {
 };
 </script>
 <style scoped>
+
 .emp-profile {
   padding: 3%;
   margin-top: 3%;
@@ -2173,16 +887,7 @@ export default {
   width: 70%;
   height: 100%;
 }
-.profile-img .file {
-  position: relative;
-  overflow: hidden;
-  margin-top: -20%;
-  width: 70%;
-  border: none;
-  border-radius: 0;
-  font-size: 15px;
-  background: #212529b8;
-}
+
 .profile-img .file input {
   position: absolute;
   opacity: 0;
@@ -2193,7 +898,7 @@ export default {
   color: #333;
 }
 .profile-head h6 {
-  color: #0062cc;
+  color: #c7d4e1;
 }
 .profile-edit-btn {
   border: none;
@@ -2221,10 +926,7 @@ export default {
   font-weight: 600;
   border: none;
 }
-.profile-head .nav-tabs .nav-link.active {
-  border: none;
-  border-bottom: 2px solid #0062cc;
-}
+
 .profile-work {
   padding: 14%;
   margin-top: -15%;
@@ -2236,10 +938,10 @@ export default {
   margin-top: 10%;
 }
 .profile-work a {
-  text-decoration: none;
-  color: #495057;
+  text-transform: uppercase;
+  color: #ffffff;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
 }
 .profile-work ul {
   list-style: none;
@@ -2249,11 +951,16 @@ export default {
 }
 .profile-tab p {
   font-weight: 600;
-  color: #0062cc;
+  color: #c2d7ee;
 }
 
 a {
   cursor: pointer !important;
 }
+
+label{
+  color: #ffffff !important;
+}
+
 </style>
  

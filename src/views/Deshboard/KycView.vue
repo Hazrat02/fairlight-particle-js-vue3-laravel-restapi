@@ -16,18 +16,19 @@
                       >
                     </div>
 
-                    <div class="site-card-body" v-if="authUser.id_kyc != 'rejected' || authUser.ad_kyc != 'rejected' || authUser.ec_kyc != 'rejected'">
 
-                      Your KYC status :    <span class="default green-color" v-if=" authUser.id_kyc === 'success' || authUser.ad_kyc  === 'success' || authUser.ec_kyc  === 'success' "> <i class="fa fa-check"></i> Verified</span>
-                      <span class="default yellow-color" v-if=" authUser.id_kyc === 'pending' || authUser.ad_kyc  === 'pending' || authUser.ec_kyc  === 'pending' "> <i class="fa fa-spinner"></i> Pending</span>
-
-                    </div>
-
-                    <div class="site-card-body" v-if="!authUser.id_kyc || !authUser.ad_kyc || !authUser.ec_kyc || authUser.id_kyc === 'rejected' || authUser.ad_kyc === 'rejected' ||authUser.ec_kyc === 'rejected'">
-                      
-                      <div class="mb-3" v-if="authUser.id_kyc === 'rejected' || authUser.ad_kyc === 'rejected' ||authUser.ec_kyc === 'rejected'">
+                    <div class="site-card-body" v-if=" authUser.id_kyc === 'pending' || authUser.ad_kyc  === 'pending' || authUser.ec_kyc  === 'pending' ">
+                      <span class="default yellow-color" > <i class="fa fa-spinner"></i> Pending</span>
+                      </div>
+                    <div class="site-card-body" v-if="(authUser.id_kyc === 'rejected' || authUser.ad_kyc === 'rejected' ||authUser.ec_kyc === 'rejected') && (authUser.id_kyc != 'pending' && authUser.ad_kyc  != 'pending' && authUser.ec_kyc  != 'pending') && (authUser.id_kyc != 'success' && authUser.ad_kyc != 'success' && authUser.ec_kyc != 'success')">
                         Your KYC status :    <span class="default red-color"> <i class="fa fa-close"></i> Rejected</span>
                       </div>
+                    <div class="site-card-body" v-if=" authUser.id_kyc === 'success' || authUser.ad_kyc  === 'success' || authUser.ec_kyc  === 'success' ">
+                      Your KYC status :    <span class="default green-color" > <i class="fa fa-check"></i> Verified</span>
+                      </div>
+                    <div class="site-card-body" v-if="(authUser.id_kyc != 'success' && authUser.ad_kyc != 'success' && authUser.ec_kyc != 'success') && (authUser.id_kyc != 'pending' && authUser.ad_kyc != 'pending' && authUser.ec_kyc != 'pending') ">
+                      
+                     
                       <form enctype="multipart/form-data" @submit.prevent="kyc">
                         <div class="form-outline mb-4 col-lg-8">
                           <div class="form-outline">
@@ -761,6 +762,8 @@ export default {
           },
         })
         .then((response) => {
+
+          this.authUser.id_kyc = 'pending'
           this.front = "";
           this.back = "";
           this.file = "";

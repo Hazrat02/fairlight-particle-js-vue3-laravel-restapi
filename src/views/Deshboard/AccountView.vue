@@ -20,7 +20,7 @@
                           <div class="mb-3">
                             <div class="body-title">Profile image:</div>
                             <div class="wrap-custom-file">
-                              <input id="avatar" type="file" accept=".gif, .jpg, .png" />
+                              <input id="avatar" type="file"   @change="image" accept=".gif, .jpg, .png" />
 
                               <label for="avatar">
                                 <img
