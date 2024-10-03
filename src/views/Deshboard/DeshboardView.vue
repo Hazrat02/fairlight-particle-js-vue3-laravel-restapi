@@ -913,9 +913,15 @@
                   
                     </div>
                   </div>
+                 
+
                 </div>
               </div>
             </div>
+
+            <div class="chart-container">
+    <div id="e_chart" class="chart"></div>
+  </div>
           </div>
         </div>
       </div>
@@ -930,9 +936,11 @@
 import DeshboardLayout from "./../../Layouts/DashboardLayout.vue";
 import { useAuthUserStore } from "./../../stores/user";
 import { transactionStore } from "../../stores/transaction";
+import * as echarts from 'echarts';
 export default {
   components: {
     DeshboardLayout,
+    
   },
   data() {
     return {
@@ -942,23 +950,87 @@ export default {
     };
   },
   methods: {
+    initializeChart() {
+      this.myChart = echarts.init(document.getElementById('e_chart'));
+      this.setChartOptions();
+    },
+    setChartOptions() {
+  const option = {
+    backgroundColor: '#2c343c',
+    title: {
+      text: 'Diversification of Portfolio',
+      left: 'center',
+      top: 0,
+      textStyle: {
+        color: '#ccc',
+      },
+    },
+    tooltip: {
+      trigger: 'item',
+    },
+    legend: {
+      orient: 'horizontal',
+      left: 'left',
+      top: 20,
+      textStyle: {
+        color: '#fff',
+      },
+    },
+    grid: {
+      bottom: 50, // Add space for legend at the bottom
+    },
+    series: [
+      {
+        name: 'Investment Types', // Updated label name
+        type: 'pie',
+        radius: ['40%', '65%'], // Doughnut style
+        center: ['50%', '50%'],
+        avoidLabelOverlap: false,
+        label: {
+          show: false,
+          position: 'center',
+        },
+        emphasis: {
+          label: {
+            top: 20,
+            show: true,
+            fontSize: '18',
+            fontWeight: 'bold',
+          },
+        },
+        labelLine: {
+          show: false,
+        },
+        data: [
+          { value: 42, name: 'B2B Debt ETF' },
+          { value: 13, name: 'Union Ads' },
+          { value: 2, name: 'Government Bonds' },
+          { value: 23, name: 'Precious Metal ETF' },
+          { value: 20, name: 'Exchange Commissions' },
+        ],
+        itemStyle: {
+          color: function (params) {
+            const colors = ['#00c1de', '#fadb14', '#ff4d4f', '#7cb305', '#9254de'];
+            return colors[params.dataIndex];
+          },
+          borderColor: '#1f2330',
+          borderWidth: 3,
+          shadowBlur: 15,
+          shadowColor: 'rgba(0, 0, 0, 0.5)',
+        },
+      },
+    ],
+  };
 
+  this.myChart.setOption(option);
+}, 
 
-    // sumtrx(type,status) {
-    //   const withdrawSuccessTransactions = Object.values(
-    //     this.transaction
-    //   ).filter(
-    //     (transaction) =>
-    //       transaction.type == type && transaction.status === status
-    //   );
+handleResize() {
+      if (this.myChart) {
+        this.myChart.resize();
+      }
+    },
 
-    //   const sum = withdrawSuccessTransactions.reduce(
-    //     (total, transaction) => total + transaction.amount,
-    //     0
-    //   );
-
-    //   return sum;
-    // },
   },
   computed: {
     sumtrx() {
@@ -1041,7 +1113,14 @@ export default {
       return formattedDate;
     },
   },
-  mounted() {},
+  mounted() {
+
+    this.initializeChart();
+    window.addEventListener('resize', this.handleResize);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize);
+  },
   async created() {
     const userStore = useAuthUserStore();
     const authUser = userStore.authUser;
@@ -1085,5 +1164,34 @@ export default {
 }
 .video-des .deslidt ul li:first-child {
   padding-top: 20px;
+}
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f2330;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.chart {
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
+  max-height: 400px;
+  height: calc(100vw * 0.75); /* Adjust height based on width to maintain aspect ratio */
+}
+
+@media (max-width: 768px) {
+  .chart {
+    height: calc(100vw * 0.9); /* Increase height slightly for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .chart {
+    height: calc(100vw * 1); /* Full height for very small screens */
+  }
 }
 </style>

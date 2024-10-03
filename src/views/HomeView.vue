@@ -612,7 +612,7 @@ export default {
                     data-animation="fadeInUp animated"
                     data-wow-duration="1.0s"
                   >
-                    Development of Bit Money Platform<br />(Road Map)
+                  Debt ETF B2B lending platform
                   </h2>
                   <div class="videos-box">
                     <video

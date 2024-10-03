@@ -3,7 +3,8 @@
   <!-- preloader Start -->
   <div id="preloader" v-if="this.$isLoading()">
     <div id="status">
-      <img style="border-radius: 100px;"
+      <img
+        style="border-radius: 100px"
         src="./../assets/frontend/images/banner/loader.gif"
         id="preloader_image"
         alt="loader"
@@ -208,25 +209,23 @@
                       >
                     </li>
                     <div class="mt-5 text-center">
-                  <RouterLink v-if="!authUser" to="/login" class="btn1"
-                    ><i class="fa fa-user"></i><span>Login</span></RouterLink
-                  >
-                  
-                  <div  v-if="authUser">
-                    <RouterLink
-                      v-if="authUser.role == '0'"
-                      to="/admin/dashboard"
-                      class="btn1"
-                      >Dashboard</RouterLink
-                    >
-                    <RouterLink
-                      v-else
-                      to="/dashboard"
-                      class="btn1"
-                      >Dashboard</RouterLink
-                    >
-                  </div>
-                </div>
+                      <RouterLink v-if="!authUser" to="/login" class="btn1"
+                        ><i class="fa fa-user"></i
+                        ><span>Login</span></RouterLink
+                      >
+
+                      <div v-if="authUser">
+                        <RouterLink
+                          v-if="authUser.role == '0'"
+                          to="/admin/dashboard"
+                          class="btn1"
+                          >Dashboard</RouterLink
+                        >
+                        <RouterLink v-else to="/dashboard" class="btn1"
+                          >Dashboard</RouterLink
+                        >
+                      </div>
+                    </div>
                   </ul>
                 </div>
               </div>
@@ -244,11 +243,16 @@
     <slot />
   </div>
   <div class="btc_footer_main_wrapper pt-5 pb-5">
-    <div class="container "    v-animate
-          data-animation="fadeInUp animated"
-          data-wow-duration="1s">
+    <div
+      class="container"
+      v-animate
+      data-animation="fadeInUp animated"
+      data-wow-duration="1s"
+    >
       <div class="row justify-content-between">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div
+          class="col-lg-6 col-md-6 col-sm-6 col-xs-12 "
+        >
           <div class="">
             <RouterLink to="/"
               ><img
@@ -257,28 +261,48 @@
               />
             </RouterLink>
           </div>
-          <br />
           <div class="">
             <p>
-              FairLight Investments - Address: 515 N Flagler Dr, West Palm Beach, FL 33401, United States
-
+              We believe in concentration as, in our experience, backing our
+              best ideas drives the strongest long-term returns. We focus on
+              small and mid cap companies because, in our view,
+              <br>
+              <br>
+               these businesses
+              receive less investor attention, have greater growth prospects,
+              and are more likely to be acquired by larger companies.
             </p>
-            <p >
-              Email : <a href="mail.google.com">support@fairlightinvestments.com</a>
+
+            <p>
+              Email :
+              <a href="mail.google.com">support@fairlightinvestments.com</a>
             </p>
           </div>
         </div>
-        <div
-          class="col-lg-5 col-md-5 col-sm-6 col-xs-12 col-lg-offset-1 col-md-offset-1"
-        >
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="">
-           
-          
-          </div>
-          <div class="">
-           <p>
-            We believe in concentration as, in our experience, backing our best ideas drives the strongest long-term returns. We focus on small and mid cap companies because, in our view, these businesses receive less investor attention, have greater growth prospects, and are more likely to be acquired by larger companies.
-           </p>
+            <h3 style="color: white;">OUR ADDRESS</h3>
+            <p>
+              Fairlight Advisors LLC - USA - 1750 Fairlight St NW, Palm Bay, FL
+              32907
+            </p>
+            <p>
+              Fairlight Investments (UK) - 3 Coachhouse Mews, Great Maythem
+              Hall, Cranbrook, Kent, England, TN17 4NE
+            </p>
+            <p>
+              Fairlight Investments (AUS) - General Level 11, 10 Carrington
+              Street Sydney NSW 2000
+            </p>
+            <p>
+              Fairlight Capital LLC (British Virgin Islands) - Intershore
+              Chambers, Road Town, Tortola, British Virgin Island
+            </p>
+            <p>
+              Fairlight Capital (FIN-TECH) - Concourse, ITPB, Pattandur
+              Agrahara, Whitefield, Bangalore - 560066
+            </p>
+  
           </div>
         </div>
       </div>
@@ -291,31 +315,35 @@
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div
-                class=" wow "
+                class="wow"
                 data-wow-duration="1.9s"
                 v-animate
-          data-animation="fadeInUp animated"
-      
+                data-animation="fadeInUp animated"
               >
                 <p>
-            
-                  © 2009-2028 <a href="https://fairlightinvestments.com/"><span>Fairlight</span></a> | All
-                  rights reserved.
+                  © 2009-2028
+                  <a href="https://fairlightinvestments.com/"
+                    ><span>Fairlight</span></a
+                  >
+                  | All rights reserved.
                 </p>
               </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div
-                class="foo-link wow "
-               
+                class="foo-link wow"
                 v-animate
-          data-animation="fadeInUp animated"
-          data-wow-duration="1s"
+                data-animation="fadeInUp animated"
+                data-wow-duration="1s"
               >
                 <ul>
                   <li><router-link to="/contact">Contact Us</router-link></li>
                   <li><router-link to="/servics">Our Services</router-link></li>
-                  <li><router-link to="/risk/disclosure">Risk Disclosure</router-link></li>
+                  <li>
+                    <router-link to="/risk/disclosure"
+                      >Risk Disclosure</router-link
+                    >
+                  </li>
                 </ul>
               </div>
             </div>
@@ -328,7 +356,7 @@
       class=""
       style="position: fixed; z-index: 44444444443; bottom: 10px; right: 10px"
     >
-      <a href="https://api.whatsapp.com/send/?phone=%2B8801783195999&text=Hi">
+      <a href="https://api.whatsapp.com/send/?phone=%2B918919011693&text=Hi">
         <img
           style="width: 100px"
           src="./../assets/frontend/images/gif/soqJRMUcvCF0AdEx0V (1).gif"
@@ -349,6 +377,7 @@ export default {
     return {
       authUser: "",
       showSidebar: false,
+      faqId: 1,
     };
   },
   computed: {
@@ -381,6 +410,13 @@ export default {
   },
 
   methods: {
+    faq(id) {
+      if (id === this.faqId) {
+        this.faqId = 0;
+      } else {
+        this.faqId = id;
+      }
+    },
     sidebar() {
       if (this.showSidebar == true) {
         this.showSidebar = false;
@@ -416,5 +452,4 @@ export default {
 .active {
   color: rgb(43, 169, 188) !important;
 }
-
 </style>

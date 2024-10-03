@@ -553,23 +553,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-              <p
-                class="token-con wow fadeInUp animated"
-                data-wow-duration="1.9s"
-                style="
-                  visibility: visible;
-                  animation-duration: 1.9s;
-                  animation-name: fadeInUp;
-                "
-              >
-                The sale of tokens It is a long established fact that a reader
-                will be distracted by the<span>
-                  readable content of a page when looking at its layout.</span
-                >There are many variations of passages of Lorem Ipsum available.
-                There are many variations of passages.
-              </p>
-            </div>
+           
           </div>
         </div>
       </section>
