@@ -57,7 +57,9 @@ export default {
     <!--About area start here-->
  
     <div class="wd_scroll_wrap">
-      <bgs />
+
+ 
+
 
 
 
@@ -331,10 +333,10 @@ export default {
      
     </div>
     <div class="wd_scroll_wrap">
-      <section class="projects bg-img pd-t100 pd-b70 jarallax">
+      <section class="projects  st1 pd-t100 pd-b70 jarallax">
         <div class="container">
           <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center z-10">
               <div class="section-heading">
                 <h2
                   v-animate
@@ -915,6 +917,8 @@ export default {
   fill: #10122d;
 }
 
-
+.st1{
+  background: #000000;
+}
 
 </style>

@@ -1,7 +1,11 @@
 <template>
   <section class="slider-area">
     <div id="particles-js">
-      <bgs />
+      <video class="video-bg" autoplay loop muted playsinline>
+    <source src="./../assets/frontend/video/banner.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+   
 
       <div
         id="carousel-example-generic"
@@ -12,20 +16,20 @@
           <div class="item active">
             <div class="carousel-captions caption-1">
               <div class="container">
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="slider-content">
-                      <h2 v-animate data-animation="animated bounceInLeft">
+                <div class="row ">
+                  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div class="slider-content col-md-10">
+                      <h2 v-animate data-animation="animated bounceInLeft" >
                         B2B Lending & Investment Platform Debt Exchange Trade
                         Fund -
                         <br />
                         Fixed Income Securities Systems
                       </h2>
-                      <div class="buttons">
+                      <div class="">
                         <RouterLink
                           v-if="!authUser"
                           to="/login"
-                          class="btn2"
+                          class="btn1"
                           v-animate
                           data-animation="animated bounceInUp"
                           ><i class="fa fa-user"> </i
@@ -53,7 +57,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="hero-area animated bounceInDown">
                       <div class="">
                         <div class="row">
@@ -65,12 +69,12 @@
                                 alt="#"
                               />
                               <img
-                                class="h2-move-1"
+                                class="h2-move-1" style="width: 30%"
                                 src="./../assets/frontend/images/hero/h2-bit-l.png"
                                 alt="#"
                               />
                               <img
-                                class="h2-move-2"
+                                class="h2-move-2" 
                                 src="./../assets/frontend/images/hero/h2-bit-m.png"
                               />
                               <img
@@ -97,14 +101,11 @@
 
 
 <script>
-import bgs from "./Bgs.vue";
+
 import { isAuthenticated } from "./../middleware/index";
 import { useAuthUserStore } from "./../stores/user";
 
 export default {
-  components: {
-    bgs,
-  },
 
   data() {
     return {
@@ -131,4 +132,20 @@ export default {
 };
 </script>
 <style scoped>
+   .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 120%;
+      object-fit: cover; /* Make the video cover the background */
+      z-index: -1; /* Keep the video behind other content */
+      color: blueviolet;
+    }
+
+    #particles-js{
+      background: linear-gradient(150deg, rgba(86, 29, 29, 0.353) 0%, rgb(0, 0, 0) 80%);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow */
+ 
+    }
 </style>
