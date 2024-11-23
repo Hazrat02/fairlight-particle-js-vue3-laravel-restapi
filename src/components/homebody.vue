@@ -20,8 +20,7 @@
                   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                     <div class="slider-content col-md-10">
                       <h2 v-animate data-animation="animated bounceInLeft" >
-                        B2B Lending & Investment Platform Debt Exchange Trade
-                        Fund -
+                        Algorithm Based Forex Account Handling Services -
                         <br />
                         Fixed Income Securities Systems
                       </h2>
