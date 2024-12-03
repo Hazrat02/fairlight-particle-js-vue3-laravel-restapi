@@ -24,7 +24,7 @@
                         <br />
                         Fixed Income Securities Systems
                       </h2>
-                      <div class="">
+                      <div class="buttons">
                         <RouterLink
                           v-if="!authUser"
                           to="/login"
@@ -33,6 +33,15 @@
                           data-animation="animated bounceInUp"
                           ><i class="fa fa-user"> </i
                           ><span> Login</span></RouterLink
+                        >
+                        <a
+                          v-if="!authUser"
+                          href="https://secure.m4markets.com/links/go/5547"
+                          class="btn3"
+                          v-animate
+                          data-animation="animated bounceInUp"
+                          ><i class="fa fa-area-chart"> </i
+                          ><span> MT4 Register</span></a
                         >
 
                         <div v-if="authUser">
